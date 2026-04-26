@@ -559,69 +559,6 @@
   </div>
 </section>
 
-<!-- ── Testimonials ───────────────────────────────────────────────────── -->
-<section class="py-24 bg-brand-main border-t border-brand-border">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14 reveal">
-      <span
-        class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4"
-        >Testimonials</span
-      >
-      <h2 class="font-heading text-4xl font-black text-brand-textMain">
-        What Our Clients Say
-      </h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {#if data && data.testimonials && data.testimonials.length > 0}
-        {@const avatarColors = [
-          'bg-blue-500/20 text-blue-500',
-          'bg-purple-500/20 text-purple-500',
-          'bg-emerald-500/20 text-emerald-500',
-          'bg-orange-500/20 text-orange-500',
-          'bg-pink-500/20 text-pink-500'
-        ]}
-        {#each data.testimonials as t}
-          <div
-            class="bg-brand-container rounded-3xl p-8 border border-brand-border card-glow reveal h-full flex flex-col"
-          >
-            <div class="flex mb-4">
-              {#each Array.from({ length: parseInt(t.stars) || 5 }) as _}
-                <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
-              {/each}
-            </div>
-            <p
-              class="text-brand-textSec text-sm font-light leading-relaxed mb-6 italic flex-1"
-            >
-              "{t.content}"
-            </p>
-            <div class="flex items-center gap-3 mt-auto">
-              {#if t.image_url}
-                <img src={t.image_url} alt={t.name} class="w-10 h-10 rounded-full object-cover border border-brand-border" />
-              {:else}
-                <div
-                  class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm {avatarColors[t.id % avatarColors.length]}"
-                >
-                  {t.avatar_init}
-                </div>
-              {/if}
-              <div class="min-w-0">
-                <div class="font-bold text-brand-textMain text-sm truncate">{t.name}</div>
-                <div class="text-brand-textSec text-[10px] truncate">
-                  {t.role}{t.company ? ` — ${t.company}` : ''}
-                </div>
-              </div>
-            </div>
-          </div>
-        {/each}
-      {:else}
-        <div class="col-span-3 text-center py-10 text-brand-textSec opacity-50 italic text-sm">
-          No testimonials yet.
-        </div>
-      {/if}
-    </div>
-  </div>
-</section>
-
 <!-- ── Latest Articles ────────────────────────────────────────────────── -->
 <section class="py-32 bg-brand-container/50 border-t border-brand-border">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -723,6 +660,69 @@
         {/each}
       </div>
     {/if}
+  </div>
+</section>
+
+<!-- ── Testimonials ───────────────────────────────────────────────────── -->
+<section class="py-24 bg-brand-main border-t border-brand-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-14 reveal">
+      <span
+        class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4"
+        >Testimonials</span
+      >
+      <h2 class="font-heading text-4xl font-black text-brand-textMain">
+        What Our Clients Say
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {#if data && data.testimonials && data.testimonials.length > 0}
+        {@const avatarColors = [
+          'bg-blue-500/20 text-blue-500',
+          'bg-purple-500/20 text-purple-500',
+          'bg-emerald-500/20 text-emerald-500',
+          'bg-orange-500/20 text-orange-500',
+          'bg-pink-500/20 text-pink-500'
+        ]}
+        {#each data.testimonials as t}
+          <div
+            class="bg-brand-container rounded-3xl p-8 border border-brand-border card-glow reveal h-full flex flex-col"
+          >
+            <div class="flex mb-4">
+              {#each Array.from({ length: parseInt(t.stars) || 5 }) as _}
+                <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+              {/each}
+            </div>
+            <p
+              class="text-brand-textSec text-sm font-light leading-relaxed mb-6 italic flex-1"
+            >
+              "{t.content}"
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              {#if t.image_url}
+                <img src={t.image_url} alt={t.name} class="w-10 h-10 rounded-full object-cover border border-brand-border" />
+              {:else}
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm {avatarColors[t.id % avatarColors.length]}"
+                >
+                  {t.avatar_init}
+                </div>
+              {/if}
+              <div class="min-w-0">
+                <div class="font-bold text-brand-textMain text-sm truncate">{t.name}</div>
+                <div class="text-brand-textSec text-[10px] truncate">
+                  {t.role}{t.company ? ` — ${t.company}` : ''}
+                </div>
+              </div>
+            </div>
+          </div>
+        {/each}
+      {:else}
+        <div class="col-span-3 text-center py-10 text-brand-textSec opacity-50 italic text-sm">
+          No testimonials yet.
+        </div>
+      {/if}
+    </div>
   </div>
 </section>
 
