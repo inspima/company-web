@@ -12,7 +12,6 @@
     formError = '';
     try {
       const res = await api.contact(form);
-      alert(res.message || 'Pesan berhasil dikirim!');
       sent = true;
       form = { name: '', email: '', phone: '', service: '', message: '' };
     } catch(err) {
