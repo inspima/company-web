@@ -11,8 +11,20 @@
     sending = true;
     formError = '';
     try {
+      // 1. Kirim ke API (Email hello@inspima.id ditangani oleh backend)
       await api.contact(form);
       sent = true;
+
+      // 2. Kirim ke WhatsApp (Buka tab baru dengan pesan terisi)
+      const waMessage = `Halo Inspima! Saya ingin konsultasi proyek.
+Nama: ${form.name}
+Email: ${form.email}
+Layanan: ${form.service || '-'}
+Pesan: ${form.message}`;
+      
+      const waUrl = `https://wa.me/6285156625480?text=${encodeURIComponent(waMessage)}`;
+      window.open(waUrl, '_blank');
+
       form = { name: '', email: '', phone: '', service: '', message: '' };
     } catch(err) {
       formError = 'Pesan gagal terkirim. Coba hubungi kami langsung via WhatsApp ya.';

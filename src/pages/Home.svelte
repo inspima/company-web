@@ -106,10 +106,7 @@
 
         <div class="hero-cta-row">
           <button
-            on:click={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })}
+            on:click={() => (window.location.hash = "#/contact")}
             class="hero-btn-primary"
           >
             Mulai Proyek <i class="fa-solid fa-arrow-right text-xs"></i>
