@@ -28,7 +28,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="max-w-3xl">
       <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8">Pilar BUILD</span>
-      <h1 class="font-heading text-5xl md:text-7xl font-black text-brand-textMain leading-tight mb-8">
+      <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-8">
         Bangun Produk Digital<br/><span class="gradient-text">dari Nol hingga Sempurna</span>
       </h1>
       <p class="text-xl text-brand-textSec font-light leading-relaxed mb-10">
@@ -127,7 +127,7 @@
 <!-- CTA -->
 <section class="py-24 bg-brand-accent">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-6">Siap Membangun Produk Impian?</h2>
+    <h2 class="font-heading text-3xl md:text-4xl font-black text-white mb-6">Siap Membangun Produk Impian?</h2>
     <p class="text-blue-100 font-light text-lg mb-10">Konsultasi gratis, tanpa komitmen. Ceritakan ide Anda dan kami bantu wujudkan.</p>
     <div class="flex flex-wrap gap-4 justify-center">
       <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-white text-brand-accent px-8 py-4 rounded-full font-bold shadow-xl hover:-translate-y-1 transition-all">

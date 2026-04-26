@@ -19,7 +19,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="max-w-3xl">
       <span class="inline-block bg-orange-500/10 border border-orange-500/30 text-orange-400 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8">Pilar BOOST</span>
-      <h1 class="font-heading text-5xl md:text-7xl font-black text-brand-textMain leading-tight mb-8">
+      <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-8">
         Skalakan Bisnis Anda<br/><span class="text-orange-400">Tanpa Batas</span>
       </h1>
       <p class="text-xl text-brand-textSec font-light leading-relaxed mb-10">
@@ -108,7 +108,7 @@
 <!-- CTA -->
 <section class="py-24 bg-orange-500">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-6">Siap Skalakan Bisnis Anda?</h2>
+    <h2 class="font-heading text-3xl md:text-4xl font-black text-white mb-6">Siap Skalakan Bisnis Anda?</h2>
     <p class="text-orange-100 font-light text-lg mb-10">Mulai dengan audit gratis — kami identifikasi potensi optimasi dalam sistem Anda.</p>
     <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-3 bg-white text-orange-500 px-10 py-5 rounded-full font-black text-lg shadow-2xl hover:-translate-y-1 transition-all">
       Minta Audit Gratis <i class="fa-solid fa-arrow-right"></i>

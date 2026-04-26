@@ -19,7 +19,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="max-w-3xl">
       <span class="inline-block bg-teal-500/10 border border-teal-500/30 text-teal-500 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8">Pilar RESCUE</span>
-      <h1 class="font-heading text-5xl md:text-7xl font-black text-brand-textMain leading-tight mb-8">
+      <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-8">
         Selamatkan Sistem Anda<br/><span class="text-teal-500">Sebelum Terlambat</span>
       </h1>
       <p class="text-xl text-brand-textSec font-light leading-relaxed mb-10">
@@ -110,7 +110,7 @@
 <!-- CTA -->
 <section class="py-24 bg-teal-600">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="font-heading text-4xl md:text-5xl font-black text-white mb-6">Sistem Anda Dalam Bahaya?</h2>
+    <h2 class="font-heading text-3xl md:text-4xl font-black text-white mb-6">Sistem Anda Dalam Bahaya?</h2>
     <p class="text-teal-100 font-light text-lg mb-10">Jangan tunggu lebih lama. Setiap menit downtime merugikan bisnis Anda.</p>
     <a href="https://wa.me/6285156625480?text=RESCUE%20DARURAT" target="_blank" rel="noopener"
        class="inline-flex items-center gap-3 bg-white text-teal-600 px-10 py-5 rounded-full font-black text-lg shadow-2xl hover:-translate-y-1 transition-all">
