@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0"
+<xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:sm="http://www.sitemaps.org/schemas/sitemap/0.9">
 <xsl:output method="html" encoding="UTF-8" indent="yes"/>
@@ -112,7 +112,7 @@
 
     <!-- Footer -->
     <div class="max-w-5xl mx-auto mt-6 text-center text-xs text-slate-700">
-        <p>Generated dynamically · <a href="/sitemap.php" class="hover:text-slate-500">sitemap.php</a> · INSPIMA © <xsl:value-of select="substring(string(current-date()), 1, 4)"/></p>
+        <p>Generated dynamically · <a href="/sitemap.php" class="hover:text-slate-500">sitemap.php</a> · INSPIMA © 2024</p>
     </div>
 
 </body>
