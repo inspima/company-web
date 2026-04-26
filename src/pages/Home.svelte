@@ -526,16 +526,22 @@
               ></div>
             </div>
             <div class="p-8">
-              <div class="flex items-center justify-between mb-3">
-                <span
-                  class="text-xs font-bold text-brand-accent uppercase tracking-widest bg-brand-accent/10 px-3 py-1 rounded-full border border-brand-accent/20"
-                >
-                  {proj.category_name || "Digital"}
-                </span>
-                <span
-                  class="text-[10px] text-brand-textSec font-medium uppercase opacity-50"
-                  >{proj.client_name || ""}</span
-                >
+              <div class="mb-4">
+                <div class="mb-2.5">
+                  <span
+                    class="text-[10px] font-black text-brand-accent uppercase tracking-[0.15em] bg-brand-accent/10 px-3 py-1.5 rounded-lg"
+                  >
+                    {proj.category_name || "Digital"}
+                  </span>
+                </div>
+                {#if proj.client_name}
+                  <div
+                    class="text-[10px] text-brand-textSec font-bold uppercase tracking-widest flex items-center gap-1.5 opacity-60"
+                  >
+                    <i class="fa-solid fa-user-tie text-[9px]"></i>
+                    {proj.client_name}
+                  </div>
+                {/if}
               </div>
               <h3
                 class="text-xl font-bold text-brand-textMain mb-3 group-hover:text-brand-accent transition-colors"
