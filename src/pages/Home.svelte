@@ -434,7 +434,7 @@
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
-      class="flex flex-col md:flex-row justify-between items-end mb-16 reveal"
+      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal"
     >
       <div>
         <span
@@ -564,33 +564,45 @@
       </h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {#each [{ name: "Budi Santoso", role: "Owner, DataKu SaaS", av: "B", color: "bg-orange-500", text: "Setelah dibantu INSPIMA, biaya server kami turun sampai 45% dan deploy fitur baru yang dulu butuh 2 jam sekarang cuma 8 menit. The results exceeded our expectations!" }, { name: "Siti Rahayu", role: "CTO, FinTech Nusantara", av: "S", color: "bg-teal-500", text: "Sistem kami down total sehari sebelum investor presentation. Tim INSPIMA langsung response dalam 45 menit, dan 3 jam kemudian everything was back to normal. Lega banget!" }, { name: "Ahmad Fauzi", role: "Founder, TokoPintar.id", av: "A", color: "bg-brand-accent", text: "INSPIMA built our online store dari nol cuma dalam 8 minggu. Hasilnya clean, user-friendly, dan timnya selalu fast response kalau ada yang ditanyain." }] as t}
-        <div
-          class="bg-brand-container rounded-3xl p-8 border border-brand-border card-glow"
-        >
-          <div class="flex mb-4">
-            {#each [1, 2, 3, 4, 5] as _}<i
-                class="fa-solid fa-star text-yellow-400 text-sm"
-              ></i>{/each}
-          </div>
-          <p
-            class="text-brand-textSec text-sm font-light leading-relaxed mb-6 italic"
+      {#if data && data.testimonials && data.testimonials.length > 0}
+        {#each data.testimonials as t}
+          <div
+            class="bg-brand-container rounded-3xl p-8 border border-brand-border card-glow reveal h-full flex flex-col"
           >
-            "{t.text}"
-          </p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-10 h-10 rounded-full {t.color} flex items-center justify-center text-white font-black"
-            >
-              {t.av}
+            <div class="flex mb-4">
+              {#each Array(t.stars || 5) as _}
+                <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+              {/each}
             </div>
-            <div>
-              <div class="font-bold text-brand-textMain text-sm">{t.name}</div>
-              <div class="text-brand-textSec text-xs">{t.role}</div>
+            <p
+              class="text-brand-textSec text-sm font-light leading-relaxed mb-6 italic flex-1"
+            >
+              "{t.content}"
+            </p>
+            <div class="flex items-center gap-3 mt-auto">
+              {#if t.image_url}
+                <img src={t.image_url} alt={t.name} class="w-10 h-10 rounded-full object-cover border border-brand-border" />
+              {:else}
+                <div
+                  class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent font-black text-sm"
+                >
+                  {t.avatar_init}
+                </div>
+              {/if}
+              <div class="min-w-0">
+                <div class="font-bold text-brand-textMain text-sm truncate">{t.name}</div>
+                <div class="text-brand-textSec text-[10px] truncate">
+                  {t.role}{t.company ? ` — ${t.company}` : ''}
+                </div>
+              </div>
             </div>
           </div>
+        {/each}
+      {:else}
+        <div class="col-span-3 text-center py-10 text-brand-textSec opacity-50 italic text-sm">
+          No testimonials yet.
         </div>
-      {/each}
+      {/if}
     </div>
   </div>
 </section>
@@ -599,7 +611,7 @@
 <section class="py-32 bg-brand-container/50 border-t border-brand-border">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
-      class="flex flex-col md:flex-row justify-between items-end mb-16 reveal"
+      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal"
     >
       <div>
         <span
