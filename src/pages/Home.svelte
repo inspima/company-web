@@ -55,6 +55,14 @@
     // ── Fetch data ────────────────────────────────────────────────────────
     try {
       data = await api.home();
+      // Re-run observer for dynamic elements after they render
+      import("svelte").then(({ tick }) => {
+        tick().then(() => {
+          document
+            .querySelectorAll(".reveal")
+            .forEach((el) => revObs.observe(el));
+        });
+      });
     } catch (e) {
       apiError = "Waduh, koneksi ke server bermasalah. Coba lagi sebentar ya.";
     } finally {
@@ -565,12 +573,19 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {#if data && data.testimonials && data.testimonials.length > 0}
+        {@const avatarColors = [
+          'bg-blue-500/20 text-blue-500',
+          'bg-purple-500/20 text-purple-500',
+          'bg-emerald-500/20 text-emerald-500',
+          'bg-orange-500/20 text-orange-500',
+          'bg-pink-500/20 text-pink-500'
+        ]}
         {#each data.testimonials as t}
           <div
             class="bg-brand-container rounded-3xl p-8 border border-brand-border card-glow reveal h-full flex flex-col"
           >
             <div class="flex mb-4">
-              {#each Array(t.stars || 5) as _}
+              {#each Array.from({ length: parseInt(t.stars) || 5 }) as _}
                 <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
               {/each}
             </div>
@@ -584,7 +599,7 @@
                 <img src={t.image_url} alt={t.name} class="w-10 h-10 rounded-full object-cover border border-brand-border" />
               {:else}
                 <div
-                  class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent font-black text-sm"
+                  class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm {avatarColors[t.id % avatarColors.length]}"
                 >
                   {t.avatar_init}
                 </div>
@@ -781,16 +796,6 @@
   }
   .dot-green {
     background: #28c840;
-  }
-  .dot-blue {
-    background: rgb(var(--color-accent));
-  }
-  .dot-outline {
-    background: transparent;
-    border: 1.5px solid rgb(var(--color-border));
-  }
-  .dot-gray {
-    background: rgb(var(--color-border));
   }
 
   .booking-dot {
@@ -1045,18 +1050,7 @@
     color: rgb(var(--color-text-main));
     font-weight: 600;
   }
-  .sidebar-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .sidebar-indent {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    flex-shrink: 0;
-  }
+
 
   .mockup-main {
     padding: 1rem 1.25rem;
@@ -1065,122 +1059,10 @@
     gap: 0.7rem;
   }
 
-  .mockup-tabs {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  .tab {
-    font-size: 0.65rem;
-    font-weight: 600;
-    padding: 0.2rem 0.5rem;
-    border-radius: 5px;
-    color: rgb(var(--color-text-sec));
-  }
-  .tab-active {
-    background: rgb(var(--color-accent));
-    color: #fff;
-  }
 
-  .metric-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    background: rgb(var(--color-container));
-    border: 1px solid rgb(var(--color-border));
-    border-radius: 0.6rem;
-    padding: 0.65rem 0.85rem;
-  }
-  .metric-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #7c3aed, #5b7dee);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .metric-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: rgb(var(--color-text-main));
-  }
-  .metric-delta {
-    font-size: 0.6rem;
-    color: rgb(var(--color-text-sec));
-    line-height: 1.5;
-  }
 
-  .big-metric {
-    display: flex;
-    align-items: baseline;
-    gap: 0.3rem;
-  }
-  .big-num {
-    font-size: 2.4rem;
-    font-weight: 900;
-    color: rgb(var(--color-text-main));
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .big-unit {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: rgb(var(--color-text-sec));
-  }
-  .metric-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    background: #22c55e;
-    color: #fff;
-    font-size: 0.6rem;
-    font-weight: 700;
-    padding: 0.2rem 0.45rem;
-    border-radius: 5px;
-    margin-left: 0.25rem;
-    align-self: center;
-  }
-  .badge-label {
-    font-weight: 400;
-    opacity: 0.85;
-  }
 
-  .sparkline-wrap {
-    width: 100%;
-    height: 36px;
-  }
-  .sparkline {
-    width: 100%;
-    height: 100%;
-  }
 
-  .mockup-bottom-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 0.25rem;
-    border-top: 1px solid rgb(var(--color-border));
-  }
-  @media (max-width: 640px) {
-    .m-activity {
-      display: none;
-    }
-  }
-  .bottom-label {
-    font-size: 0.6rem;
-    color: rgb(var(--color-text-sec));
-    font-family: monospace;
-  }
-  .bottom-time {
-    font-size: 0.6rem;
-    color: rgb(var(--color-text-sec));
-    background: rgb(var(--color-container));
-    border: 1px solid rgb(var(--color-border));
-    border-radius: 4px;
-    padding: 0.1rem 0.35rem;
-  }
 
   /* ── Services Section ─────────────────────────────────────────────── */
   .svc-section {
@@ -1332,8 +1214,7 @@
     letter-spacing: 0.05em;
   }
   .svc-card:hover .svc-cta { gap: 0.75rem; }
-  .svc-cta-orange { color: #14b8a6; }
-  .svc-cta-green { color: #f97316; }
+
 
   /* ── Sidebar enhancements ──────────────────────────────────────────── */
   .sidebar-icon {

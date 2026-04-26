@@ -69,7 +69,17 @@ switch ($action) {
             unset($row['content']);
         }
 
-        respond(['settings' => $settings, 'projects' => $projects, 'articles' => $articles]);
+        try {
+            $testimonials = $pdo->query("SELECT * FROM testimonials ORDER BY id DESC LIMIT 10")->fetchAll();
+            foreach ($testimonials as &$t) {
+                $t['image_url'] = imgPath($t['image'], 'testimonials');
+                $t['avatar_init'] = strtoupper(substr($t['name'], 0, 1));
+            }
+        } catch (Exception $e) {
+            $testimonials = [];
+        }
+
+        respond(['settings' => $settings, 'projects' => $projects, 'articles' => $articles, 'testimonials' => $testimonials]);
 
     // ── Projects list (paginated + filter) ───────────────────────────────────
     case 'projects':
