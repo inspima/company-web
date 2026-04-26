@@ -150,11 +150,45 @@ function imgUploadBlock($label, $icon, $fileKey, $nameKey, $altKey, $current, $c
             <?php endif; ?>
 
             <?php if($action === 'list'): ?>
+            <?php
+                $q = trim($_GET['q'] ?? '');
+                $page = max(1, (int)($_GET['page'] ?? 1));
+                $limit = 10;
+                $offset = ($page - 1) * $limit;
+
+                $where = "";
+                $params = [];
+                if ($q) {
+                    $where = " WHERE title LIKE ? OR client_name LIKE ? OR slug LIKE ? ";
+                    $params = ["%$q%", "%$q%", "%$q%"];
+                }
+
+                $countStmt = $pdo->prepare("SELECT COUNT(*) FROM projects $where");
+                $countStmt->execute($params);
+                $totalItems = $countStmt->fetchColumn();
+                $totalPages = ceil($totalItems / $limit);
+
+                $stmt = $pdo->prepare("SELECT * FROM projects $where ORDER BY id DESC LIMIT $limit OFFSET $offset");
+                $stmt->execute($params);
+                $projs = $stmt->fetchAll();
+            ?>
+            <!-- Search -->
+            <div class="mb-6 flex flex-col sm:flex-row gap-4 items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <form action="" method="GET" class="relative w-full sm:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" name="q" value="<?= htmlspecialchars($q) ?>" placeholder="Cari proyek atau klien..." 
+                           class="w-full pl-10 pr-4 py-2.5 bg-slate-100 border-0 rounded-xl text-xs focus:ring-2 focus:ring-blue-500 transition-all outline-none">
+                </form>
+                <div class="text-xs text-slate-400 font-medium">
+                    Total: <span class="text-slate-800 font-bold"><?= $totalItems ?></span> proyek ditemukan
+                </div>
+            </div>
+
             <!-- LIST VIEW -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                 <table class="w-full text-left">
                     <thead>
-                        <tr class="border-b border-slate-100">
+                        <tr class="border-b border-slate-100 bg-slate-50">
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 w-20">Foto</th>
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">Proyek</th>
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 hidden md:table-cell">Klien</th>
@@ -163,7 +197,6 @@ function imgUploadBlock($label, $icon, $fileKey, $nameKey, $altKey, $current, $c
                     </thead>
                     <tbody class="divide-y divide-slate-100">
                         <?php
-                        $projs = $pdo->query("SELECT * FROM projects ORDER BY id DESC")->fetchAll();
                         if(empty($projs)): ?>
                         <tr><td colspan="4" class="px-6 py-12 text-center text-slate-400 text-sm">Belum ada proyek. <a href="?action=add" class="text-blue-600 font-semibold">Tambah sekarang →</a></td></tr>
                         <?php else: ?>
@@ -207,6 +240,31 @@ function imgUploadBlock($label, $icon, $fileKey, $nameKey, $altKey, $current, $c
                     </tbody>
                 </table>
             </div>
+
+            <!-- Pagination -->
+            <?php if($totalPages > 1): ?>
+            <div class="mt-6 flex items-center justify-center gap-2">
+                <?php if($page > 1): ?>
+                <a href="?page=<?= $page-1 ?>&q=<?= urlencode($q) ?>" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-solid fa-chevron-left text-xs"></i>
+                </a>
+                <?php endif; ?>
+
+                <?php for($i=1; $i<=$totalPages; $i++): ?>
+                <a href="?page=<?= $i ?>&q=<?= urlencode($q) ?>" 
+                   class="w-10 h-10 rounded-xl border flex items-center justify-center text-sm font-bold transition-all
+                   <?= $i == $page ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-900/20' : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50' ?>">
+                    <?= $i ?>
+                </a>
+                <?php endfor; ?>
+
+                <?php if($page < $totalPages): ?>
+                <a href="?page=<?= $page+1 ?>&q=<?= urlencode($q) ?>" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </a>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
 
             <?php else:
                 $proj = ['id'=>'','title'=>'','slug'=>'','category_id'=>'','client_name'=>'','description'=>'','meta_title'=>'','meta_desc'=>'','keyphrase'=>'','secondary_keyphrase'=>'','image'=>'','image_name'=>'','image_alt'=>'','image_2'=>'','image_2_name'=>'','image_2_alt'=>'','image_3'=>'','image_3_name'=>'','image_3_alt'=>'','image_4'=>'','image_4_name'=>'','image_4_alt'=>'','pilar_build'=>0,'pilar_rescue'=>0,'pilar_boost'=>0];

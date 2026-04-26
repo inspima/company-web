@@ -7,6 +7,7 @@ $_nav = [
     ['href' => '/admin/about.php',    'icon' => 'fa-building-user',         'label' => 'Tentang Kami', 'file' => 'about.php'],
     ['href' => '/admin/projects.php', 'icon' => 'fa-briefcase',             'label' => 'Portofolio',   'file' => 'projects.php'],
     ['href' => '/admin/articles.php', 'icon' => 'fa-newspaper',             'label' => 'Artikel Blog', 'file' => 'articles.php'],
+    ['href' => '/admin/contacts.php', 'icon' => 'fa-envelope-open-text',    'label' => 'Pesan Masuk',  'file' => 'contacts.php'],
     ['href' => '/admin/pages.php',    'icon' => 'fa-magnifying-glass-chart','label' => 'SEO Halaman',  'file' => 'pages.php'],
     ['href' => '/admin/password.php', 'icon' => 'fa-key',                   'label' => 'Ubah Password','file' => 'password.php'],
 ];
