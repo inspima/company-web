@@ -117,19 +117,23 @@ body {
 /* ── Stats strip ─────────────────────────────────────────────────────── */
 .stats-strip {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1px;
   background: var(--color-border);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgb(var(--color-border));
   border-radius: 1.5rem;
   overflow: hidden;
 }
-@media (min-width: 768px) { .stats-strip { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 640px) {
+  .stats-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .stats-item {
   background: rgb(var(--color-container));
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 .stats-item:hover { background: rgb(var(--color-main)); }
 
