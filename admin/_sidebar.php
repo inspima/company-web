@@ -21,7 +21,7 @@ $_nav = [
 <!-- Mobile Overlay -->
 <div id="sidebar-overlay" class="fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-30 hidden lg:hidden"></div>
 
-<aside id="admin-sidebar" class="w-64 bg-slate-950 flex flex-col shrink-0 h-screen fixed lg:sticky top-0 z-40 -translate-x-full lg:translate-x-0 transition-transform duration-300">
+<aside id="admin-sidebar" class="w-64 bg-slate-950 flex flex-col shrink-0 h-screen lg:h-full fixed lg:sticky top-0 z-40 -translate-x-full lg:translate-x-0 transition-transform duration-300" style="height: 100dvh;">
     <!-- Logo -->
     <div class="h-16 flex items-center px-5 border-b border-slate-800/80 justify-between">
         <div>
@@ -51,9 +51,8 @@ $_nav = [
         </a>
         <?php endforeach; ?>
     </nav>
-
     <!-- User + Logout -->
-    <div class="border-t border-slate-800/80 p-4">
+    <div class="border-t border-slate-800/80 p-4 mt-auto">
         <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white text-xs font-black flex-shrink-0">
                 <?= strtoupper(substr($_SESSION['admin_username'] ?? 'A', 0, 1)) ?>
