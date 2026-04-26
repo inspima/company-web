@@ -127,7 +127,11 @@
               <div>
                 <div class="text-xs text-brand-textSec font-semibold uppercase tracking-wider mb-0.5">Alamat</div>
                 <div class="text-sm text-brand-textMain font-medium">Surabaya, Jawa Timur</div>
-                <div class="text-xs text-brand-textSec">Indonesia</div>
+                <div class="text-xs text-brand-textSec mb-2">Indonesia</div>
+                <a href="https://maps.app.goo.gl/q2XFHadifQ3dmhyf9?g_st=atm" target="_blank" rel="noopener" 
+                   class="text-[10px] font-bold text-brand-accent hover:underline flex items-center gap-1">
+                   <i class="fa-solid fa-diamond-turn-right text-[9px]"></i> Petunjuk Arah
+                </a>
               </div>
             </li>
             <li class="flex items-start gap-4">

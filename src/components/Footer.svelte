@@ -44,25 +44,16 @@
         </p>
         <div class="flex gap-3 mt-6">
           <a
-            href="https://www.linkedin.com/company/inspima"
+            href="https://maps.app.goo.gl/q2XFHadifQ3dmhyf9?g_st=atm"
             target="_blank"
             rel="noopener"
-            class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-main border border-brand-border text-brand-textSec hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all"
-            title="LinkedIn"
+            class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-main border border-brand-border text-brand-textSec hover:text-white hover:bg-[#4285F4] hover:border-[#4285F4] transition-all"
+            title="Google Maps"
           >
-            <i class="fa-brands fa-linkedin-in text-sm"></i>
+            <i class="fa-solid fa-location-dot text-sm"></i>
           </a>
           <a
-            href="https://x.com/inspima"
-            target="_blank"
-            rel="noopener"
-            class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-main border border-brand-border text-brand-textSec hover:text-white hover:bg-[#1da1f2] hover:border-[#1da1f2] transition-all"
-            title="Twitter / X"
-          >
-            <i class="fa-brands fa-x-twitter text-sm"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/inspima"
+            href="https://www.instagram.com/inspima.creative"
             target="_blank"
             rel="noopener"
             class="w-9 h-9 flex items-center justify-center rounded-full bg-brand-main border border-brand-border text-brand-textSec hover:text-white hover:bg-[#e1306c] hover:border-[#e1306c] transition-all"
