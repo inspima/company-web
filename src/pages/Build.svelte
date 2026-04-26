@@ -28,7 +28,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="max-w-3xl">
       <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8">Pilar BUILD</span>
-      <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-8">
+      <h1 class="hero-heading">
         Bangun Produk Digital<br/><span class="gradient-text">dari Nol hingga Sempurna</span>
       </h1>
       <p class="text-xl text-brand-textSec font-light leading-relaxed mb-10">

@@ -39,7 +39,7 @@
   </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
     <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-8">Knowledge Base</span>
-    <h1 class="font-heading text-5xl md:text-7xl font-black text-brand-textMain leading-tight mb-8">
+    <h1 class="hero-heading">
       Inspima <span class="text-brand-accent underline decoration-brand-accent/30 underline-offset-8">Insights</span>
     </h1>
     <p class="text-xl text-brand-textSec max-w-2xl mx-auto font-light leading-relaxed">

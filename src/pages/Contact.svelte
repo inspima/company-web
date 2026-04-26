@@ -26,7 +26,7 @@
 <section class="pt-32 pb-16 bg-brand-main border-b border-brand-border">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
     <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">Kontak</span>
-    <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-5">
+    <h1 class="hero-heading">
       Mari Bicara
     </h1>
     <p class="text-lg text-brand-textSec font-light leading-relaxed max-w-xl mx-auto">

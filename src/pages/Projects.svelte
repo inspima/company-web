@@ -37,7 +37,7 @@
 <section class="relative pt-32 pb-20 overflow-hidden bg-brand-main">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
     <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">Portfolio</span>
-    <h1 class="font-heading text-5xl md:text-7xl font-black text-brand-textMain leading-tight mb-6">
+    <h1 class="hero-heading">
       Creative <span class="text-brand-accent">Showcase</span>
     </h1>
     <p class="text-xl text-brand-textSec max-w-2xl mx-auto font-light leading-relaxed">

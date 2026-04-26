@@ -42,7 +42,7 @@
       <div class="h-16 w-64 bg-brand-border/30 rounded-xl animate-pulse mx-auto mb-5"></div>
       <div class="h-5 w-96 bg-brand-border/30 rounded animate-pulse mx-auto"></div>
     {:else}
-      <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-5">{headline}</h1>
+      <h1 class="hero-heading">{headline}</h1>
       <p class="text-lg text-brand-textSec font-light leading-relaxed max-w-2xl mx-auto">{tagline}</p>
     {/if}
   </div>

@@ -829,14 +829,6 @@
     padding-bottom: 3.5rem;
   }
 
-  .hero-heading {
-    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
-    font-weight: 900;
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    color: rgb(var(--color-text-main));
-    margin-bottom: 1.25rem;
-  }
 
   .hero-italic-accent {
     display: block;

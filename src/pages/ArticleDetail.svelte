@@ -57,7 +57,7 @@
         <span class="text-xs text-brand-textSec">{art.read_time} min read</span>
       </div>
 
-      <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-10">{art.title}</h1>
+      <h1 class="hero-heading">{art.title}</h1>
 
       {#if art.image_url}
         <div class="rounded-[2.5rem] overflow-hidden mb-12 border border-brand-border">

@@ -56,7 +56,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 pb-16 items-start">
         <!-- Main content -->
         <div class="lg:col-span-2">
-          <h1 class="font-heading text-4xl md:text-6xl font-black text-brand-textMain leading-tight mb-8">{proj.title}</h1>
+          <h1 class="hero-heading">{proj.title}</h1>
 
           {#if proj.image_url}
             <div class="rounded-[2.5rem] overflow-hidden mb-12 border border-brand-border">
