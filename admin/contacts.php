@@ -56,7 +56,7 @@ $results = $contacts->fetchAll();
 
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- Header -->
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 flex-shrink-0">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-8 pl-16 lg:pl-8 flex-shrink-0">
             <div>
                 <h2 class="text-base font-bold text-slate-800">Pesan Masuk</h2>
                 <p class="text-xs text-slate-400">Kelola pesan dan konsultasi dari customer</p>
@@ -64,7 +64,7 @@ $results = $contacts->fetchAll();
         </header>
 
         <!-- Content -->
-        <main class="flex-1 overflow-y-auto p-8">
+        <main class="flex-1 overflow-y-auto p-4 sm:p-8">
 
             <!-- Search -->
             <div class="mb-6 flex flex-col sm:flex-row gap-4 items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
@@ -85,7 +85,8 @@ $results = $contacts->fetchAll();
             <?php endif; ?>
 
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <table class="w-full text-left border-collapse">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[800px]">
                     <thead class="bg-slate-50 border-b border-slate-100">
                         <tr>
                             <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Tanggal</th>
@@ -151,7 +152,8 @@ $results = $contacts->fetchAll();
                         <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
 
             <!-- Pagination -->

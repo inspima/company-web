@@ -1,6 +1,5 @@
 <?php
 // Shared sidebar — include in every admin page
-// Requires: session already started, $_SESSION['admin_username'] available
 $_cur = basename($_SERVER['PHP_SELF']);
 $_nav = [
     ['href' => '/admin/index.php',    'icon' => 'fa-chart-pie',             'label' => 'Dashboard',    'file' => 'index.php'],
@@ -13,13 +12,25 @@ $_nav = [
     ['href' => '/admin/password.php', 'icon' => 'fa-key',                   'label' => 'Ubah Password','file' => 'password.php'],
 ];
 ?>
-<aside class="w-60 bg-slate-950 flex flex-col shrink-0 h-screen sticky top-0 z-20">
+
+<!-- Mobile Toggle Button (Fixed) -->
+<button id="sidebar-toggle" class="lg:hidden fixed top-4 left-4 z-40 w-10 h-10 bg-slate-900 text-white rounded-xl shadow-lg flex items-center justify-center border border-slate-800">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<!-- Mobile Overlay -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-30 hidden lg:hidden"></div>
+
+<aside id="admin-sidebar" class="w-64 bg-slate-950 flex flex-col shrink-0 h-screen fixed lg:sticky top-0 z-40 -translate-x-full lg:translate-x-0 transition-transform duration-300">
     <!-- Logo -->
-    <div class="h-16 flex items-center px-5 border-b border-slate-800/80">
+    <div class="h-16 flex items-center px-5 border-b border-slate-800/80 justify-between">
         <div>
             <div class="text-lg font-black text-white tracking-tight leading-none">INSPIMA</div>
             <div class="text-[9px] text-blue-400/70 uppercase tracking-[0.25em] font-bold mt-0.5">Control Panel</div>
         </div>
+        <button id="sidebar-close" class="lg:hidden w-8 h-8 rounded-lg flex items-center justify-center text-slate-500 hover:text-white">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
     </div>
 
     <!-- Navigation -->
@@ -58,3 +69,19 @@ $_nav = [
         </div>
     </div>
 </aside>
+
+<script>
+    const sidebar = document.getElementById('admin-sidebar');
+    const toggle = document.getElementById('sidebar-toggle');
+    const close = document.getElementById('sidebar-close');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    function toggleSidebar() {
+        sidebar.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('hidden');
+    }
+
+    toggle?.addEventListener('click', toggleSidebar);
+    close?.addEventListener('click', toggleSidebar);
+    overlay?.addEventListener('click', toggleSidebar);
+</script>

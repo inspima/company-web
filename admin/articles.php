@@ -93,7 +93,7 @@ if (isset($_GET['delete'])) {
 
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- Header -->
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 flex-shrink-0">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-8 pl-16 lg:pl-8 flex-shrink-0">
             <div class="flex items-center gap-3">
                 <?php if($action !== 'list'): ?>
                 <a href="/admin/articles.php" class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all">
@@ -115,7 +115,7 @@ if (isset($_GET['delete'])) {
             <?php endif; ?>
         </header>
 
-        <main class="flex-1 overflow-y-auto p-8">
+        <main class="flex-1 overflow-y-auto p-4 sm:p-8">
 
             <?php if($msg): ?>
             <div class="flex items-center gap-2.5 px-5 py-3.5 rounded-xl mb-6 text-sm <?= $msg_type==='red' ? 'bg-red-50 border border-red-200 text-red-700' : 'bg-emerald-50 border border-emerald-200 text-emerald-700' ?>">
@@ -161,7 +161,8 @@ if (isset($_GET['delete'])) {
 
             <!-- LIST VIEW -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <table class="w-full text-left">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left min-w-[600px]">
                     <thead>
                         <tr class="border-b border-slate-100 bg-slate-50">
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 w-20">Foto</th>
@@ -215,7 +216,8 @@ if (isset($_GET['delete'])) {
                         </tr>
                         <?php endforeach; endif; ?>
                     </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
 
             <!-- Pagination -->

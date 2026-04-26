@@ -160,7 +160,7 @@ if ($editId) {
 
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- Header -->
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 flex-shrink-0">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-8 pl-16 lg:pl-8 flex-shrink-0">
             <div>
                 <h2 class="text-base font-bold text-slate-800">Halaman Tentang Kami</h2>
                 <p class="text-xs text-slate-400">Edit konten dan tim untuk halaman /about</p>
@@ -171,7 +171,7 @@ if ($editId) {
             </a>
         </header>
 
-        <main class="flex-1 overflow-y-auto p-8">
+        <main class="flex-1 overflow-y-auto p-4 sm:p-8">
 
             <?php if ($msg): ?>
             <div class="flex items-center gap-2.5 px-5 py-3.5 rounded-xl mb-6 text-sm

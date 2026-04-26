@@ -28,7 +28,7 @@ $latestArticles = $pdo->query("SELECT title, slug, created_at FROM articles ORDE
 
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- Header -->
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 flex-shrink-0">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-8 pl-16 lg:pl-8 flex-shrink-0">
             <div>
                 <h2 class="text-base font-bold text-slate-800">Dashboard</h2>
                 <p class="text-xs text-slate-400">Selamat datang kembali, <span class="font-semibold text-slate-600"><?= htmlspecialchars($_SESSION['admin_username']) ?></span></p>
@@ -40,7 +40,7 @@ $latestArticles = $pdo->query("SELECT title, slug, created_at FROM articles ORDE
         </header>
 
         <!-- Content -->
-        <main class="flex-1 overflow-y-auto p-8">
+        <main class="flex-1 overflow-y-auto p-4 sm:p-8">
 
             <!-- Stats -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
