@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
 
   export let slug = '';
@@ -9,7 +8,11 @@
   let loading = true;
   let error = null;
 
-  onMount(async () => {
+  async function load() {
+    loading = true;
+    error = null;
+    art = null;
+    related = [];
     try {
       const res = await api.article(slug);
       art = res.article;
@@ -18,7 +21,11 @@
       error = 'Artikel tidak ditemukan.';
     }
     loading = false;
-  });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Re-fetch whenever slug changes (handles related article clicks)
+  $: if (slug) load();
 </script>
 
 {#if loading}

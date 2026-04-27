@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
   import { goToSection } from '../lib/nav.js';
 
@@ -10,7 +9,11 @@
   let loading = true;
   let error = null;
 
-  onMount(async () => {
+  async function load() {
+    loading = true;
+    error = null;
+    proj = null;
+    related = [];
     try {
       const res = await api.project(slug);
       proj = res.project;
@@ -19,7 +22,11 @@
       error = 'Proyek tidak ditemukan.';
     }
     loading = false;
-  });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Re-fetch whenever slug changes (handles related project clicks)
+  $: if (slug) load();
 </script>
 
 {#if loading}
