@@ -130,17 +130,4 @@
   </div>
 </section>
 
-<!-- Newsletter -->
-<section class="py-24 relative overflow-hidden">
-  <div class="absolute inset-0 bg-brand-accent/5 pointer-events-none"></div>
-  <div class="max-w-5xl mx-auto px-4 relative z-10">
-    <div class="bg-brand-container border border-brand-border rounded-[3rem] p-12 md:p-20 text-center card-glow">
-      <h2 class="text-4xl md:text-5xl font-black text-brand-textMain mb-8">Join the Newsletter</h2>
-      <p class="text-brand-textSec text-lg font-light mb-12 max-w-2xl mx-auto">Get weekly curated tech, design, and business strategies delivered straight to your inbox.</p>
-      <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" on:submit|preventDefault={() => alert('Thanks for subscribing!')}>
-        <input type="email" placeholder="Your Email Address" required class="flex-grow bg-brand-main border border-brand-border rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand-accent text-brand-textMain">
-        <button type="submit" class="bg-brand-accent text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:-translate-y-1 transition-all shrink-0">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
+

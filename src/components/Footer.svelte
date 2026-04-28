@@ -1,10 +1,12 @@
 <script>
   import { goToSection } from "../lib/nav.js";
+  export let currentPage = '';
   const year = new Date().getFullYear();
 </script>
 
 <footer class="bg-brand-container border-t border-brand-border">
-  <!-- Top CTA -->
+  <!-- Top CTA (hidden on contact page) -->
+  {#if currentPage !== 'contact'}
   <div class="bg-brand-accent/5 border-b border-brand-border py-12">
     <div class="max-w-5xl mx-auto px-4 text-center">
       <h3 class="text-2xl md:text-3xl font-black text-brand-textMain mb-4">
@@ -21,6 +23,7 @@
       </button>
     </div>
   </div>
+  {/if}
 
   <!-- Main Footer -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

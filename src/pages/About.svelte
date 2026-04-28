@@ -214,13 +214,4 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-24 bg-brand-main border-t border-brand-border">
-  <div class="max-w-3xl mx-auto px-4 text-center">
-    <h2 class="font-heading text-3xl md:text-4xl font-black text-brand-textMain mb-4">Siap bekerja sama?</h2>
-    <p class="text-brand-textSec font-light mb-8">Kami senang mendengar cerita Anda. Mari diskusi tanpa komitmen dulu.</p>
-    <a href="#/contact" class="inline-flex items-center gap-2 bg-brand-accent text-white px-10 py-4 rounded-xl font-bold shadow-lg shadow-brand-accent/20 hover:-translate-y-0.5 transition-all">
-      Hubungi Kami <i class="fa-solid fa-arrow-right text-xs"></i>
-    </a>
-  </div>
-</section>
+

@@ -87,7 +87,7 @@
     {/if}
   </main>
 
-  <Footer />
+  <Footer currentPage={page} />
 </div>
 
 <!-- WhatsApp Float Button -->

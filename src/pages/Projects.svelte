@@ -125,12 +125,4 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-24 bg-brand-container/50 border-t border-brand-border">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-5xl font-bold text-brand-textMain mb-8 leading-tight">Siap memulai proyek Anda?</h2>
-    <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-3 bg-brand-accent text-white px-10 py-5 rounded-full text-lg font-bold shadow-2xl hover:-translate-y-1 transition-all">
-      Diskusikan Proyek Anda <i class="fa-solid fa-comments"></i>
-    </a>
-  </div>
-</section>
+
