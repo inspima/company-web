@@ -23,8 +23,8 @@
                 <i class="fa-solid fa-sitemap text-white text-sm"></i>
             </div>
             <div>
-                <h1 class="text-2xl font-black text-white tracking-tight">INSPIMA Sitemap</h1>
-                <p class="text-slate-500 text-xs">XML Sitemap — untuk keperluan indeks mesin pencari Google</p>
+                <h1 class="text-2xl font-black text-white tracking-tight"> Sitemap</h1>
+                <p class="text-slate-500 text-xs">XML Sitemap — untuk indeks mesin pencari Google</p>
             </div>
         </div>
 
