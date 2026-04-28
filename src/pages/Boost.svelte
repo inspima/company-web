@@ -26,10 +26,10 @@
         Infrastruktur yang skalabel, deployment otomatis, dan monitoring proaktif. Kami optimalkan tumpukan teknologi Anda sehingga bisnis bisa bertumbuh tanpa hambatan teknis.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-orange-500 text-white px-8 py-4 rounded-full font-bold shadow-2xl shadow-orange-500/30 hover:-translate-y-1 transition-all">
+        <a href="/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-orange-500 text-white px-8 py-4 rounded-full font-bold shadow-2xl shadow-orange-500/30 hover:-translate-y-1 transition-all">
           Mulai BOOST <i class="fa-solid fa-rocket"></i>
         </a>
-        <a href="#/projects" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-8 py-4 rounded-full font-bold hover:border-orange-500/50 hover:-translate-y-1 transition-all">
+        <a href="/projects" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-8 py-4 rounded-full font-bold hover:border-orange-500/50 hover:-translate-y-1 transition-all">
           Lihat Case Study <i class="fa-solid fa-chart-line"></i>
         </a>
       </div>

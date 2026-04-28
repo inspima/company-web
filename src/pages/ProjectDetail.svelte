@@ -37,7 +37,7 @@
   <div class="flex flex-col items-center justify-center min-h-screen gap-4 text-center px-4">
     <i class="fa-solid fa-triangle-exclamation text-5xl text-brand-textSec/30"></i>
     <h2 class="text-2xl font-bold text-brand-textMain">{error}</h2>
-    <a href="#/projects" class="text-brand-accent font-semibold hover:underline">← Kembali ke Portfolio</a>
+    <a href="/projects" class="text-brand-accent font-semibold hover:underline">← Kembali ke Portfolio</a>
   </div>
 {:else}
   <!-- Hero -->
@@ -45,9 +45,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Breadcrumb -->
       <div class="flex items-center gap-2 text-xs text-brand-textSec mb-8">
-        <a href="#/" class="hover:text-brand-accent transition-colors">Home</a>
+        <a href="/" class="hover:text-brand-accent transition-colors">Home</a>
         <i class="fa-solid fa-chevron-right text-[8px]"></i>
-        <a href="#/projects" class="hover:text-brand-accent transition-colors">Portfolio</a>
+        <a href="/projects" class="hover:text-brand-accent transition-colors">Portfolio</a>
         <i class="fa-solid fa-chevron-right text-[8px]"></i>
         <span class="text-brand-textMain">{proj.title}</span>
       </div>
@@ -104,7 +104,7 @@
             </div>
 
             <div class="mt-8 pt-6 border-t border-brand-border">
-              <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="block w-full text-center bg-brand-accent text-white py-3.5 rounded-xl font-bold text-sm hover:-translate-y-0.5 transition-all shadow-lg shadow-brand-accent/30">
+              <a href="/" on:click|preventDefault={() => goToSection('contact')} class="block w-full text-center bg-brand-accent text-white py-3.5 rounded-xl font-bold text-sm hover:-translate-y-0.5 transition-all shadow-lg shadow-brand-accent/30">
                 Proyek Serupa? Hubungi Kami
               </a>
             </div>
@@ -121,7 +121,7 @@
         <h2 class="text-2xl font-black text-brand-textMain mb-10">Proyek Lainnya</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {#each related as r}
-            <a href="#/project/{r.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
+            <a href="/project/{r.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
               <div class="h-44 overflow-hidden bg-brand-main">
                 {#if r.image_url}
                   <img src={r.image_url} alt={r.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">

@@ -30,7 +30,7 @@
            class="inline-flex items-center gap-2 bg-teal-500 text-white px-8 py-4 rounded-full font-bold shadow-2xl shadow-teal-500/30 hover:-translate-y-1 transition-all">
           <i class="fa-solid fa-bolt"></i> Emergency RESCUE
         </a>
-        <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-8 py-4 rounded-full font-bold hover:border-teal-500/50 hover:-translate-y-1 transition-all">
+        <a href="/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-8 py-4 rounded-full font-bold hover:border-teal-500/50 hover:-translate-y-1 transition-all">
           Konsultasi <i class="fa-solid fa-comments"></i>
         </a>
       </div>

@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { api } from "../lib/api.js";
+  import { navigate } from "../lib/nav.js";
 
   let data = null;
   let loading = true;
@@ -114,12 +115,12 @@
 
         <div class="hero-cta-row">
           <button
-            on:click={() => (window.location.hash = "#/contact")}
+            on:click={() => navigate('/contact')}
             class="hero-btn-primary"
           >
             Mulai Proyek <i class="fa-solid fa-arrow-right text-xs"></i>
           </button>
-          <a href="#/projects" class="hero-btn-ghost"> Lihat Portofolio </a>
+          <a href="/projects" class="hero-btn-ghost"> Lihat Portofolio </a>
         </div>
       </div>
 
@@ -377,7 +378,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- BUILD -->
-      <a href="#/build" class="svc-card group svc-card-build">
+      <a href="/build" class="svc-card group svc-card-build">
         <div class="svc-icon-wrap svc-color-blue">
           <i class="fa-solid fa-cube"></i>
         </div>
@@ -395,7 +396,7 @@
       </a>
 
       <!-- RESCUE -->
-      <a href="#/rescue" class="svc-card group svc-card-rescue">
+      <a href="/rescue" class="svc-card group svc-card-rescue">
         <div class="svc-icon-wrap svc-color-green">
           <i class="fa-solid fa-asterisk"></i>
         </div>
@@ -413,7 +414,7 @@
       </a>
 
       <!-- BOOST -->
-      <a href="#/boost" class="svc-card group svc-card-boost">
+      <a href="/boost" class="svc-card group svc-card-boost">
         <div class="svc-icon-wrap svc-color-yellow">
           <i class="fa-solid fa-bolt"></i>
         </div>
@@ -456,7 +457,7 @@
         </h2>
       </div>
       <a
-        href="#/projects"
+        href="/projects"
         class="mt-6 md:mt-0 text-brand-accent font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all"
       >
         View All Projects <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -490,7 +491,7 @@
         {#each data.projects as proj}
           <!-- No reveal class — dynamically rendered, observer not set up yet -->
           <a
-            href="#/project/{proj.slug}"
+            href="/project/{proj.slug}"
             class="group bento-item bg-brand-container rounded-[2.5rem] overflow-hidden border border-brand-border card-glow block"
           >
             <div class="relative h-56 overflow-hidden bg-brand-main">
@@ -583,7 +584,7 @@
         </h2>
       </div>
       <a
-        href="#/blog"
+        href="/blog"
         class="mt-6 md:mt-0 text-brand-accent font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all"
       >
         View All Articles <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -607,7 +608,7 @@
         {#each data.articles as art}
           <!-- No reveal class — dynamically rendered -->
           <a
-            href="#/article/{art.slug}"
+            href="/article/{art.slug}"
             class="group bento-item bg-brand-container rounded-[2.5rem] overflow-hidden border border-brand-border card-glow flex flex-col block"
           >
             <div class="relative h-52 overflow-hidden bg-brand-main p-4">

@@ -18,44 +18,74 @@
   let params = {};
 
   function parseRoute() {
-    const hash = window.location.hash || '#/';
-    const raw  = hash.startsWith('#') ? hash.slice(1) : hash;
-    const [pathPart, queryPart] = raw.split('?');
-    const segments = pathPart.replace(/^\//, '').split('/').filter(Boolean);
+    const pathname = window.location.pathname || '/';
+    const search = window.location.search || '';
 
-    // parse query string
+    // Parse query string
     const qs = {};
-    if (queryPart) {
-      new URLSearchParams(queryPart).forEach((v, k) => { qs[k] = v; });
+    if (search) {
+      new URLSearchParams(search).forEach((v, k) => { qs[k] = v; });
     }
 
+    const segments = pathname.replace(/^\//, '').split('/').filter(Boolean);
     const [seg0 = '', seg1 = ''] = segments;
 
-    if (!seg0 || seg0 === '') { page = 'home';    params = qs; return; }
-    if (seg0 === 'build')     { page = 'build';   params = qs; return; }
-    if (seg0 === 'rescue')    { page = 'rescue';  params = qs; return; }
-    if (seg0 === 'boost')     { page = 'boost';   params = qs; return; }
-    if (seg0 === 'projects')  { page = 'projects'; params = qs; return; }
-    if (seg0 === 'blog')      { page = 'blog';    params = qs; return; }
-    if (seg0 === 'contact')  { page = 'contact'; params = qs; return; }
-    if (seg0 === 'about')    { page = 'about';   params = qs; return; }
-    if (seg0 === 'project' && seg1) { page = 'project-detail'; params = { slug: seg1, ...qs }; return; }
-    if (seg0 === 'article' && seg1) { page = 'article-detail'; params = { slug: seg1, ...qs }; return; }
+    if (!seg0)                            { page = 'home';           params = qs; return; }
+    if (seg0 === 'build')                 { page = 'build';          params = qs; return; }
+    if (seg0 === 'rescue')                { page = 'rescue';         params = qs; return; }
+    if (seg0 === 'boost')                 { page = 'boost';          params = qs; return; }
+    if (seg0 === 'projects')              { page = 'projects';       params = qs; return; }
+    if (seg0 === 'blog')                  { page = 'blog';           params = qs; return; }
+    if (seg0 === 'contact')               { page = 'contact';        params = qs; return; }
+    if (seg0 === 'about')                 { page = 'about';          params = qs; return; }
+    if (seg0 === 'project' && seg1)       { page = 'project-detail'; params = { slug: seg1, ...qs }; return; }
+    if (seg0 === 'article' && seg1)       { page = 'article-detail'; params = { slug: seg1, ...qs }; return; }
 
     page = 'notfound';
     params = {};
   }
 
+  /**
+   * Global <a> click interceptor — prevents full page reloads for internal links.
+   * External links, target="_blank", admin, and api paths are left alone.
+   */
+  function handleClick(e) {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+
+    const href = a.getAttribute('href');
+    if (!href) return;
+
+    // Let external links, mailto, tel, anchors pass through
+    if (
+      href.startsWith('http') ||
+      href.startsWith('//') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('#')
+    ) return;
+
+    // Let target="_blank" etc. pass through
+    if (a.target && a.target !== '_self') return;
+
+    // Let admin and api requests pass through (full page load)
+    if (href.startsWith('/admin') || href.startsWith('/api.php')) return;
+
+    e.preventDefault();
+    history.pushState(null, '', href);
+    parseRoute();
+    window.scrollTo({ top: 0 });
+  }
+
   onMount(() => {
     parseRoute();
-    window.addEventListener('hashchange', parseRoute);
-    return () => window.removeEventListener('hashchange', parseRoute);
+    window.addEventListener('popstate', parseRoute);
+    document.addEventListener('click', handleClick);
+    return () => {
+      window.removeEventListener('popstate', parseRoute);
+      document.removeEventListener('click', handleClick);
+    };
   });
-
-  // Scroll to top on navigation
-  $: if (page) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 </script>
 
 <div class="flex flex-col min-h-screen">

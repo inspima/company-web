@@ -35,10 +35,10 @@
         Kami merancang, mengembangkan, dan meluncurkan produk digital berkualitas tinggi — web app, mobile app, hingga sistem enterprise — dengan kode bersih dan arsitektur yang skalabel.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-brand-accent text-white px-8 py-4 rounded-full font-bold shadow-2xl shadow-brand-accent/30 hover:-translate-y-1 transition-all">
+        <a href="/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-brand-accent text-white px-8 py-4 rounded-full font-bold shadow-2xl shadow-brand-accent/30 hover:-translate-y-1 transition-all">
           Mulai Project <i class="fa-solid fa-rocket"></i>
         </a>
-        <a href="#/projects" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-8 py-4 rounded-full font-bold hover:border-brand-accent/50 hover:-translate-y-1 transition-all">
+        <a href="/projects" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-8 py-4 rounded-full font-bold hover:border-brand-accent/50 hover:-translate-y-1 transition-all">
           Lihat Portfolio <i class="fa-solid fa-briefcase"></i>
         </a>
       </div>
@@ -78,7 +78,7 @@
     <h2 class="font-heading text-3xl font-black text-brand-textMain mb-12 text-center">Proyek BUILD Terbaru</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {#each data.projects as proj}
-        <a href="#/project/{proj.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
+        <a href="/project/{proj.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
           <div class="h-52 overflow-hidden bg-brand-main">
             {#if proj.image_url}
               <img src={proj.image_url} alt={proj.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">

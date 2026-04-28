@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
+  import { navigate } from '../lib/nav.js';
 
   export let category = 'all';
   export let page = 1;
@@ -24,7 +25,7 @@
     const qs = [];
     if (cat && cat !== 'all') qs.push(`category=${cat}`);
     if (p > 1) qs.push(`page=${p}`);
-    window.location.hash = '#/blog' + (qs.length ? '?' + qs.join('&') : '');
+    navigate('/blog' + (qs.length ? '?' + qs.join('&') : ''));
   }
 
   onMount(load);
@@ -82,7 +83,7 @@
     {:else}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {#each data.data as art}
-          <a href="#/article/{art.slug}" class="group bg-brand-container rounded-[2.5rem] overflow-hidden border border-brand-border hover:-translate-y-3 transition-all duration-500 card-glow flex flex-col h-full">
+          <a href="/article/{art.slug}" class="group bg-brand-container rounded-[2.5rem] overflow-hidden border border-brand-border hover:-translate-y-3 transition-all duration-500 card-glow flex flex-col h-full">
             <div class="relative h-60 overflow-hidden bg-brand-main p-4">
               {#if art.image_url}
                 <img src={art.image_url} alt={art.title} class="w-full h-full object-cover rounded-[1.5rem] group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100">

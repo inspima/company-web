@@ -1,9 +1,9 @@
 <?php
 /**
  * Dynamic XML Sitemap Generator for INSPIMA
- * This script scans the database for static pages, projects, and articles
- * and outputs a valid XML sitemap for Google Search Console indexing.
- * 
+ * Outputs a valid XML sitemap using clean URLs (no hash routing).
+ * All routes are handled by .htaccess → index.html SPA fallback.
+ *
  * URL: https://inspima.id/sitemap.php
  */
 
@@ -36,17 +36,16 @@ function xmlEsc($str) {
 // ── Collect all URLs ──────────────────────────────────────────────────────────
 $urls = [];
 
-// 1. Static / SPA-routed pages
-//    We use the hash routing format (/#/) for compatibility with the SPA.
+// 1. Static pages — clean URLs (no hash, fully indexable by Google)
 $static_pages = [
-    ['loc' => '/',          'priority' => '1.0', 'changefreq' => 'weekly',  'lastmod' => date('Y-m-d')],
-    ['loc' => '/#/build',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
-    ['loc' => '/#/rescue',   'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
-    ['loc' => '/#/boost',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
-    ['loc' => '/#/about',    'priority' => '0.8', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
-    ['loc' => '/#/projects', 'priority' => '0.8', 'changefreq' => 'weekly',  'lastmod' => date('Y-m-d')],
-    ['loc' => '/#/blog',     'priority' => '0.8', 'changefreq' => 'daily',   'lastmod' => date('Y-m-d')],
-    ['loc' => '/#/contact',  'priority' => '0.7', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
+    ['loc' => '/',         'priority' => '1.0', 'changefreq' => 'weekly',  'lastmod' => date('Y-m-d')],
+    ['loc' => '/build',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
+    ['loc' => '/rescue',   'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
+    ['loc' => '/boost',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
+    ['loc' => '/about',    'priority' => '0.8', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
+    ['loc' => '/projects', 'priority' => '0.8', 'changefreq' => 'weekly',  'lastmod' => date('Y-m-d')],
+    ['loc' => '/blog',     'priority' => '0.8', 'changefreq' => 'daily',   'lastmod' => date('Y-m-d')],
+    ['loc' => '/contact',  'priority' => '0.7', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
 ];
 
 foreach ($static_pages as $sp) {
@@ -62,7 +61,7 @@ try {
     foreach ($projects as $p) {
         $lastmod = !empty($p['updated_at']) ? $p['updated_at'] : ($p['created_at'] ?? null);
         $urls[] = [
-            'loc'        => '/#/project/' . $p['slug'],
+            'loc'        => '/project/' . $p['slug'],
             'priority'   => '0.7',
             'changefreq' => 'monthly',
             'lastmod'    => w3cDate($lastmod),
@@ -79,7 +78,7 @@ try {
     foreach ($articles as $a) {
         $lastmod = !empty($a['updated_at']) ? $a['updated_at'] : ($a['created_at'] ?? null);
         $urls[] = [
-            'loc'        => '/#/article/' . $a['slug'],
+            'loc'        => '/article/' . $a['slug'],
             'priority'   => '0.6',
             'changefreq' => 'monthly',
             'lastmod'    => w3cDate($lastmod),
@@ -95,7 +94,7 @@ try {
 
     foreach ($categories as $cat) {
         $urls[] = [
-            'loc'        => '/#/blog?category=' . urlencode($cat['slug']),
+            'loc'        => '/blog?category=' . urlencode($cat['slug']),
             'priority'   => '0.5',
             'changefreq' => 'weekly',
             'lastmod'    => date('Y-m-d'),

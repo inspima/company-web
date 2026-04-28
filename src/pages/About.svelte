@@ -198,9 +198,9 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       {#each [
-        { href: '#/build',  label: 'BUILD',  tc: 'text-brand-accent', bg: 'bg-brand-accent', icon: 'fa-hammer',    desc: 'Bangun produk digital dari nol — website, aplikasi mobile, dan sistem enterprise.' },
-        { href: '#/rescue', label: 'RESCUE', tc: 'text-teal-500',     bg: 'bg-teal-500',     icon: 'fa-life-ring',  desc: 'Selamatkan sistem yang bermasalah — dari bug kritis hingga server yang tidak stabil.' },
-        { href: '#/boost',  label: 'BOOST',  tc: 'text-orange-400',   bg: 'bg-orange-500',   icon: 'fa-rocket',     desc: 'Tingkatkan performa dan skalabilitas sistem yang sudah berjalan.' },
+        { href: '/build',  label: 'BUILD',  tc: 'text-brand-accent', bg: 'bg-brand-accent', icon: 'fa-hammer',    desc: 'Bangun produk digital dari nol — website, aplikasi mobile, dan sistem enterprise.' },
+        { href: '/rescue', label: 'RESCUE', tc: 'text-teal-500',     bg: 'bg-teal-500',     icon: 'fa-life-ring',  desc: 'Selamatkan sistem yang bermasalah — dari bug kritis hingga server yang tidak stabil.' },
+        { href: '/boost',  label: 'BOOST',  tc: 'text-orange-400',   bg: 'bg-orange-500',   icon: 'fa-rocket',     desc: 'Tingkatkan performa dan skalabilitas sistem yang sudah berjalan.' },
       ] as p}
         <a href={p.href} class="group bg-brand-container rounded-3xl p-8 border border-brand-border hover:-translate-y-1 hover:shadow-lg transition-all">
           <div class="w-12 h-12 {p.bg}/10 rounded-2xl flex items-center justify-center mb-5">

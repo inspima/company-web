@@ -198,16 +198,16 @@
   <div class="max-w-4xl mx-auto px-4 text-center">
     <p class="text-sm text-brand-textSec font-light mb-8">Belum tahu butuh layanan apa? Pelajari dulu pilihan kami.</p>
     <div class="flex flex-wrap justify-center gap-3">
-      <a href="#/build"  class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-brand-accent/50 hover:text-brand-accent transition-all">
+      <a href="/build"  class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-brand-accent/50 hover:text-brand-accent transition-all">
         <i class="fa-solid fa-hammer text-brand-accent text-xs"></i> BUILD
       </a>
-      <a href="#/rescue" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-teal-500/50 hover:text-teal-500 transition-all">
+      <a href="/rescue" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-teal-500/50 hover:text-teal-500 transition-all">
         <i class="fa-solid fa-life-ring text-teal-500 text-xs"></i> RESCUE
       </a>
-      <a href="#/boost"  class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-orange-400/50 hover:text-orange-400 transition-all">
+      <a href="/boost"  class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-orange-400/50 hover:text-orange-400 transition-all">
         <i class="fa-solid fa-rocket text-orange-400 text-xs"></i> BOOST
       </a>
-      <a href="#/projects" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-brand-accent/50 hover:text-brand-accent transition-all">
+      <a href="/projects" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-brand-accent/50 hover:text-brand-accent transition-all">
         <i class="fa-solid fa-briefcase text-brand-accent text-xs"></i> Lihat Portfolio
       </a>
     </div>

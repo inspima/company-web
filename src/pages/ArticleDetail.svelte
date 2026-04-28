@@ -36,7 +36,7 @@
   <div class="flex flex-col items-center justify-center min-h-screen gap-4 text-center px-4">
     <i class="fa-solid fa-triangle-exclamation text-5xl text-brand-textSec/30"></i>
     <h2 class="text-2xl font-bold text-brand-textMain">{error}</h2>
-    <a href="#/blog" class="text-brand-accent font-semibold hover:underline">← Kembali ke Blog</a>
+    <a href="/blog" class="text-brand-accent font-semibold hover:underline">← Kembali ke Blog</a>
   </div>
 {:else}
   <!-- Hero -->
@@ -45,9 +45,9 @@
 
       <!-- Breadcrumb -->
       <div class="flex items-center gap-2 text-xs text-brand-textSec mb-8">
-        <a href="#/" class="hover:text-brand-accent transition-colors">Home</a>
+        <a href="/" class="hover:text-brand-accent transition-colors">Home</a>
         <i class="fa-solid fa-chevron-right text-[8px]"></i>
-        <a href="#/blog" class="hover:text-brand-accent transition-colors">Insights</a>
+        <a href="/blog" class="hover:text-brand-accent transition-colors">Insights</a>
         <i class="fa-solid fa-chevron-right text-[8px]"></i>
         <span class="text-brand-textMain line-clamp-1">{art.title}</span>
       </div>
@@ -92,7 +92,7 @@
             <i class="fa-brands fa-linkedin-in text-sm"></i>
           </a>
         </div>
-        <a href="#/blog" class="text-brand-accent font-semibold text-sm flex items-center gap-2 hover:gap-4 transition-all">
+        <a href="/blog" class="text-brand-accent font-semibold text-sm flex items-center gap-2 hover:gap-4 transition-all">
           <i class="fa-solid fa-arrow-left text-xs"></i> Semua Artikel
         </a>
       </div>
@@ -106,7 +106,7 @@
         <h2 class="text-2xl font-black text-brand-textMain mb-10">Artikel Terkait</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {#each related as r}
-            <a href="#/article/{r.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
+            <a href="/article/{r.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
               <div class="h-44 overflow-hidden bg-brand-main p-3">
                 {#if r.image_url}
                   <img src={r.image_url} alt={r.title} class="w-full h-full object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700">

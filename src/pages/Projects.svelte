@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
-  import { goToSection } from '../lib/nav.js';
+  import { navigate, goToSection } from '../lib/nav.js';
 
   export let category = 'all';
   export let page = 1;
@@ -25,7 +25,7 @@
     const qs = [];
     if (cat && cat !== 'all') qs.push(`category=${cat}`);
     if (p > 1) qs.push(`page=${p}`);
-    window.location.hash = '#/projects' + (qs.length ? '?' + qs.join('&') : '');
+    navigate('/projects' + (qs.length ? '?' + qs.join('&') : ''));
   }
 
   onMount(load);
@@ -78,7 +78,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {#each data.data as proj}
           <div class="bento-item bg-brand-container rounded-[2.5rem] overflow-hidden border border-brand-border card-glow">
-            <a href="#/project/{proj.slug}" class="block">
+            <a href="/project/{proj.slug}" class="block">
               <div class="relative h-72 overflow-hidden bg-brand-main">
                 <div class="absolute top-5 left-5 flex flex-wrap gap-2 z-10">
                   {#if proj.pilar_build}<span class="bg-brand-main/90 backdrop-blur-md px-3 py-1 text-[9px] font-black text-brand-accent rounded-md border border-brand-accent/30 uppercase">BUILD</span>{/if}

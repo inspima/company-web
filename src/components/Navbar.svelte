@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { navigate } from '../lib/nav.js';
 
   export let currentPage = 'home';
 
@@ -10,10 +11,10 @@
   function navToSection(sectionId) {
     mobileOpen = false;
     const onHome = currentPage === 'home';
-    if (!onHome) { window.location.hash = '#/'; }
+    if (!onHome) { navigate('/'); }
     setTimeout(() => {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, onHome ? 0 : 350);
+    }, onHome ? 0 : 420);
   }
 
   function toggleTheme() {
@@ -55,7 +56,7 @@
     <div class="flex justify-between items-center h-16 px-4 sm:px-6">
 
       <!-- Logo -->
-      <a href="#/" class="flex items-center gap-2.5 group flex-shrink-0" on:click={closeMobile}>
+      <a href="/" class="flex items-center gap-2.5 group flex-shrink-0" on:click={closeMobile}>
         <img src="/dist/assets/images/logo.png" alt="Inspima"
              class="h-9 w-auto group-hover:scale-105 transition-transform drop-shadow-sm"
              onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='flex'">
@@ -64,25 +65,25 @@
 
       <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-1">
-        <a href="#/"
+        <a href="/"
            class="nav-item text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-200"
            class:nav-active={currentPage === 'home'}
            on:click={closeMobile}>
           Home
         </a>
-        <a href="#/projects"
+        <a href="/projects"
            class="nav-item text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-200"
            class:nav-active={currentPage === 'projects'}
            on:click={closeMobile}>
           Portfolio
         </a>
-        <a href="#/about"
+        <a href="/about"
            class="nav-item text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-200"
            class:nav-active={currentPage === 'about'}
            on:click={closeMobile}>
           Tentang
         </a>
-        <a href="#/blog"
+        <a href="/blog"
            class="nav-item text-sm font-semibold px-3.5 py-2 rounded-full transition-all duration-200"
            class:nav-active={currentPage === 'blog'}
            on:click={closeMobile}>
@@ -101,7 +102,7 @@
             <i class="fa-solid fa-moon text-sm"></i>
           {/if}
         </button>
-        <a href="#/contact"
+        <a href="/contact"
           class="inline-flex items-center gap-1.5 bg-brand-accent text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-brand-accent/25 hover:shadow-brand-accent/40 hover:-translate-y-0.5 transition-all duration-200"
           on:click={closeMobile}>
           <i class="fa-solid fa-paper-plane text-[10px]"></i> Hubungi Kami
@@ -133,29 +134,29 @@
     <div class="md:hidden absolute top-full left-0 w-full px-3 pt-2 pb-3">
       <div class="bg-brand-container/95 backdrop-blur-xl border border-brand-border rounded-2xl shadow-2xl overflow-hidden">
         <div class="p-3 space-y-0.5">
-          <a href="#/" on:click={closeMobile}
+          <a href="/" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'home'}>
             <i class="fa-solid fa-house w-4 text-center text-brand-accent"></i> Home
           </a>
-          <a href="#/projects" on:click={closeMobile}
+          <a href="/projects" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'projects'}>
             <i class="fa-solid fa-briefcase w-4 text-center text-brand-accent"></i> Portfolio
           </a>
-          <a href="#/about" on:click={closeMobile}
+          <a href="/about" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'about'}>
             <i class="fa-solid fa-building w-4 text-center text-brand-accent"></i> Tentang Kami
           </a>
-          <a href="#/blog" on:click={closeMobile}
+          <a href="/blog" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'blog'}>
             <i class="fa-solid fa-newspaper w-4 text-center text-brand-accent"></i> Blog
           </a>
         </div>
         <div class="px-3 pb-3">
-          <a href="#/contact" on:click={closeMobile}
+          <a href="/contact" on:click={closeMobile}
             class="w-full flex items-center justify-center gap-2 bg-brand-accent text-white px-5 py-3 rounded-xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">
             <i class="fa-solid fa-paper-plane text-xs"></i> Hubungi Kami
           </a>

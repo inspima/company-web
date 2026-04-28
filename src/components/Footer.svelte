@@ -30,7 +30,7 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
       <!-- Brand -->
       <div class="md:col-span-1">
-        <a href="#/" class="inline-flex items-center gap-2 mb-4">
+        <a href="/" class="inline-flex items-center gap-2 mb-4">
           <img
             src="/assets/images/logo.png"
             alt="Inspima"
@@ -77,7 +77,7 @@
         <ul class="space-y-3 text-sm text-brand-textSec font-light">
           <li>
             <a
-              href="#/build"
+              href="/build"
               class="hover:text-brand-accent transition-colors flex items-center gap-2"
               ><i class="fa-solid fa-hammer w-4 text-brand-accent/60"
               ></i>BUILD</a
@@ -85,7 +85,7 @@
           </li>
           <li>
             <a
-              href="#/rescue"
+              href="/rescue"
               class="hover:text-brand-accent transition-colors flex items-center gap-2"
               ><i class="fa-solid fa-life-ring w-4 text-brand-accent/60"
               ></i>RESCUE</a
@@ -93,7 +93,7 @@
           </li>
           <li>
             <a
-              href="#/boost"
+              href="/boost"
               class="hover:text-brand-accent transition-colors flex items-center gap-2"
               ><i class="fa-solid fa-rocket w-4 text-brand-accent/60"
               ></i>BOOST</a
@@ -101,7 +101,7 @@
           </li>
           <li>
             <a
-              href="#/projects"
+              href="/projects"
               class="hover:text-brand-accent transition-colors flex items-center gap-2"
               ><i class="fa-solid fa-briefcase w-4 text-brand-accent/60"
               ></i>Portfolio</a
@@ -109,7 +109,7 @@
           </li>
           <li>
             <a
-              href="#/blog"
+              href="/blog"
               class="hover:text-brand-accent transition-colors flex items-center gap-2"
               ><i class="fa-solid fa-newspaper w-4 text-brand-accent/60"
               ></i>Insights</a
@@ -127,7 +127,7 @@
         </h4>
         <ul class="space-y-3 text-sm text-brand-textSec font-light">
           <li>
-            <a href="#/about" class="hover:text-brand-accent transition-colors"
+            <a href="/about" class="hover:text-brand-accent transition-colors"
               >Tentang Kami</a
             >
           </li>
@@ -140,7 +140,7 @@
           </li>
           <li>
             <a
-              href="#/contact"
+              href="/contact"
               class="hover:text-brand-accent transition-colors">Kontak</a
             >
           </li>
