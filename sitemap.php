@@ -36,15 +36,27 @@ function xmlEsc($str) {
 // ── Collect all URLs ──────────────────────────────────────────────────────────
 $urls = [];
 
+// Fetch latest dates for dynamic index pages
+$latest_project_date = date('Y-m-d');
+$latest_article_date = date('Y-m-d');
+
+try {
+    $lp = $pdo->query("SELECT MAX(COALESCE(updated_at, created_at)) FROM projects")->fetchColumn();
+    if ($lp) $latest_project_date = w3cDate($lp);
+    
+    $la = $pdo->query("SELECT MAX(COALESCE(updated_at, created_at)) FROM articles")->fetchColumn();
+    if ($la) $latest_article_date = w3cDate($la);
+} catch (Exception $e) {}
+
 // 1. Static pages — clean URLs (no hash, fully indexable by Google)
 $static_pages = [
-    ['loc' => '/',         'priority' => '1.0', 'changefreq' => 'weekly',  'lastmod' => date('Y-m-d')],
-    ['loc' => '/build',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
-    ['loc' => '/rescue',   'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
-    ['loc' => '/boost',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
+    ['loc' => '/',         'priority' => '1.0', 'changefreq' => 'weekly',  'lastmod' => max($latest_project_date, $latest_article_date)],
+    ['loc' => '/build',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => $latest_project_date],
+    ['loc' => '/rescue',   'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => $latest_project_date],
+    ['loc' => '/boost',    'priority' => '0.9', 'changefreq' => 'monthly', 'lastmod' => $latest_project_date],
     ['loc' => '/about',    'priority' => '0.8', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
-    ['loc' => '/projects', 'priority' => '0.8', 'changefreq' => 'weekly',  'lastmod' => date('Y-m-d')],
-    ['loc' => '/blog',     'priority' => '0.8', 'changefreq' => 'daily',   'lastmod' => date('Y-m-d')],
+    ['loc' => '/projects', 'priority' => '0.8', 'changefreq' => 'weekly',  'lastmod' => $latest_project_date],
+    ['loc' => '/blog',     'priority' => '0.8', 'changefreq' => 'daily',   'lastmod' => $latest_article_date],
     ['loc' => '/contact',  'priority' => '0.7', 'changefreq' => 'monthly', 'lastmod' => date('Y-m-d')],
 ];
 
@@ -97,7 +109,7 @@ try {
             'loc'        => '/blog?category=' . urlencode($cat['slug']),
             'priority'   => '0.5',
             'changefreq' => 'weekly',
-            'lastmod'    => date('Y-m-d'),
+            'lastmod'    => $latest_article_date,
         ];
     }
 } catch (Exception $e) {}
