@@ -1,6 +1,5 @@
 <script>
   import { api } from '../lib/api.js';
-  import { goToSection } from '../lib/nav.js';
 
   export let slug = '';
 
@@ -104,7 +103,7 @@
             </div>
 
             <div class="mt-8 pt-6 border-t border-brand-border">
-              <a href="/" on:click|preventDefault={() => goToSection('contact')} class="block w-full text-center bg-brand-accent text-white py-3.5 rounded-xl font-bold text-sm hover:-translate-y-0.5 transition-all shadow-lg shadow-brand-accent/30">
+              <a href="/contact" class="block w-full text-center bg-brand-accent text-white py-3.5 rounded-xl font-bold text-sm hover:-translate-y-0.5 transition-all shadow-lg shadow-brand-accent/30">
                 Proyek Serupa? Hubungi Kami
               </a>
             </div>
