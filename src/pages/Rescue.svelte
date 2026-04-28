@@ -107,14 +107,4 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-24 bg-teal-600">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="font-heading text-3xl md:text-4xl font-black text-white mb-6">Sistem Anda Dalam Bahaya?</h2>
-    <p class="text-teal-100 font-light text-lg mb-10">Jangan tunggu lebih lama. Setiap menit downtime merugikan bisnis Anda.</p>
-    <a href="https://wa.me/6285156625480?text=RESCUE%20DARURAT" target="_blank" rel="noopener"
-       class="inline-flex items-center gap-3 bg-white text-teal-600 px-10 py-5 rounded-full font-black text-lg shadow-2xl hover:-translate-y-1 transition-all">
-      <i class="fa-brands fa-whatsapp text-green-500"></i> Minta RESCUE Sekarang
-    </a>
-  </div>
-</section>
+

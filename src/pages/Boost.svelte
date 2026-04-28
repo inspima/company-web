@@ -105,13 +105,4 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-24 bg-orange-500">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="font-heading text-3xl md:text-4xl font-black text-white mb-6">Siap Skalakan Bisnis Anda?</h2>
-    <p class="text-orange-100 font-light text-lg mb-10">Mulai dengan audit gratis — kami identifikasi potensi optimasi dalam sistem Anda.</p>
-    <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-3 bg-white text-orange-500 px-10 py-5 rounded-full font-black text-lg shadow-2xl hover:-translate-y-1 transition-all">
-      Minta Audit Gratis <i class="fa-solid fa-arrow-right"></i>
-    </a>
-  </div>
-</section>
+

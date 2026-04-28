@@ -124,18 +124,4 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-24 bg-brand-accent">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="font-heading text-3xl md:text-4xl font-black text-white mb-6">Siap Membangun Produk Impian?</h2>
-    <p class="text-blue-100 font-light text-lg mb-10">Konsultasi gratis, tanpa komitmen. Ceritakan ide Anda dan kami bantu wujudkan.</p>
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="#/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-white text-brand-accent px-8 py-4 rounded-full font-bold shadow-xl hover:-translate-y-1 transition-all">
-        Hubungi Kami <i class="fa-solid fa-arrow-right"></i>
-      </a>
-      <a href="https://wa.me/6285156625480" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:-translate-y-1 transition-all">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
+
