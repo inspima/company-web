@@ -2,3 +2,5 @@ db.php
 db_inspima.sql
 /node_modules
 .DS_Store
+/assets/images/articles
+/assets/images/projects
