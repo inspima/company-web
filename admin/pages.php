@@ -26,6 +26,8 @@ $pageIcons = [
     'boost'   => 'fa-rocket',
     'blog'    => 'fa-newspaper',
     'projects'=> 'fa-briefcase',
+    'about'   => 'fa-building-user',
+    'contact' => 'fa-paper-plane',
 ];
 ?>
 <!DOCTYPE html>
@@ -78,7 +80,7 @@ $pageIcons = [
                     $slug  = $p['slug'] ?? 'home';
                     $icon  = $pageIcons[$slug] ?? 'fa-file';
                     $title = ucfirst($p['title'] ?? $slug);
-                    $url   = $slug === 'home' ? 'inspima.id/' : 'inspima.id/' . $slug;
+                    $url   = 'inspima.id' . ($slug === 'home' ? '/' : '/' . $slug);
                 ?>
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                     <!-- Page header -->

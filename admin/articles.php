@@ -367,14 +367,14 @@ if (isset($_GET['delete'])) {
                                 <label class="text-xs font-bold text-slate-600 uppercase tracking-wider">Meta Title *</label>
                                 <span id="title_counter" class="text-[10px] text-slate-400 font-bold">0 / 60</span>
                             </div>
-                            <input type="text" name="meta_title" id="meta_title" maxlength="100" value="<?= htmlspecialchars($art['meta_title']) ?>" placeholder="Judul di hasil pencarian Google..."
+                            <input type="text" name="meta_title" id="meta_title" maxlength="100" value="<?= htmlspecialchars($art['meta_title'] ?? '') ?>" placeholder="Judul di hasil pencarian Google..."
                                 class="w-full border border-slate-200 bg-slate-50 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all">
                             <p class="text-[10px] text-slate-400 mt-1">Target: 50–60 karakter</p>
                         </div>
                         <div class="space-y-3">
                             <div>
                                 <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">Primary Keyword</label>
-                                <input type="text" name="keyphrase" value="<?= htmlspecialchars($art['keyphrase']) ?>" placeholder="e.g. strategi keamanan API"
+                                <input type="text" name="keyphrase" value="<?= htmlspecialchars($art['keyphrase'] ?? '') ?>" placeholder="e.g. strategi keamanan API"
                                     class="w-full border border-slate-200 bg-slate-50 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all">
                             </div>
                             <div>
@@ -390,7 +390,7 @@ if (isset($_GET['delete'])) {
                             <span id="desc_counter" class="text-[10px] text-slate-400 font-bold">0 / 155</span>
                         </div>
                         <textarea name="meta_desc" id="meta_desc" rows="3" maxlength="300" placeholder="Deskripsi menarik untuk Google (120–155 karakter)..."
-                            class="w-full border border-slate-200 bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all resize-none"><?= htmlspecialchars($art['meta_desc']) ?></textarea>
+                            class="w-full border border-slate-200 bg-slate-50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all resize-none"><?= htmlspecialchars($art['meta_desc'] ?? '') ?></textarea>
                     </div>
                 </div>
 

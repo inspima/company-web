@@ -28,10 +28,12 @@ copy('api.php',       'api.php');
 copy('db.php',        'db.php');
 copy('assets/images', 'assets/images');
 
-// Copy built vite.html ke root/index.html agar Herd langsung menemukannya
-// (source template tetap di vite.html, tidak pernah ditimpa)
-cpSync(resolve(dist, 'vite.html'), resolve(root, 'index.html'));
-console.log('  [ok]   dist/vite.html → index.html (root)');
+// Salin vite.html ke dist/ agar index.php bisa membacanya
+// (index.php ada di root dan membaca dist/vite.html untuk inject meta SEO dinamis)
+console.log('  [ok]   dist/vite.html tersedia untuk index.php');
+
+// Salin index.php ke dist juga (opsional, untuk referensi)
+copy('index.php', 'index.php');
 
 console.log('\n✅ Done!\n');
 console.log('   Herd tetap serve dari root inspima/ — tidak perlu konfigurasi tambahan.\n');

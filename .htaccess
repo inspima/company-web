@@ -12,5 +12,5 @@ RewriteCond %{REQUEST_URI} ^/api\.php [OR]
 RewriteCond %{REQUEST_URI} ^/sitemap
 RewriteRule ^ - [L]
 
-# Serve the SPA entry point for all other routes
-RewriteRule ^ /index.html [L]
+# Serve PHP entry point — handles dynamic SEO meta injection
+RewriteRule ^ /index.php [L]

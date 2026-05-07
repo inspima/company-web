@@ -49,7 +49,7 @@ switch ($action) {
                     p.pilar_build, p.pilar_rescue, p.pilar_boost,
                     c.name as category_name
              FROM projects p LEFT JOIN categories c ON p.category_id = c.id
-             ORDER BY p.id DESC LIMIT 6"
+             ORDER BY p.id DESC LIMIT 3"
         )->fetchAll();
         foreach ($projects as &$row) {
             $row['image_url'] = imgPath($row['image'], 'projects');
