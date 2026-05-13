@@ -68,7 +68,7 @@
 
       {#if art.image_url}
         <div class="rounded-[2.5rem] overflow-hidden mb-12 border border-brand-border">
-          <img src={art.image_url} alt={art.title} class="w-full object-cover max-h-[500px]">
+          <img src={art.image_url} alt={art.title} loading="lazy" decoding="async" class="w-full object-cover max-h-[500px]">
         </div>
       {/if}
     </div>
@@ -109,7 +109,7 @@
             <a href="/article/{r.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
               <div class="h-44 overflow-hidden bg-brand-main p-3">
                 {#if r.image_url}
-                  <img src={r.image_url} alt={r.title} class="w-full h-full object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700">
+                  <img src={r.image_url} alt={r.title} loading="lazy" decoding="async" class="w-full h-full object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700">
                 {:else}
                   <div class="w-full h-full rounded-2xl flex items-center justify-center bg-brand-main border border-white/5 text-brand-textSec/10">
                     <i class="fa-solid fa-newspaper text-6xl"></i>

@@ -2,21 +2,11 @@
 session_start();
 if(!isset($_SESSION['admin_logged_in'])) { header("Location: /admin/login.php"); exit; }
 require_once '../db.php';
+require_once '_image_helper.php';
 
 $action = $_GET['action'] ?? 'list';
 $msg = '';
 $msg_type = 'green';
-
-function uploadImage($fileKey, $uploadDir) {
-    if (empty($_FILES[$fileKey]['name'])) return '';
-    $file = $_FILES[$fileKey];
-    $ext  = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-    if (!in_array($ext, ['jpg','jpeg','png','webp','gif'])) return 'ERR:format';
-    if ($file['size'] > 5 * 1024 * 1024) return 'ERR:size';
-    $newName = uniqid('art_') . '.' . $ext;
-    if (move_uploaded_file($file['tmp_name'], $uploadDir . $newName)) return $newName;
-    return '';
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id          = $_POST['id'] ?? '';
@@ -41,9 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uploadDir = '../assets/images/articles/';
     if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 
-    $uploaded = uploadImage('featured_image_file', $uploadDir);
+    $uploaded = processUploadedImage('featured_image_file', $uploadDir, 'art', 1400, 1050);
     if (strpos($uploaded, 'ERR:') === 0) {
-        $msg = $uploaded === 'ERR:format' ? 'Format gambar tidak diizinkan (jpg/png/webp/gif).' : 'Ukuran gambar melebihi 5MB.';
+        $msg = $uploaded === 'ERR:format' ? 'Format gambar tidak diizinkan (jpg/png/webp/gif).' : 'Ukuran gambar melebihi 10MB.';
         $msg_type = 'red';
         $uploaded = '';
     }

@@ -2,6 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin_logged_in'])) { header("Location: /admin/login.php"); exit; }
 require_once '../db.php';
+require_once '_image_helper.php';
 
 // Auto-create tables
 try {
@@ -68,16 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Handle photo upload
             $photoName = '';
             if (!empty($_FILES['photo']['name'])) {
-                $ext      = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
-                $allowed  = ['jpg','jpeg','png','webp'];
-                if (!in_array($ext, $allowed)) {
+                $uploaded = processUploadedImage('photo', '../assets/images/team/', 'team', 600, 600);
+                if ($uploaded === 'ERR:format') {
                     $msg = 'Format foto tidak didukung. Gunakan JPG, PNG, atau WEBP.';
                     $msgType = 'error';
-                } else {
-                    $dir = '../assets/images/team/';
-                    if (!is_dir($dir)) mkdir($dir, 0755, true);
-                    $photoName = uniqid('team_') . '.' . $ext;
-                    move_uploaded_file($_FILES['photo']['tmp_name'], $dir . $photoName);
+                } elseif ($uploaded) {
+                    $photoName = $uploaded;
                 }
             }
 
@@ -104,15 +101,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $photoClause = '';
         $params      = [$name, $role, $bio, $linkedin_url, $sort_order, $is_active];
         if (!empty($_FILES['photo']['name'])) {
-            $ext     = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
-            $allowed = ['jpg','jpeg','png','webp'];
-            if (in_array($ext, $allowed)) {
-                $dir = '../assets/images/team/';
-                if (!is_dir($dir)) mkdir($dir, 0755, true);
-                $photoName = uniqid('team_') . '.' . $ext;
-                move_uploaded_file($_FILES['photo']['tmp_name'], $dir . $photoName);
+            $uploaded = processUploadedImage('photo', '../assets/images/team/', 'team', 600, 600);
+            if ($uploaded && strpos($uploaded, 'ERR:') !== 0) {
                 $photoClause = ', photo=?';
-                $params[]    = $photoName;
+                $params[]    = $uploaded;
             }
         }
         $params[] = $id;

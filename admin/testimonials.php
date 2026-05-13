@@ -5,6 +5,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
     exit;
 }
 require_once '../db.php';
+require_once '_image_helper.php';
 
 $action = $_GET['action'] ?? 'list';
 $msg = '';
@@ -30,15 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!is_dir($uploadDir))
         mkdir($uploadDir, 0755, true);
 
-    $image = '';
-    if (!empty($_FILES['image_file']['name'])) {
-        $file = $_FILES['image_file'];
-        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
-            $image = uniqid('testi_') . '.' . $ext;
-            move_uploaded_file($file['tmp_name'], $uploadDir . $image);
-        }
-    }
+    $image = processUploadedImage('image_file', $uploadDir, 'testi', 400, 400);
 
     if ($id) {
         if (!$image) {

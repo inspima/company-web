@@ -53,6 +53,17 @@
     );
     document.querySelectorAll(".reveal").forEach((el) => revObs.observe(el));
 
+    // ── Lazy image fade-in (via onload) ──────────────────────────────────
+    function setupImgFade() {
+      document.querySelectorAll("img.img-fade").forEach((img) => {
+        if (img.complete) {
+          img.classList.add("loaded");
+        } else {
+          img.addEventListener("load", () => img.classList.add("loaded"), { once: true });
+        }
+      });
+    }
+
     // ── Fetch data ────────────────────────────────────────────────────────
     try {
       data = await api.home();
@@ -62,6 +73,7 @@
           document
             .querySelectorAll(".reveal")
             .forEach((el) => revObs.observe(el));
+          setupImgFade();
         });
       });
     } catch (e) {
@@ -513,7 +525,9 @@
                 <img
                   src={proj.image_url}
                   alt={proj.title}
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 img-fade"
                 />
               {:else}
                 <div
@@ -616,7 +630,9 @@
                 <img
                   src={art.image_url}
                   alt={art.title}
-                  class="w-full h-full object-cover rounded-[1.5rem] group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover rounded-[1.5rem] group-hover:scale-110 transition-transform duration-700 img-fade"
                 />
               {:else}
                 <div
@@ -734,6 +750,15 @@
 </section>
 
 <style>
+  /* ── Lazy load fade-in ──────────────────────────────────────────────── */
+  :global(.img-fade) {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  :global(.img-fade.loaded) {
+    opacity: 1;
+  }
+
   /* ── Hero Section ──────────────────────────────────────────────────── */
   .hero-section {
     position: relative;

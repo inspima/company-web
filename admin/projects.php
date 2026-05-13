@@ -2,20 +2,11 @@
 session_start();
 if(!isset($_SESSION['admin_logged_in'])) { header("Location: /admin/login.php"); exit; }
 require_once '../db.php';
+require_once '_image_helper.php';
 
 $action = $_GET['action'] ?? 'list';
 $msg = '';
 $msg_type = 'green';
-
-function uploadImg($key, $dir) {
-    if (empty($_FILES[$key]['name'])) return '';
-    $file = $_FILES[$key];
-    $ext  = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-    if (!in_array($ext, ['jpg','jpeg','png','webp','gif'])) return 'ERR:format';
-    if ($file['size'] > 5*1024*1024) return 'ERR:size';
-    $name = uniqid('proj_') . '.' . $ext;
-    return move_uploaded_file($file['tmp_name'], $dir . $name) ? $name : '';
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id          = $_POST['id'] ?? '';
@@ -52,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ['file_key'=>'image_4_file','name_key'=>'image_4_name','alt_key'=>'image_4_alt','db_img'=>'image_4','db_name'=>'image_4_name','db_alt'=>'image_4_alt'],
     ];
     foreach ($imgFields as $f) {
-        $uploaded = uploadImg($f['file_key'], $dir);
+        $uploaded = processUploadedImage($f['file_key'], $dir, 'proj', 1920, 1440);
         if (strpos((string)$uploaded, 'ERR:') === 0) { $msg = 'Error upload: ' . $f['file_key']; $msg_type='red'; $uploaded=''; }
         $imgs[$f['db_img']]  = $uploaded ?: ($old[$f['db_img']] ?? '');
         $imgs[$f['db_name']] = trim($_POST[$f['name_key']] ?? '');
