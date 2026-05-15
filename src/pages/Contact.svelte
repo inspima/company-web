@@ -1,5 +1,6 @@
 <script>
   import { api } from '../lib/api.js';
+  import Icon from '../lib/Icon.svelte';
 
   let form = { name: '', email: '', phone: '', service: '', message: '' };
   let sending = false;
@@ -45,8 +46,8 @@
         <div class="bg-brand-container rounded-3xl p-8 md:p-10 border border-brand-border">
           {#if sent}
             <div class="text-center py-12">
-              <div class="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-green-500/20">
-                <i class="fa-solid fa-check text-3xl text-green-500"></i>
+              <div class="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-green-500/20 text-green-500">
+                <Icon name="check" size={36} />
               </div>
               <h3 class="text-xl font-bold text-brand-textMain mb-2">Pesan Terkirim!</h3>
               <p class="text-brand-textSec font-light mb-6">Tim kami akan menghubungi Anda secepatnya.</p>
@@ -97,15 +98,15 @@
               </div>
               {#if formError}
                 <p class="text-red-500 text-sm flex items-center gap-2">
-                  <i class="fa-solid fa-circle-exclamation"></i> {formError}
+                  <Icon name="warning" size={16} /> {formError}
                 </p>
               {/if}
               <button type="submit" disabled={sending}
                 class="w-full bg-brand-accent text-white py-4 rounded-xl font-bold text-sm shadow-lg shadow-brand-accent/20 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-not-allowed border-0 cursor-pointer">
                 {#if sending}
-                  <i class="fa-solid fa-spinner animate-spin mr-2"></i>Mengirim...
+                  <Icon name="spinner" size={16} cls="animate-spin mr-2" />Mengirim...
                 {:else}
-                  <i class="fa-solid fa-paper-plane mr-2"></i>Kirim Pesan
+                  <Icon name="paper-plane" size={16} cls="mr-2" />Kirim Pesan
                 {/if}
               </button>
             </form>
@@ -121,8 +122,8 @@
           <h3 class="font-bold text-brand-textMain mb-6 text-sm uppercase tracking-widest">Info Kontak</h3>
           <ul class="space-y-5">
             <li class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-xl bg-brand-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-solid fa-location-dot text-brand-accent text-sm"></i>
+              <div class="w-9 h-9 rounded-xl icon-blue flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="location" size={16} />
               </div>
               <div>
                 <div class="text-xs text-brand-textSec font-semibold uppercase tracking-wider mb-0.5">Alamat</div>
@@ -130,13 +131,13 @@
                 <div class="text-xs text-brand-textSec mb-2">Indonesia</div>
                 <a href="https://maps.app.goo.gl/q2XFHadifQ3dmhyf9?g_st=atm" target="_blank" rel="noopener" 
                    class="text-[10px] font-bold text-brand-accent hover:underline flex items-center gap-1">
-                   <i class="fa-solid fa-diamond-turn-right text-[9px]"></i> Petunjuk Arah
+                   <Icon name="arrow-up-right" size={10} /> Petunjuk Arah
                 </a>
               </div>
             </li>
             <li class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-xl bg-brand-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-solid fa-envelope text-brand-accent text-sm"></i>
+              <div class="w-9 h-9 rounded-xl icon-sky flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="envelope" size={16} />
               </div>
               <div>
                 <div class="text-xs text-brand-textSec font-semibold uppercase tracking-wider mb-0.5">Email</div>
@@ -144,8 +145,8 @@
               </div>
             </li>
             <li class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-brands fa-whatsapp text-green-500 text-sm"></i>
+              <div class="w-9 h-9 rounded-xl icon-green flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="whatsapp" size={16} />
               </div>
               <div>
                 <div class="text-xs text-brand-textSec font-semibold uppercase tracking-wider mb-0.5">WhatsApp</div>
@@ -153,8 +154,8 @@
               </div>
             </li>
             <li class="flex items-start gap-4">
-              <div class="w-9 h-9 rounded-xl bg-brand-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fa-solid fa-clock text-brand-accent text-sm"></i>
+              <div class="w-9 h-9 rounded-xl icon-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Icon name="clock" size={16} />
               </div>
               <div>
                 <div class="text-xs text-brand-textSec font-semibold uppercase tracking-wider mb-0.5">Jam Kerja</div>
@@ -168,7 +169,7 @@
         <!-- WhatsApp CTA -->
         <div class="bg-green-500 rounded-3xl p-6 text-white">
           <div class="flex items-center gap-3 mb-4">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <Icon name="whatsapp" size={28} />
             <div>
               <div class="font-bold text-sm">Chat Langsung via WhatsApp</div>
               <div class="text-green-100 text-xs">Biasanya dibalas dalam 1 jam</div>
@@ -182,7 +183,7 @@
 
         <!-- Response guarantee -->
         <div class="bg-brand-container rounded-2xl px-5 py-4 border border-brand-border flex items-center gap-3">
-          <i class="fa-solid fa-bolt text-brand-accent text-lg flex-shrink-0"></i>
+          <span class="text-brand-accent flex-shrink-0"><Icon name="performance" size={20} /></span>
           <p class="text-xs text-brand-textSec leading-relaxed">
             Kami berkomitmen membalas setiap pesan dalam <span class="font-bold text-brand-textMain">waktu kurang dari 2 jam</span> di hari kerja.
           </p>
@@ -199,16 +200,16 @@
     <p class="text-sm text-brand-textSec font-light mb-8">Belum tahu butuh layanan apa? Pelajari dulu pilihan kami.</p>
     <div class="flex flex-wrap justify-center gap-3">
       <a href="/build"  class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-brand-accent/50 hover:text-brand-accent transition-all">
-        <i class="fa-solid fa-hammer text-brand-accent text-xs"></i> BUILD
+        <span class="text-brand-accent"><Icon name="layers" size={14} /></span> BUILD
       </a>
       <a href="/rescue" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-teal-500/50 hover:text-teal-500 transition-all">
-        <i class="fa-solid fa-life-ring text-teal-500 text-xs"></i> RESCUE
+        <span class="text-teal-500"><Icon name="wrench" size={14} /></span> RESCUE
       </a>
       <a href="/boost"  class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-orange-400/50 hover:text-orange-400 transition-all">
-        <i class="fa-solid fa-rocket text-orange-400 text-xs"></i> BOOST
+        <span class="text-orange-400"><Icon name="rocket" size={14} /></span> BOOST
       </a>
       <a href="/projects" class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-brand-accent/50 hover:text-brand-accent transition-all">
-        <i class="fa-solid fa-briefcase text-brand-accent text-xs"></i> Lihat Portfolio
+        <span class="text-brand-accent"><Icon name="briefcase" size={14} /></span> Lihat Portfolio
       </a>
     </div>
   </div>

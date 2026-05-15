@@ -1,5 +1,6 @@
 <script>
   import { api } from '../lib/api.js';
+  import Icon from '../lib/Icon.svelte';
 
   export let slug = '';
 
@@ -34,7 +35,7 @@
   </div>
 {:else if error}
   <div class="flex flex-col items-center justify-center min-h-screen gap-4 text-center px-4">
-    <i class="fa-solid fa-triangle-exclamation text-5xl text-brand-textSec/30"></i>
+    <span class="text-5xl text-brand-textSec/30"><Icon name="warning" size={48} /></span>
     <h2 class="text-2xl font-bold text-brand-textMain">{error}</h2>
     <a href="/blog" class="text-brand-accent font-semibold hover:underline">← Kembali ke Blog</a>
   </div>
@@ -46,9 +47,9 @@
       <!-- Breadcrumb -->
       <div class="flex items-center gap-2 text-xs text-brand-textSec mb-8">
         <a href="/" class="hover:text-brand-accent transition-colors">Home</a>
-        <i class="fa-solid fa-chevron-right text-[8px]"></i>
+        <span class="opacity-40"><Icon name="chevron-right" size={10} /></span>
         <a href="/blog" class="hover:text-brand-accent transition-colors">Insights</a>
-        <i class="fa-solid fa-chevron-right text-[8px]"></i>
+        <span class="opacity-40"><Icon name="chevron-right" size={10} /></span>
         <span class="text-brand-textMain line-clamp-1">{art.title}</span>
       </div>
 
@@ -58,7 +59,7 @@
           <span class="bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">{art.category_name}</span>
         {/if}
         <span class="flex items-center gap-1.5 text-xs text-brand-textSec">
-          <i class="fa-regular fa-calendar-check text-brand-accent"></i>
+          <span class="text-brand-accent"><Icon name="clock" size={12} /></span>
           {new Date(art.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
         </span>
         <span class="text-xs text-brand-textSec">{art.read_time} min read</span>
@@ -86,14 +87,14 @@
         <div class="flex items-center gap-3 text-sm text-brand-textSec">
           <span class="font-semibold">Share:</span>
           <a href="https://twitter.com/intent/tweet?text={encodeURIComponent(art.title)}&url={encodeURIComponent(window.location.href)}" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-brand-container border border-brand-border flex items-center justify-center text-brand-textSec hover:text-white hover:bg-[#1da1f2] hover:border-[#1da1f2] transition-all">
-            <i class="fa-brands fa-x-twitter text-sm"></i>
+            <Icon name="twitter" size={14} />
           </a>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url={encodeURIComponent(window.location.href)}" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-brand-container border border-brand-border flex items-center justify-center text-brand-textSec hover:text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition-all">
-            <i class="fa-brands fa-linkedin-in text-sm"></i>
+            <Icon name="linkedin" size={14} />
           </a>
         </div>
         <a href="/blog" class="text-brand-accent font-semibold text-sm flex items-center gap-2 hover:gap-4 transition-all">
-          <i class="fa-solid fa-arrow-left text-xs"></i> Semua Artikel
+          <Icon name="arrow-left" size={12} /> Semua Artikel
         </a>
       </div>
     </div>
@@ -112,7 +113,7 @@
                   <img src={r.image_url} alt={r.title} loading="lazy" decoding="async" class="w-full h-full object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700">
                 {:else}
                   <div class="w-full h-full rounded-2xl flex items-center justify-center bg-brand-main border border-white/5 text-brand-textSec/10">
-                    <i class="fa-solid fa-newspaper text-6xl"></i>
+                    <Icon name="newspaper" size={56} />
                   </div>
                 {/if}
               </div>

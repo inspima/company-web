@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
   import { goToSection } from '../lib/nav.js';
+  import Icon from '../lib/Icon.svelte';
 
   let data = null;
 
@@ -28,10 +29,10 @@
       <div class="flex flex-wrap gap-4">
         <a href="https://wa.me/6285156625480?text=RESCUE%20-%20Butuh%20bantuan%20darurat!" target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 bg-teal-500 text-white px-8 py-4 rounded-full font-bold shadow-2xl shadow-teal-500/30 hover:-translate-y-1 transition-all">
-          <i class="fa-solid fa-bolt"></i> Emergency RESCUE
+          <Icon name="performance" size={16} /> Emergency RESCUE
         </a>
         <a href="/" on:click|preventDefault={() => goToSection('contact')} class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-8 py-4 rounded-full font-bold hover:border-teal-500/50 hover:-translate-y-1 transition-all">
-          Konsultasi <i class="fa-solid fa-comments"></i>
+          Konsultasi <Icon name="chat" size={16} />
         </a>
       </div>
     </div>
@@ -65,16 +66,16 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {#each [
-        { icon: 'fa-solid fa-bug', title: 'Bug Critical Fix', desc: 'Identifikasi dan perbaikan bug kritis yang menyebabkan downtime atau data corruption dalam tempo singkat.' },
-        { icon: 'fa-solid fa-server', title: 'Server Recovery', desc: 'Pemulihan server yang crash, database corrupt, atau konfigurasi yang salah setelah update.' },
-        { icon: 'fa-solid fa-shield-virus', title: 'Security Incident', desc: 'Penanganan serangan siber, injeksi malware, dan pemulihan keamanan sistem dengan audit menyeluruh.' },
-        { icon: 'fa-solid fa-code-merge', title: 'Code Refactoring', desc: 'Restrukturisasi kode warisan (legacy) yang tidak terkelola menjadi arsitektur bersih dan maintainable.' },
-        { icon: 'fa-solid fa-gauge', title: 'Performance Fix', desc: 'Analisis dan optimasi performa — dari query database lambat hingga bottleneck pada level infrastruktur.' },
-        { icon: 'fa-solid fa-people-arrows', title: 'Team Takeover', desc: 'Ambil alih proyek yang ditinggal developer sebelumnya, dengan audit kode dan rencana recovery terstruktur.' },
+        { icon: 'bug',          icolor: 'teal',   title: 'Bug Critical Fix',   desc: 'Identifikasi dan perbaikan bug kritis yang menyebabkan downtime atau data corruption dalam tempo singkat.' },
+        { icon: 'server',       icolor: 'blue',   title: 'Server Recovery',    desc: 'Pemulihan server yang crash, database corrupt, atau konfigurasi yang salah setelah update.' },
+        { icon: 'shield-virus', icolor: 'sky', title: 'Security Incident',  desc: 'Penanganan serangan siber, injeksi malware, dan pemulihan keamanan sistem dengan audit menyeluruh.' },
+        { icon: 'merge',        icolor: 'orange', title: 'Code Refactoring',   desc: 'Restrukturisasi kode warisan (legacy) yang tidak terkelola menjadi arsitektur bersih dan maintainable.' },
+        { icon: 'gauge',        icolor: 'pink',   title: 'Performance Fix',    desc: 'Analisis dan optimasi performa — dari query database lambat hingga bottleneck pada level infrastruktur.' },
+        { icon: 'people',       icolor: 'green',  title: 'Team Takeover',      desc: 'Ambil alih proyek yang ditinggal developer sebelumnya, dengan audit kode dan rencana recovery terstruktur.' },
       ] as s}
         <div class="bg-brand-container rounded-3xl p-8 border border-brand-border card-glow hover:-translate-y-2 transition-all">
-          <div class="w-12 h-12 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-5">
-            <i class="{s.icon} text-teal-500"></i>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 icon-{s.icolor}">
+            <Icon name={s.icon} size={22} />
           </div>
           <h3 class="font-bold text-brand-textMain mb-3">{s.title}</h3>
           <p class="text-brand-textSec text-sm font-light leading-relaxed">{s.desc}</p>
@@ -90,7 +91,7 @@
     <div class="bg-brand-container rounded-[2.5rem] p-12 border border-brand-border">
       <div class="flex justify-center mb-6">
         {#each [1,2,3,4,5] as _}
-          <i class="fa-solid fa-star text-yellow-400 text-lg"></i>
+          <span class="text-yellow-400"><Icon name="star" size={20} /></span>
         {/each}
       </div>
       <p class="text-brand-textMain text-xl font-light leading-relaxed mb-8 italic">
@@ -106,5 +107,4 @@
     </div>
   </div>
 </section>
-
 

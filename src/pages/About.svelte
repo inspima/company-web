@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
+  import Icon from '../lib/Icon.svelte';
 
   let about = null;
   let team = [];
@@ -93,14 +94,14 @@
       <!-- Values -->
       <div class="space-y-4">
         {#each [
-          { icon: 'fa-handshake', title: 'Jujur & Transparan', desc: 'Kami bilang apa adanya — tidak ada biaya tersembunyi, tidak ada janji yang tidak bisa ditepati.' },
-          { icon: 'fa-medal',     title: 'Kualitas Dulu',      desc: 'Setiap baris kode dan setiap desain kami kerjakan dengan standar yang tidak kami kompromikan.' },
-          { icon: 'fa-headset',   title: 'Support Nyata',      desc: 'Kami tidak menghilang setelah proyek selesai. Anda bisa hubungi kami kapan pun butuh bantuan.' },
-          { icon: 'fa-bullseye',  title: 'Fokus pada Hasil',   desc: 'Bukan sekedar website yang cantik — kami fokus pada teknologi yang benar-benar berdampak untuk bisnis Anda.' },
+          { icon: 'handshake', color: 'blue',   title: 'Jujur & Transparan', desc: 'Kami bilang apa adanya — tidak ada biaya tersembunyi, tidak ada janji yang tidak bisa ditepati.' },
+          { icon: 'medal',     color: 'sky', title: 'Kualitas Dulu',      desc: 'Setiap baris kode dan setiap desain kami kerjakan dengan standar yang tidak kami kompromikan.' },
+          { icon: 'headset',   color: 'teal',   title: 'Support Nyata',      desc: 'Kami tidak menghilang setelah proyek selesai. Anda bisa hubungi kami kapan pun butuh bantuan.' },
+          { icon: 'target',    color: 'orange', title: 'Fokus pada Hasil',   desc: 'Bukan sekedar website yang cantik — kami fokus pada teknologi yang benar-benar berdampak untuk bisnis Anda.' },
         ] as v}
           <div class="flex items-start gap-4 p-5 bg-brand-container rounded-2xl border border-brand-border">
-            <div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fa-solid {v.icon} text-brand-accent text-sm"></i>
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 icon-{v.color}">
+              <Icon name={v.icon} size={18} />
             </div>
             <div>
               <div class="font-bold text-brand-textMain text-sm mb-1">{v.title}</div>
@@ -119,8 +120,8 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Mission -->
       <div class="bg-brand-container rounded-3xl p-10 border border-brand-border">
-        <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center mb-6">
-          <i class="fa-solid fa-compass text-brand-accent text-lg"></i>
+        <div class="w-12 h-12 rounded-2xl icon-blue flex items-center justify-center mb-6">
+          <Icon name="compass" size={22} />
         </div>
         <div class="text-[10px] font-black text-brand-accent uppercase tracking-[0.2em] mb-3">Misi</div>
         {#if loading}
@@ -134,8 +135,8 @@
       </div>
       <!-- Vision -->
       <div class="bg-brand-accent rounded-3xl p-10 text-white">
-        <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-          <i class="fa-solid fa-eye text-white text-lg"></i>
+        <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+          <Icon name="eye" size={22} cls="text-white" />
         </div>
         <div class="text-[10px] font-black text-white/70 uppercase tracking-[0.2em] mb-3">Visi</div>
         {#if loading}
@@ -178,7 +179,7 @@
               {#if member.bio}<p class="text-brand-textSec text-sm font-light leading-relaxed">{member.bio}</p>{/if}
               {#if member.linkedin_url}
                 <a href={member.linkedin_url} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-brand-textSec hover:text-brand-accent transition-colors">
-                  <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
+                  <Icon name="linkedin" size={14} /> LinkedIn
                 </a>
               {/if}
             </div>
@@ -189,6 +190,7 @@
   </section>
 {/if}
 
+
 <!-- Pillars -->
 <section class="py-20 bg-brand-container/50 border-t border-brand-border">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -198,13 +200,13 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       {#each [
-        { href: '/build',  label: 'BUILD',  tc: 'text-brand-accent', bg: 'bg-brand-accent', icon: 'fa-hammer',    desc: 'Bangun produk digital dari nol — website, aplikasi mobile, dan sistem enterprise.' },
-        { href: '/rescue', label: 'RESCUE', tc: 'text-teal-500',     bg: 'bg-teal-500',     icon: 'fa-life-ring',  desc: 'Selamatkan sistem yang bermasalah — dari bug kritis hingga server yang tidak stabil.' },
-        { href: '/boost',  label: 'BOOST',  tc: 'text-orange-400',   bg: 'bg-orange-500',   icon: 'fa-rocket',     desc: 'Tingkatkan performa dan skalabilitas sistem yang sudah berjalan.' },
+        { href: '/build',  label: 'BUILD',  tc: 'text-brand-accent', iname: 'layers',  icolor: 'blue',   desc: 'Bangun produk digital dari nol — website, aplikasi mobile, dan sistem enterprise.' },
+        { href: '/rescue', label: 'RESCUE', tc: 'text-teal-500',     iname: 'wrench',  icolor: 'teal',   desc: 'Selamatkan sistem yang bermasalah — dari bug kritis hingga server yang tidak stabil.' },
+        { href: '/boost',  label: 'BOOST',  tc: 'text-orange-400',   iname: 'rocket',  icolor: 'orange', desc: 'Tingkatkan performa dan skalabilitas sistem yang sudah berjalan.' },
       ] as p}
         <a href={p.href} class="group bg-brand-container rounded-3xl p-8 border border-brand-border hover:-translate-y-1 hover:shadow-lg transition-all">
-          <div class="w-12 h-12 {p.bg}/10 rounded-2xl flex items-center justify-center mb-5">
-            <i class="fa-solid {p.icon} {p.tc} text-lg"></i>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 icon-{p.icolor}">
+            <Icon name={p.iname} size={22} />
           </div>
           <div class="text-[10px] font-black {p.tc} uppercase tracking-[0.2em] mb-2">{p.label}</div>
           <p class="text-brand-textSec text-sm font-light leading-relaxed group-hover:text-brand-textMain transition-colors">{p.desc}</p>
@@ -213,5 +215,4 @@
     </div>
   </div>
 </section>
-
 

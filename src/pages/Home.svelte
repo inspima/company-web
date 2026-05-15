@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { api } from "../lib/api.js";
   import { navigate } from "../lib/nav.js";
+  import Icon from "../lib/Icon.svelte";
 
   let data = null;
   let loading = true;
@@ -86,7 +87,15 @@
 
 <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
 <section id="home" class="hero-section pt-24 pb-0">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0">
+  <div class="hero-tech-layer" aria-hidden="true">
+    <span class="tech-scan tech-scan-a"></span>
+    <span class="tech-scan tech-scan-b"></span>
+    <span class="tech-node tech-node-a"></span>
+    <span class="tech-node tech-node-b"></span>
+    <span class="tech-node tech-node-c"></span>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0" style="position:relative;z-index:1">
     <!-- Stats pill bar -->
     <div class="hero-stats-pill mb-10 reveal hidden lg:inline-flex">
       <div class="hero-stat-item">
@@ -130,7 +139,7 @@
             on:click={() => navigate('/contact')}
             class="hero-btn-primary"
           >
-            Mulai Proyek <i class="fa-solid fa-arrow-right text-xs"></i>
+            Mulai Proyek <Icon name="arrow" size={12} />
           </button>
           <a href="/projects" class="hero-btn-ghost"> Lihat Portofolio </a>
         </div>
@@ -145,11 +154,9 @@
             <span class="chrome-dot chrome-yellow"></span>
             <span class="chrome-dot chrome-green"></span>
             <div class="chrome-address">
-              <i class="fa-solid fa-lock text-[9px] mr-1" style="opacity:0.4"
-              ></i>
+              <Icon name="lock" size={9} cls="mr-1 opacity-40" />
               <span>inspima.dev / dashboard</span>
             </div>
-            <span class="chrome-version">v4.2</span>
           </div>
 
           <!-- Dashboard body -->
@@ -159,19 +166,19 @@
               <p class="sidebar-label">WORKSPACE</p>
               <ul class="sidebar-nav">
                 <li class="sidebar-item active">
-                  <i class="fa-solid fa-house-chimney sidebar-icon"></i> Overview
+                  <Icon name="home" size={10} cls="sidebar-icon" /> Overview
                 </li>
                 <li class="sidebar-item">
-                  <i class="fa-solid fa-diagram-project sidebar-icon"></i> Projects
+                  <Icon name="layers" size={10} cls="sidebar-icon" /> Projects
                 </li>
                 <li class="sidebar-item sidebar-sub">
-                  <i class="fa-solid fa-code-branch sidebar-icon"></i> Pipelines
+                  <Icon name="merge" size={10} cls="sidebar-icon" /> Pipelines
                 </li>
                 <li class="sidebar-item sidebar-sub">
-                  <i class="fa-solid fa-shield-halved sidebar-icon"></i> Monitoring
+                  <Icon name="shield" size={10} cls="sidebar-icon" /> Monitoring
                 </li>
                 <li class="sidebar-item">
-                  <i class="fa-solid fa-triangle-exclamation sidebar-icon"></i> Incidents
+                  <Icon name="warning" size={10} cls="sidebar-icon" /> Incidents
                 </li>
               </ul>
               <div class="sidebar-divider"></div>
@@ -329,7 +336,7 @@
               <div class="m-activity">
                 <div class="m-act-item">
                   <span class="m-act-dot" style="background:#22c55e"></span>
-                  <span class="m-act-text">Deploy <b>v2.4.1</b> berhasil</span>
+                  <span class="m-act-text">Deploy <b>production</b> berhasil</span>
                   <span class="m-act-time">2m</span>
                 </div>
                 <div class="m-act-item">
@@ -358,16 +365,16 @@
 </section>
 
 <!-- ── Stats ──────────────────────────────────────────────────────────── -->
-<section class="bg-brand-container border-y border-brand-border py-6">
+<section class="stats-bridge-section border-y border-blue-900/50 py-6">
   <div class="max-w-7xl mx-auto px-4">
     <div id="stats-strip" class="stats-strip">
-      {#each stats as s}
-        <div class="stats-item">
-          <div class="text-3xl font-black text-brand-accent font-heading">
+      {#each stats as s, i}
+        <div class="stats-item stats-item-{i}">
+          <div class="text-3xl font-black text-brand-accent font-heading stats-text-value">
             {s.value}{s.suffix}
           </div>
           <div
-            class="text-xs text-brand-textSec uppercase tracking-widest mt-1 font-semibold"
+            class="text-xs text-brand-textSec uppercase tracking-widest mt-1 font-semibold stats-text-label"
           >
             {s.label}
           </div>
@@ -392,7 +399,7 @@
       <!-- BUILD -->
       <a href="/build" class="svc-card group svc-card-build">
         <div class="svc-icon-wrap svc-color-blue">
-          <i class="fa-solid fa-cube"></i>
+          <Icon name="layers" size={26} />
         </div>
         <h3 class="svc-title">Build from Scratch</h3>
         <p class="svc-desc">
@@ -404,13 +411,13 @@
           <span class="svc-pill">FLUTTER</span>
           <span class="svc-pill">NODE.JS</span>
         </div>
-        <div class="svc-cta svc-color-blue">LEARN MORE <i class="fa-solid fa-arrow-right"></i></div>
+        <div class="svc-cta">LEARN MORE <Icon name="arrow" size={12} /></div>
       </a>
 
       <!-- RESCUE -->
       <a href="/rescue" class="svc-card group svc-card-rescue">
         <div class="svc-icon-wrap svc-color-green">
-          <i class="fa-solid fa-asterisk"></i>
+          <Icon name="wrench" size={26} />
         </div>
         <h3 class="svc-title">Fix &amp; Rescue</h3>
         <p class="svc-desc">
@@ -422,13 +429,13 @@
           <span class="svc-pill">SERVER MIGRATION</span>
           <span class="svc-pill">SECURITY AUDIT</span>
         </div>
-        <div class="svc-cta svc-color-green">LEARN MORE <i class="fa-solid fa-arrow-right"></i></div>
+        <div class="svc-cta">LEARN MORE <Icon name="arrow" size={12} /></div>
       </a>
 
       <!-- BOOST -->
       <a href="/boost" class="svc-card group svc-card-boost">
         <div class="svc-icon-wrap svc-color-yellow">
-          <i class="fa-solid fa-bolt"></i>
+          <Icon name="rocket" size={26} />
         </div>
         <h3 class="svc-title">Scale Up Your Business</h3>
         <p class="svc-desc">
@@ -440,7 +447,7 @@
           <span class="svc-pill">AUTOMATION</span>
           <span class="svc-pill">MONITORING</span>
         </div>
-        <div class="svc-cta svc-color-yellow">LEARN MORE <i class="fa-solid fa-arrow-right"></i></div>
+        <div class="svc-cta">LEARN MORE <Icon name="arrow" size={12} /></div>
       </a>
     </div>
   </div>
@@ -451,7 +458,7 @@
 <!-- ── Latest Projects ────────────────────────────────────────────────── -->
 <section
   id="portfolio"
-  class="py-32 bg-brand-container/50 border-t border-brand-border"
+  class="home-section-portfolio py-32 border-t border-brand-border"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
@@ -470,9 +477,9 @@
       </div>
       <a
         href="/projects"
-        class="mt-6 md:mt-0 text-brand-accent font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all"
+        class="section-cta section-cta-blue mt-6 md:mt-0"
       >
-        View All Projects <i class="fa-solid fa-arrow-right text-xs"></i>
+        View All Projects <Icon name="arrow" size={12} />
       </a>
     </div>
 
@@ -482,18 +489,14 @@
       <div
         class="text-center py-16 bg-brand-container rounded-3xl border border-brand-border"
       >
-        <i
-          class="fa-solid fa-triangle-exclamation text-3xl text-orange-400 mb-3 block"
-        ></i>
+        <Icon name="warning" size={32} cls="text-orange-400 mb-3 block" />
         <p class="text-brand-textSec text-sm">{apiError}</p>
       </div>
     {:else if !data?.projects?.length}
       <div
         class="text-center py-16 bg-brand-container rounded-3xl border border-brand-border"
       >
-        <i
-          class="fa-solid fa-folder-open text-4xl text-brand-textSec/30 mb-3 block"
-        ></i>
+        <Icon name="briefcase" size={40} cls="text-brand-textSec/30 mb-3 block" />
         <p class="text-brand-textSec font-light">
           Projects coming soon — stay tuned!
         </p>
@@ -533,7 +536,7 @@
                 <div
                   class="w-full h-full flex items-center justify-center text-brand-textSec/10"
                 >
-                  <i class="fa-solid fa-layer-group text-8xl rotate-12"></i>
+                  <Icon name="layers" size={80} cls="rotate-12" />
                 </div>
               {/if}
               <div
@@ -553,7 +556,7 @@
                   <div
                     class="text-[10px] text-brand-textSec font-bold uppercase tracking-widest flex items-center gap-1.5 opacity-60"
                   >
-                    <i class="fa-solid fa-user-tie text-[9px]"></i>
+                    <Icon name="people" size={9} />
                     {proj.client_name}
                   </div>
                 {/if}
@@ -567,10 +570,9 @@
                 {proj.description_short || ""}...
               </p>
               <div
-                class="mt-6 flex items-center gap-2 text-brand-accent font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all"
+                class="card-link-cta mt-6"
               >
-                View Case Study <i class="fa-solid fa-arrow-right text-[10px]"
-                ></i>
+                View Case Study <Icon name="arrow" size={10} />
               </div>
             </div>
           </a>
@@ -581,7 +583,7 @@
 </section>
 
 <!-- ── Latest Articles ────────────────────────────────────────────────── -->
-<section class="py-32 bg-brand-container/50 border-t border-brand-border">
+<section class="home-section-insights py-32 border-t border-brand-border">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
       class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal"
@@ -599,9 +601,9 @@
       </div>
       <a
         href="/blog"
-        class="mt-6 md:mt-0 text-brand-accent font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all"
+        class="section-cta section-cta-sky mt-6 md:mt-0"
       >
-        View All Articles <i class="fa-solid fa-arrow-right text-xs"></i>
+        View All Articles <Icon name="arrow" size={12} />
       </a>
     </div>
 
@@ -611,8 +613,7 @@
       <div
         class="text-center py-16 bg-brand-container rounded-3xl border border-brand-border"
       >
-        <i class="fa-solid fa-pencil text-4xl text-brand-textSec/30 mb-3 block"
-        ></i>
+        <Icon name="newspaper" size={40} cls="text-brand-textSec/30 mb-3 block" />
         <p class="text-brand-textSec font-light">
           Articles coming soon — stay tuned!
         </p>
@@ -638,7 +639,7 @@
                 <div
                   class="w-full h-full rounded-[1.5rem] flex items-center justify-center bg-brand-main border border-brand-border text-brand-textSec/10"
                 >
-                  <i class="fa-solid fa-newspaper text-7xl rotate-6"></i>
+                  <Icon name="newspaper" size={72} cls="rotate-6" />
                 </div>
               {/if}
               <div class="absolute top-8 left-8">
@@ -654,7 +655,7 @@
                 class="flex items-center gap-3 text-xs text-brand-textSec mb-4 font-medium"
               >
                 <span class="flex items-center gap-1">
-                  <i class="fa-regular fa-calendar-check text-brand-accent"></i>
+                  <Icon name="clock" size={12} cls="text-brand-accent" />
                   {new Date(art.created_at).toLocaleDateString("id-ID", {
                     day: "numeric",
                     month: "short",
@@ -673,10 +674,9 @@
                 {art.excerpt || ""}...
               </p>
               <div
-                class="mt-6 pt-5 border-t border-brand-border/50 flex items-center gap-2 text-brand-accent font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all"
+                class="card-link-cta mt-6 pt-5 border-t border-brand-border/50"
               >
-                Read Article <i class="fa-solid fa-chevron-right text-[10px]"
-                ></i>
+                Read Article <Icon name="chevron-right" size={10} />
               </div>
             </div>
           </a>
@@ -687,7 +687,7 @@
 </section>
 
 <!-- ── Testimonials ───────────────────────────────────────────────────── -->
-<section class="py-24 bg-brand-main border-t border-brand-border">
+<section class="home-section-testimonials py-24 border-t border-brand-border">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-14 reveal">
       <span
@@ -702,7 +702,7 @@
       {#if data && data.testimonials && data.testimonials.length > 0}
         {@const avatarColors = [
           'bg-blue-500/20 text-blue-500',
-          'bg-purple-500/20 text-purple-500',
+          'bg-sky-500/20 text-sky-600',
           'bg-emerald-500/20 text-emerald-500',
           'bg-orange-500/20 text-orange-500',
           'bg-pink-500/20 text-pink-500'
@@ -713,7 +713,7 @@
           >
             <div class="flex mb-4">
               {#each Array.from({ length: parseInt(t.stars) || 5 }) as _}
-                <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+                <Icon name="star" size={14} cls="text-yellow-400" />
               {/each}
             </div>
             <p
@@ -762,27 +762,127 @@
   /* ── Hero Section ──────────────────────────────────────────────────── */
   .hero-section {
     position: relative;
-    background-color: #ffffff;
+    background-color: rgb(var(--color-main));
     background-image:
-      /* Grid horizontal */
-      linear-gradient(rgba(30, 90, 230, 0.07) 1px, transparent 1px),
-      /* Grid vertical */
-      linear-gradient(90deg, rgba(30, 90, 230, 0.07) 1px, transparent 1px),
-      /* Blue→white diagonal gradient */
-      linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #ffffff 100%);
-    background-size: 64px 64px, 64px 64px, 100% 100%;
+      linear-gradient(180deg, rgb(255 255 255 / 0.9), rgb(244 249 255 / 0.78)),
+      radial-gradient(ellipse at 76% 16%, rgb(69 184 239 / 0.18) 0%, transparent 46%),
+      radial-gradient(ellipse at 12% 72%, rgb(21 68 230 / 0.09) 0%, transparent 42%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170' viewBox='0 0 170 170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+    background-size: auto, auto, auto, 170px 170px;
     border-bottom: 1px solid rgb(var(--color-border));
     min-height: calc(100vh - 4rem);
     padding-bottom: 0;
+    overflow: hidden;
+  }
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: auto;
+    background:
+      linear-gradient(90deg, rgb(21 68 230 / 0.055) 1px, transparent 1px),
+      linear-gradient(180deg, rgb(69 184 239 / 0.055) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(180deg, transparent 0%, black 16%, black 70%, transparent 100%);
+    animation: tech-grid-drift 18s linear infinite;
+    pointer-events: none;
+    z-index: 0;
   }
 
-  :global([data-theme="dark"]) .hero-section {
-    background-color: #090f1c;
-    background-image:
-      linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-      linear-gradient(135deg, #0f172a 0%, #090f1c 100%);
-    background-size: 64px 64px, 64px 64px, 100% 100%;
+
+  .hero-tech-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-tech-layer::before {
+    content: "";
+    position: absolute;
+    top: 18%;
+    right: 9%;
+    width: min(43vw, 560px);
+    height: min(43vw, 560px);
+    border: 1px solid rgb(21 68 230 / 0.12);
+    border-radius: 50%;
+    opacity: 0.72;
+    transform: rotate(-12deg);
+    animation: tech-orbit 14s ease-in-out infinite;
+  }
+
+  .hero-tech-layer::after {
+    content: "";
+    position: absolute;
+    top: -12%;
+    left: -20%;
+    width: 42%;
+    height: 130%;
+    background: linear-gradient(90deg, transparent, rgb(69 184 239 / 0.16), transparent);
+    transform: rotate(12deg);
+    animation: tech-sweep 8s ease-in-out infinite;
+  }
+
+  .tech-scan {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(21 68 230 / 0.28), rgb(69 184 239 / 0.38), transparent);
+    opacity: 0.62;
+  }
+
+  .tech-scan-a {
+    top: 30%;
+    left: 8%;
+    width: 34%;
+    animation: tech-line 6s ease-in-out infinite;
+  }
+
+  .tech-scan-b {
+    right: 7%;
+    bottom: 28%;
+    width: 42%;
+    animation: tech-line 7.5s ease-in-out infinite reverse;
+  }
+
+  .tech-node {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    background: #45b8ef;
+    box-shadow: 0 0 0 6px rgb(69 184 239 / 0.12), 0 0 22px rgb(21 68 230 / 0.25);
+    animation: tech-node 3.6s ease-in-out infinite;
+  }
+
+  .tech-node-a { top: 28%; left: 19%; }
+  .tech-node-b { top: 22%; right: 34%; animation-delay: -1.2s; }
+  .tech-node-c { bottom: 25%; right: 18%; animation-delay: -2.4s; }
+
+  @keyframes tech-grid-drift {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 44px 44px, 44px 44px; }
+  }
+
+  @keyframes tech-sweep {
+    0%, 42% { transform: translateX(-30%) rotate(12deg); opacity: 0; }
+    52% { opacity: 0.75; }
+    100% { transform: translateX(330%) rotate(12deg); opacity: 0; }
+  }
+
+  @keyframes tech-line {
+    0%, 100% { transform: translateX(-18px); opacity: 0.25; }
+    50% { transform: translateX(18px); opacity: 0.8; }
+  }
+
+  @keyframes tech-node {
+    0%, 100% { transform: scale(0.72); opacity: 0.42; }
+    50% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes tech-orbit {
+    0%, 100% { transform: rotate(-12deg) scale(1); opacity: 0.48; }
+    50% { transform: rotate(-6deg) scale(1.04); opacity: 0.8; }
   }
 
   .hero-stats-pill {
@@ -792,11 +892,13 @@
     .hero-stats-pill {
       display: inline-flex;
       align-items: center;
-      background: rgb(var(--color-main));
-      border: 1px solid rgb(var(--color-border));
+      background: rgb(255 255 255 / 0.68);
+      border: 1px solid rgb(255 255 255 / 0.78);
       border-radius: 99px;
       padding: 0.45rem 0.5rem;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(20px) saturate(165%);
+      -webkit-backdrop-filter: blur(20px) saturate(165%);
+      box-shadow: 0 16px 45px rgb(30 90 230 / 0.12);
       margin-bottom: 2.5rem;
     }
   }
@@ -880,17 +982,12 @@
     display: block;
     font-style: italic;
     font-weight: 900;
-    background: linear-gradient(135deg, #5b7dee 0%, #7c3aed 100%);
+    background: linear-gradient(135deg, #1544e6 0%, #45b8ef 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  :global([data-theme="dark"]) .hero-italic-accent {
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+
 
   .hero-subtext {
     font-size: 1rem;
@@ -911,7 +1008,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgb(var(--color-accent));
+    background: linear-gradient(135deg, #1544e6 0%, #45b8ef 100%);
     color: #fff;
     padding: 0.85rem 1.75rem;
     border-radius: 0.75rem;
@@ -919,7 +1016,7 @@
     font-size: 0.875rem;
     border: none;
     cursor: pointer;
-    box-shadow: 0 8px 24px rgb(var(--color-accent) / 0.3);
+    box-shadow: 0 12px 32px rgb(var(--color-accent) / 0.28);
     transition:
       transform 0.2s,
       filter 0.2s,
@@ -935,9 +1032,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgb(var(--color-main));
+    background: rgb(255 255 255 / 0.62);
     color: rgb(var(--color-text-main));
-    border: 1.5px solid rgb(var(--color-border));
+    border: 1.5px solid rgb(255 255 255 / 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 0.85rem 1.75rem;
     border-radius: 0.75rem;
     font-weight: 700;
@@ -968,13 +1067,15 @@
   }
 
   .hero-mockup {
-    background: rgb(var(--color-main));
-    border: 1px solid rgb(var(--color-border));
+    background: rgb(255 255 255 / 0.72);
+    backdrop-filter: blur(26px) saturate(170%);
+    -webkit-backdrop-filter: blur(26px) saturate(170%);
+    border: 1px solid rgb(255 255 255 / 0.78);
     border-radius: 1rem;
     overflow: hidden;
     box-shadow:
-      0 12px 32px rgba(0, 0, 0, 0.08),
-      0 24px 64px rgba(0, 0, 0, 0.12);
+      0 22px 55px rgb(30 90 230 / 0.14),
+      0 45px 110px rgb(69 184 239 / 0.1);
     animation: float-card 5s ease-in-out infinite;
   }
   @keyframes float-card {
@@ -994,7 +1095,7 @@
     gap: 0.4rem;
     padding: 0.6rem 0.9rem;
     border-bottom: 1px solid rgb(var(--color-border));
-    background: rgb(var(--color-container));
+    background: rgb(255 255 255 / 0.56);
   }
   .chrome-dot {
     width: 10px;
@@ -1014,8 +1115,8 @@
 
   .chrome-address {
     flex: 1;
-    background: rgb(var(--color-main));
-    border: 1px solid rgb(var(--color-border));
+    background: rgb(255 255 255 / 0.72);
+    border: 1px solid rgb(var(--color-border) / 0.72);
     border-radius: 6px;
     padding: 0.2rem 0.65rem;
     font-size: 0.65rem;
@@ -1023,12 +1124,6 @@
     margin: 0 0.5rem;
     display: flex;
     align-items: center;
-  }
-
-  .chrome-version {
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: rgb(var(--color-text-sec));
   }
 
   /* Body: sidebar + main */
@@ -1096,18 +1191,111 @@
 
 
 
+  /* ── Stats bridge — melts into hero without hard cut ───────────────── */
+  .stats-bridge-section {
+    position: relative;
+    /* Sama seperti footer-cta: biru tua #08245c, tanpa lingkaran */
+    background-color: #08245c;
+    background-image:
+      linear-gradient(135deg, #07205a 0%, #091e52 50%, #0a2260 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+    background-size: auto, 160px 160px;
+  }
+
   /* ── Services Section ─────────────────────────────────────────────── */
   .svc-section {
     padding: 8rem 0;
-    background: #fff;
+    /* Abu-abu dominan putih — netral, bersih, tidak biru */
+    background-color: #f7f8fa;
+    background-image:
+      linear-gradient(180deg, #f9fafb 0%, #f2f4f7 50%, #f7f8fa 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+    background-size: auto, 140px 140px;
   }
-  :global([data-theme="dark"]) .svc-section {
-    background: rgb(var(--color-main));
+
+
+  .home-section-portfolio {
+    position: relative;
+    overflow: hidden;
+    /* Sedikit lebih putih untuk kontras lembut antar section */
+    background: rgb(255 255 255 / 1);
+  }
+
+  .home-section-insights {
+    position: relative;
+    overflow: hidden;
+    /* Kembali ke warna body utama agar ada ritme */
+    background: rgb(247 250 255 / 1);
+  }
+
+  .home-section-testimonials {
+    position: relative;
+    overflow: hidden;
+    /* Tone netral hangat, tidak terasa terpisah */
+    background: rgb(250 252 255 / 1);
+  }
+
+
+
+  .home-section-portfolio > div,
+  .home-section-insights > div,
+  .home-section-testimonials > div {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Shared ambient orb — smooth, large, low-opacity */
+  .home-section-portfolio::before,
+  .home-section-insights::before,
+  .home-section-testimonials::before {
+    content: "";
+    position: absolute;
+    width: min(70vw, 780px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(90px);
+    opacity: 0.18;
+    z-index: 0;
+    transform: translateZ(0);
+  }
+
+  .home-section-portfolio::before {
+    top: -8rem;
+    right: -20rem;
+    background: radial-gradient(
+      circle at center,
+      #45b8ef 0%,
+      #1544e6 35%,
+      transparent 70%
+    );
+  }
+
+  .home-section-insights::before {
+    top: -6rem;
+    left: -22rem;
+    background: radial-gradient(
+      circle at center,
+      #7dd3fc 0%,
+      #1e5ae6 35%,
+      transparent 70%
+    );
+  }
+
+  .home-section-testimonials::before {
+    bottom: -14rem;
+    right: -18rem;
+    background: radial-gradient(
+      circle at center,
+      #45b8ef 0%,
+      #14b8a6 35%,
+      transparent 70%
+    );
   }
 
   .svc-eyebrow {
     display: inline-block;
-    background: #eff6ff;
+    background: rgb(255 255 255 / 0.68);
     color: #2563eb;
     padding: 0.35rem 1rem;
     border-radius: 99px;
@@ -1116,9 +1304,14 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
+    border: 1px solid rgb(var(--color-accent) / 0.14);
+    box-shadow: 0 10px 26px rgb(30 90 230 / 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
   :global([data-theme="dark"]) .svc-eyebrow {
     background: rgba(37, 99, 235, 0.1);
+    color: #60a5fa;
   }
 
   .svc-heading {
@@ -1136,9 +1329,9 @@
   }
 
   .svc-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 2rem;
+    background: #ffffff;
+    border: 1px solid rgb(var(--color-border));
+    border-radius: 1.25rem;
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -1146,40 +1339,16 @@
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 18px 55px rgb(30 90 230 / 0.08);
   }
-  :global([data-theme="dark"]) .svc-card {
-    background: rgb(var(--color-container));
-    border-color: rgb(var(--color-border));
-  }
+  .svc-card-build,
+  .svc-card-rescue,
+  .svc-card-boost { background: #ffffff; }
 
-  /* Gradient backgrounds per card (Top-Left corner) */
-  .svc-card-build {
-    background: radial-gradient(circle at 0% 0%, #eff6ff 0%, #ffffff 65%);
-  }
-  .svc-card-rescue {
-    background: radial-gradient(circle at 0% 0%, #f0fdf4 0%, #ffffff 65%);
-  }
-  .svc-card-boost {
-    background: radial-gradient(circle at 0% 0%, #fffbeb 0%, #ffffff 65%);
-  }
-
-  :global([data-theme="dark"]) .svc-card-build {
-    background: radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.1) 0%, rgb(var(--color-container)) 70%);
-  }
-  :global([data-theme="dark"]) .svc-card-rescue {
-    background: radial-gradient(circle at 0% 0%, rgba(22, 163, 74, 0.1) 0%, rgb(var(--color-container)) 70%);
-  }
-  :global([data-theme="dark"]) .svc-card-boost {
-    background: radial-gradient(circle at 0% 0%, rgba(234, 179, 8, 0.1) 0%, rgb(var(--color-container)) 70%);
-  }
-
-  .svc-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  }
-  .svc-card-build:hover { border-color: #3b82f6; }
+  .svc-card:hover { transform: translateY(-8px); box-shadow: 0 28px 76px rgb(30 90 230 / 0.14); }
+  .svc-card-build:hover  { border-color: #3b82f6; }
   .svc-card-rescue:hover { border-color: #22c55e; }
-  .svc-card-boost:hover { border-color: #eab308; }
+  .svc-card-boost:hover  { border-color: #eab308; }
 
   .svc-icon-wrap {
     width: 56px;
@@ -1190,12 +1359,22 @@
     justify-content: center;
     font-size: 1.25rem;
     margin-bottom: 2rem;
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgb(255 255 255 / 0.86);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.75), 0 12px 26px rgb(30 90 230 / 0.12);
   }
-  .svc-color-blue { color: #2563eb; }
-  .svc-color-green { color: #16a34a; }
-  .svc-color-yellow { color: #ca8a04; }
+
+  .svc-color-blue {
+    background: #eff6ff;
+    color: #2563eb;
+  }
+  .svc-color-green {
+    background: #ecfdf5;
+    color: #0d9488;
+  }
+  .svc-color-yellow {
+    background: #fff7ed;
+    color: #ea580c;
+  }
 
   .svc-title {
     font-size: 1.6rem;
@@ -1224,39 +1403,86 @@
     font-weight: 800;
     padding: 0.4rem 0.8rem;
     border-radius: 99px;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    color: #4b5563;
+    background: rgb(255 255 255 / 0.7);
+    border: 1px solid rgb(var(--color-border) / 0.68);
+    color: rgb(var(--color-text-sec));
     letter-spacing: 0.05em;
-  }
-  :global([data-theme="dark"]) .svc-pill {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-    color: #9ca3af;
   }
 
+
   .svc-cta {
-    font-size: 0.75rem;
+    align-self: flex-start;
+    font-size: 0.72rem;
     font-weight: 800;
-    color: #2563eb;
-    display: flex;
+    color: #fff;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
     transition: all 0.2s;
     letter-spacing: 0.05em;
+    box-shadow: 0 12px 24px rgb(30 90 230 / 0.22);
   }
-  .svc-card:hover .svc-cta { gap: 0.75rem; }
+  .svc-card-build .svc-cta { background: #1544e6; }
+  .svc-card-rescue .svc-cta { background: #0f9f91; box-shadow: 0 12px 24px rgb(15 159 145 / 0.22); }
+  .svc-card-boost .svc-cta { background: #e65f18; box-shadow: 0 12px 24px rgb(230 95 24 / 0.22); }
+  .svc-card:hover .svc-cta { gap: 0.75rem; transform: translateY(-1px); }
+
+  .section-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    padding: 0.8rem 1.1rem;
+    transition: gap 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .section-cta-blue {
+    background: #1544e6;
+    box-shadow: 0 14px 28px rgb(21 68 230 / 0.22);
+  }
+
+  .section-cta-sky {
+    background: #0284c7;
+    box-shadow: 0 14px 28px rgb(2 132 199 / 0.22);
+  }
+
+  .section-cta:hover {
+    gap: 0.9rem;
+    transform: translateY(-2px);
+  }
+
+  .card-link-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #1544e6;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .group:hover .card-link-cta {
+    gap: 0.85rem;
+    color: #0284c7;
+  }
 
 
   /* ── Sidebar enhancements ──────────────────────────────────────────── */
-  .sidebar-icon {
+  :global(.sidebar-icon) {
     font-size: 0.6rem;
     width: 12px;
     text-align: center;
     color: rgb(var(--color-text-sec));
     flex-shrink: 0;
   }
-  .sidebar-item.active .sidebar-icon {
+  .sidebar-item.active :global(.sidebar-icon) {
     color: rgb(var(--color-accent));
   }
   .sidebar-sub {
@@ -1309,8 +1535,8 @@
     gap: 0.4rem;
   }
   .m-stat-card {
-    background: rgb(var(--color-container));
-    border: 1px solid rgb(var(--color-border));
+    background: rgb(255 255 255 / 0.66);
+    border: 1px solid rgb(255 255 255 / 0.72);
     border-radius: 0.5rem;
     padding: 0.5rem 0.6rem;
   }
@@ -1333,8 +1559,8 @@
 
   /* ── Chart ─────────────────────────────────────────────────────────── */
   .m-chart-wrap {
-    background: rgb(var(--color-container));
-    border: 1px solid rgb(var(--color-border));
+    background: rgb(255 255 255 / 0.66);
+    border: 1px solid rgb(255 255 255 / 0.72);
     border-radius: 0.5rem;
     padding: 0.5rem 0.6rem;
   }
@@ -1398,8 +1624,8 @@
     align-items: center;
     gap: 0.45rem;
     padding: 0.3rem 0.4rem;
-    background: rgb(var(--color-container));
-    border: 1px solid rgb(var(--color-border));
+    background: rgb(255 255 255 / 0.66);
+    border: 1px solid rgb(255 255 255 / 0.72);
     border-radius: 6px;
   }
   .m-act-dot {

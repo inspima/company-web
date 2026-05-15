@@ -1,12 +1,12 @@
 <script>
   import { onMount } from 'svelte';
   import { navigate } from '../lib/nav.js';
+  import Icon from '../lib/Icon.svelte';
 
   export let currentPage = 'home';
 
   let scrolled = false;
   let mobileOpen = false;
-  let theme = 'light';
 
   function navToSection(sectionId) {
     mobileOpen = false;
@@ -17,25 +17,9 @@
     }, onHome ? 0 : 420);
   }
 
-  function toggleTheme() {
-    theme = theme === 'dark' ? 'light' : 'dark';
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-    }
-  }
-
   function closeMobile() { mobileOpen = false; }
 
   onMount(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      theme = 'dark';
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
     const onScroll = () => { scrolled = window.scrollY > 40; };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -93,37 +77,31 @@
 
       <!-- Desktop Right -->
       <div class="hidden md:flex items-center gap-2">
-        <button on:click={toggleTheme}
-          class="w-9 h-9 rounded-full flex items-center justify-center text-brand-textSec hover:text-brand-accent hover:bg-brand-accent/10 transition-all focus:outline-none"
-          title="Toggle tema">
-          {#if theme === 'dark'}
-            <i class="fa-solid fa-sun text-sm"></i>
-          {:else}
-            <i class="fa-solid fa-moon text-sm"></i>
-          {/if}
-        </button>
         <a href="/contact"
           class="inline-flex items-center gap-1.5 bg-brand-accent text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-brand-accent/25 hover:shadow-brand-accent/40 hover:-translate-y-0.5 transition-all duration-200"
           on:click={closeMobile}>
-          <i class="fa-solid fa-paper-plane text-[10px]"></i> Hubungi Kami
+          <Icon name="paper-plane" size={12} /> Hubungi Kami
         </a>
       </div>
 
       <!-- Mobile Right -->
       <div class="flex items-center gap-1 md:hidden">
-        <button on:click={toggleTheme}
-          class="w-9 h-9 rounded-full flex items-center justify-center text-brand-textSec hover:text-brand-accent hover:bg-brand-accent/10 transition-all focus:outline-none">
-          {#if theme === 'dark'}
-            <i class="fa-solid fa-sun text-sm"></i>
-          {:else}
-            <i class="fa-solid fa-moon text-sm"></i>
-          {/if}
-        </button>
         <button
           on:click={() => mobileOpen = !mobileOpen}
           class="w-9 h-9 rounded-full flex items-center justify-center text-brand-textSec hover:text-brand-textMain hover:bg-brand-container transition-all focus:outline-none"
           aria-expanded={mobileOpen}>
-          <i class="text-base {mobileOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}"></i>
+          {#if mobileOpen}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          {:else}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          {/if}
         </button>
       </div>
     </div>
@@ -137,28 +115,28 @@
           <a href="/" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'home'}>
-            <i class="fa-solid fa-house w-4 text-center text-brand-accent"></i> Home
+            <span class="w-4 text-brand-accent flex-shrink-0"><Icon name="home" size={16} /></span> Home
           </a>
           <a href="/projects" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'projects'}>
-            <i class="fa-solid fa-briefcase w-4 text-center text-brand-accent"></i> Portfolio
+            <span class="w-4 text-brand-accent flex-shrink-0"><Icon name="briefcase" size={16} /></span> Portfolio
           </a>
           <a href="/about" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'about'}>
-            <i class="fa-solid fa-building w-4 text-center text-brand-accent"></i> Tentang Kami
+            <span class="w-4 text-brand-accent flex-shrink-0"><Icon name="building" size={16} /></span> Tentang Kami
           </a>
           <a href="/blog" on:click={closeMobile}
             class="mobile-item flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
             class:mobile-active={currentPage === 'blog'}>
-            <i class="fa-solid fa-newspaper w-4 text-center text-brand-accent"></i> Blog
+            <span class="w-4 text-brand-accent flex-shrink-0"><Icon name="newspaper" size={16} /></span> Blog
           </a>
         </div>
         <div class="px-3 pb-3">
           <a href="/contact" on:click={closeMobile}
             class="w-full flex items-center justify-center gap-2 bg-brand-accent text-white px-5 py-3 rounded-xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all">
-            <i class="fa-solid fa-paper-plane text-xs"></i> Hubungi Kami
+            <Icon name="paper-plane" size={14} /> Hubungi Kami
           </a>
         </div>
       </div>
@@ -170,23 +148,27 @@
   /* Full-width state (top of page) */
   .nav-full {
     max-width: 100%;
-    background: rgb(var(--color-main) / 0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgb(var(--color-border) / 0.6);
+    background: rgb(255 255 255 / 0.68);
+    backdrop-filter: blur(22px) saturate(165%);
+    -webkit-backdrop-filter: blur(22px) saturate(165%);
+    border-bottom: 1px solid rgb(255 255 255 / 0.72);
     padding: 0 1rem;
+    box-shadow: 0 10px 35px rgb(30 90 230 / 0.07);
   }
 
   /* Floating pill state (scrolled) */
   .nav-floating {
     max-width: 900px;
     margin: 0.75rem auto;
-    background: rgb(var(--color-container) / 0.92);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgb(var(--color-border));
+    background: rgb(255 255 255 / 0.72);
+    backdrop-filter: blur(24px) saturate(170%);
+    -webkit-backdrop-filter: blur(24px) saturate(170%);
+    border: 1px solid rgb(255 255 255 / 0.78);
     border-radius: 9999px;
     padding: 0 1.25rem;
-    box-shadow: 0 8px 32px rgb(0 0 0 / 0.12), 0 2px 8px rgb(0 0 0 / 0.06);
+    box-shadow: 0 18px 48px rgb(30 90 230 / 0.13), 0 2px 8px rgb(69 184 239 / 0.08);
   }
+
 
   /* Nav link items */
   :global(.nav-item) {

@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
   import { navigate, goToSection } from '../lib/nav.js';
+  import Icon from '../lib/Icon.svelte';
 
   export let category = 'all';
   export let page = 1;
@@ -69,7 +70,7 @@
     {:else if !data?.data?.length}
       <div class="col-span-full py-32 text-center">
         <div class="w-24 h-24 bg-brand-container rounded-full flex items-center justify-center mx-auto mb-6 border border-brand-border">
-          <i class="fa-solid fa-folder-open text-3xl text-brand-textSec/30"></i>
+          <Icon name="briefcase" size={36} cls="text-brand-textSec/30" />
         </div>
         <h3 class="text-2xl font-bold text-brand-textMain mb-2">Belum ada proyek</h3>
         <p class="text-brand-textSec font-light">Belum ada proyek dalam kategori ini.</p>
@@ -89,7 +90,7 @@
                   <img src={proj.image_url} alt={proj.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
                 {:else}
                   <div class="w-full h-full flex items-center justify-center text-brand-textSec/10 scale-150 rotate-12">
-                    <i class="fa-solid fa-layer-group text-9xl"></i>
+                    <div class="text-brand-textSec/10"><Icon name="layers" size={90} /></div>
                   </div>
                 {/if}
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-main via-brand-main/20 to-transparent opacity-60"></div>
@@ -102,7 +103,7 @@
                 <h3 class="text-2xl font-bold text-brand-textMain mb-4 group-hover:text-brand-accent transition-colors">{proj.title}</h3>
                 <p class="text-brand-textSec text-sm line-clamp-3 font-light leading-relaxed">{proj.description_short}...</p>
                 <div class="mt-8 flex items-center gap-2 text-brand-accent font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
-                  View Project <i class="fa-solid fa-arrow-right"></i>
+                  View Project <Icon name="arrow" size={14} />
                 </div>
               </div>
             </a>

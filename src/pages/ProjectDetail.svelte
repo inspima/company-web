@@ -1,5 +1,6 @@
 <script>
   import { api } from '../lib/api.js';
+  import Icon from '../lib/Icon.svelte';
 
   export let slug = '';
 
@@ -34,7 +35,7 @@
   </div>
 {:else if error}
   <div class="flex flex-col items-center justify-center min-h-screen gap-4 text-center px-4">
-    <i class="fa-solid fa-triangle-exclamation text-5xl text-brand-textSec/30"></i>
+    <span class="text-5xl text-brand-textSec/30"><Icon name="warning" size={48} /></span>
     <h2 class="text-2xl font-bold text-brand-textMain">{error}</h2>
     <a href="/projects" class="text-brand-accent font-semibold hover:underline">← Kembali ke Portfolio</a>
   </div>
@@ -45,9 +46,9 @@
       <!-- Breadcrumb -->
       <div class="flex items-center gap-2 text-xs text-brand-textSec mb-8">
         <a href="/" class="hover:text-brand-accent transition-colors">Home</a>
-        <i class="fa-solid fa-chevron-right text-[8px]"></i>
+        <span class="opacity-40"><Icon name="chevron-right" size={10} /></span>
         <a href="/projects" class="hover:text-brand-accent transition-colors">Portfolio</a>
-        <i class="fa-solid fa-chevron-right text-[8px]"></i>
+        <span class="opacity-40"><Icon name="chevron-right" size={10} /></span>
         <span class="text-brand-textMain">{proj.title}</span>
       </div>
 
@@ -96,7 +97,7 @@
                 <div>
                   <div class="text-[10px] text-brand-textSec uppercase tracking-widest font-bold mb-1">Live URL</div>
                   <a href={proj.project_url} target="_blank" rel="noopener" class="text-brand-accent font-semibold text-sm hover:underline flex items-center gap-1">
-                    Lihat Website <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    Lihat Website <Icon name="arrow-up-right" size={12} />
                   </a>
                 </div>
               {/if}
@@ -126,7 +127,7 @@
                   <img src={r.image_url} alt={r.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 {:else}
                   <div class="w-full h-full flex items-center justify-center text-brand-textSec/10">
-                    <i class="fa-solid fa-layer-group text-7xl"></i>
+                    <Icon name="layers" size={56} />
                   </div>
                 {/if}
               </div>

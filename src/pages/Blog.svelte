@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { api } from '../lib/api.js';
   import { navigate } from '../lib/nav.js';
+  import Icon from '../lib/Icon.svelte';
 
   export let category = 'all';
   export let page = 1;
@@ -75,7 +76,7 @@
     {:else if !data?.data?.length}
       <div class="py-32 text-center">
         <div class="w-24 h-24 bg-brand-container rounded-full flex items-center justify-center mx-auto mb-6 border border-brand-border">
-          <i class="fa-solid fa-pencil text-3xl text-brand-textSec/30"></i>
+          <Icon name="newspaper" size={36} cls="text-brand-textSec/30" />
         </div>
         <h3 class="text-2xl font-bold text-brand-textMain mb-2">No articles found</h3>
         <p class="text-brand-textSec font-light">Try a different filter.</p>
@@ -89,7 +90,7 @@
                 <img src={art.image_url} alt={art.title} class="w-full h-full object-cover rounded-[1.5rem] group-hover:scale-110 transition-transform duration-1000 opacity-90 group-hover:opacity-100">
               {:else}
                 <div class="w-full h-full rounded-[1.5rem] flex items-center justify-center bg-brand-main border border-white/5 text-brand-textSec/10">
-                  <i class="fa-solid fa-newspaper text-7xl rotate-6"></i>
+                  <div class="text-brand-textSec/10"><Icon name="newspaper" size={72} /></div>
                 </div>
               {/if}
               <div class="absolute top-8 left-8">
@@ -100,7 +101,7 @@
             </div>
             <div class="p-10 flex flex-col flex-grow">
               <div class="flex items-center gap-4 text-xs text-brand-textSec mb-6 font-medium">
-                <span class="flex items-center gap-1.5"><i class="fa-regular fa-calendar-check text-brand-accent"></i>
+                <span class="flex items-center gap-1.5"><Icon name="clock" size={12} cls="text-brand-accent" />
                   {new Date(art.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
                 </span>
                 <span class="w-1 h-1 bg-brand-border rounded-full"></span>
@@ -109,7 +110,7 @@
               <h3 class="text-2xl font-bold text-brand-textMain mb-4 group-hover:text-brand-accent transition-colors leading-tight">{art.title}</h3>
               <p class="text-brand-textSec text-sm font-light leading-relaxed line-clamp-3 mb-8 flex-grow">{art.excerpt}...</p>
               <div class="pt-6 border-t border-brand-border/50 flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-widest text-brand-accent flex items-center gap-2 group-hover:gap-4 transition-all">Read More <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-accent flex items-center gap-2 group-hover:gap-4 transition-all">Read More <Icon name="chevron-right" size={12} /></span>
               </div>
             </div>
           </a>
