@@ -384,8 +384,11 @@
   </div>
 </section>
 
+<div class="home-services-flow">
+  <span class="home-flow-orb home-flow-orb-mid" aria-hidden="true"></span>
+
 <!-- ── Services / Pillars ─────────────────────────────────────────────── -->
-<section id="services" class="svc-section">
+<section id="services" class="svc-section flow-section">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16 reveal">
       <span class="svc-eyebrow">Our Services</span>
@@ -458,7 +461,7 @@
 <!-- ── Latest Projects ────────────────────────────────────────────────── -->
 <section
   id="portfolio"
-  class="home-section-portfolio py-32 border-t border-brand-border"
+  class="home-section-portfolio flow-section py-32"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
@@ -583,7 +586,7 @@
 </section>
 
 <!-- ── Latest Articles ────────────────────────────────────────────────── -->
-<section class="home-section-insights py-32 border-t border-brand-border">
+<section class="home-section-insights flow-section py-32">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
       class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal"
@@ -687,7 +690,7 @@
 </section>
 
 <!-- ── Testimonials ───────────────────────────────────────────────────── -->
-<section class="home-section-testimonials py-24 border-t border-brand-border">
+<section class="home-section-testimonials flow-section py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-14 reveal">
       <span
@@ -748,6 +751,7 @@
     </div>
   </div>
 </section>
+</div>
 
 <style>
   /* ── Lazy load fade-in ──────────────────────────────────────────────── */
@@ -1202,95 +1206,57 @@
     background-size: auto, 160px 160px;
   }
 
-  /* ── Services Section ─────────────────────────────────────────────── */
-  .svc-section {
-    padding: 8rem 0;
-    /* Abu-abu dominan putih — netral, bersih, tidak biru */
+  /* ── Unified services-to-testimonials background ───────────────────── */
+  .home-services-flow {
+    position: relative;
+    overflow: hidden;
     background-color: #f7f8fa;
     background-image:
-      linear-gradient(180deg, #f9fafb 0%, #f2f4f7 50%, #f7f8fa 100%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
-    background-size: auto, 140px 140px;
+      linear-gradient(180deg, #f9fafb 0%, #ffffff 24%, #f7faff 58%, #ffffff 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+    background-size: auto, 150px 150px;
   }
 
-
-  .home-section-portfolio {
-    position: relative;
-    overflow: hidden;
-    /* Sedikit lebih putih untuk kontras lembut antar section */
-    background: rgb(255 255 255 / 1);
-  }
-
-  .home-section-insights {
-    position: relative;
-    overflow: hidden;
-    /* Kembali ke warna body utama agar ada ritme */
-    background: rgb(247 250 255 / 1);
-  }
-
-  .home-section-testimonials {
-    position: relative;
-    overflow: hidden;
-    /* Tone netral hangat, tidak terasa terpisah */
-    background: rgb(250 252 255 / 1);
-  }
-
-
-
-  .home-section-portfolio > div,
-  .home-section-insights > div,
-  .home-section-testimonials > div {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Shared ambient orb — smooth, large, low-opacity */
-  .home-section-portfolio::before,
-  .home-section-insights::before,
-  .home-section-testimonials::before {
+  .home-services-flow::before,
+  .home-services-flow::after,
+  .home-flow-orb {
     content: "";
     position: absolute;
-    width: min(70vw, 780px);
+    width: min(72vw, 820px);
     aspect-ratio: 1;
     border-radius: 50%;
     pointer-events: none;
-    filter: blur(90px);
-    opacity: 0.18;
+    filter: blur(92px);
+    opacity: 0.2;
     z-index: 0;
-    transform: translateZ(0);
   }
 
-  .home-section-portfolio::before {
-    top: -8rem;
-    right: -20rem;
-    background: radial-gradient(
-      circle at center,
-      #45b8ef 0%,
-      #1544e6 35%,
-      transparent 70%
-    );
+  .home-services-flow::before {
+    top: 4rem;
+    right: -23rem;
+    background: radial-gradient(circle at center, #45b8ef 0%, #1544e6 34%, transparent 70%);
   }
 
-  .home-section-insights::before {
-    top: -6rem;
-    left: -22rem;
-    background: radial-gradient(
-      circle at center,
-      #7dd3fc 0%,
-      #1e5ae6 35%,
-      transparent 70%
-    );
+  .home-services-flow::after {
+    top: 44%;
+    left: -24rem;
+    background: radial-gradient(circle at center, #7dd3fc 0%, #1e5ae6 35%, transparent 70%);
   }
 
-  .home-section-testimonials::before {
-    bottom: -14rem;
+  .home-flow-orb-mid {
     right: -18rem;
-    background: radial-gradient(
-      circle at center,
-      #45b8ef 0%,
-      #14b8a6 35%,
-      transparent 70%
-    );
+    bottom: -10rem;
+    background: radial-gradient(circle at center, #45b8ef 0%, #14b8a6 35%, transparent 72%);
+  }
+
+  .flow-section {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+  }
+
+  .svc-section {
+    padding: 8rem 0;
   }
 
   .svc-eyebrow {
