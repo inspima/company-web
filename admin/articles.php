@@ -242,7 +242,7 @@ if (isset($_GET['delete'])) {
                     $stmt->execute([$_GET['id']]);
                     $art = $stmt->fetch() ?: $art;
                 }
-                $cats = $pdo->query("SELECT * FROM categories WHERE type='article'")->fetchAll();
+                $cats = $pdo->query("SELECT * FROM categories ORDER BY name ASC")->fetchAll();
             ?>
             <!-- FORM VIEW -->
             <form method="POST" action="articles.php" enctype="multipart/form-data" class="space-y-6 max-w-5xl" id="articleForm">
