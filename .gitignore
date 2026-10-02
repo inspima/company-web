@@ -7,8 +7,5 @@ db_inspima.sql
 !.env.example
 /assets/images/articles
 /assets/images/projects
-/dist
 /.playwright-cli
-/dist
-/dist/assets
 /output
