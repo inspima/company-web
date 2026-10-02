@@ -36,15 +36,15 @@
 </script>
 
 <!-- Hero -->
-<section class="pt-32 pb-20 bg-brand-main border-b border-brand-border">
+<section class="pt-28 pb-12 bg-brand-main border-b border-brand-border">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-    <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">Tentang Kami</span>
+    <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Tentang Kami</span>
     {#if loading}
       <div class="h-16 w-64 bg-brand-border/30 rounded-xl animate-pulse mx-auto mb-5"></div>
       <div class="h-5 w-96 bg-brand-border/30 rounded animate-pulse mx-auto"></div>
     {:else}
       <h1 class="hero-heading">{headline}</h1>
-      <p class="text-lg text-brand-textSec font-light leading-relaxed max-w-2xl mx-auto">{tagline}</p>
+      <p class="text-lg text-brand-textSec font-normal leading-relaxed max-w-2xl mx-auto">{tagline}</p>
     {/if}
   </div>
 </section>
@@ -60,7 +60,7 @@
         { v: '24/7', l: 'Siap Dihubungi' },
       ] as s}
         <div class="bg-brand-container py-7 text-center">
-          <div class="text-3xl font-black text-brand-accent font-heading mb-1">{s.v}</div>
+          <div class="text-3xl font-bold text-brand-accent font-heading mb-1">{s.v}</div>
           <div class="text-[10px] text-brand-textSec uppercase tracking-widest font-semibold">{s.l}</div>
         </div>
       {/each}
@@ -69,12 +69,12 @@
 </section>
 
 <!-- Company story -->
-<section class="py-24 bg-brand-main">
+<section class="py-16 bg-brand-main">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
-        <span class="text-[10px] font-black text-brand-accent uppercase tracking-[0.2em]">Cerita Kami</span>
-        <h2 class="font-heading text-3xl md:text-4xl font-black text-brand-textMain mt-3 mb-6 leading-tight">
+        <span class="text-[10px] font-bold text-brand-accent uppercase tracking-[0.2em]">Cerita Kami</span>
+        <h2 class="font-heading text-3xl md:text-3xl font-bold text-brand-textMain mt-3 mb-6 leading-tight">
           Teknologi seharusnya memudahkan, bukan mempersulit.
         </h2>
         {#if loading}
@@ -105,7 +105,7 @@
             </div>
             <div>
               <div class="font-bold text-brand-textMain text-sm mb-1">{v.title}</div>
-              <p class="text-brand-textSec text-sm font-light leading-relaxed">{v.desc}</p>
+              <p class="text-brand-textSec text-sm font-normal leading-relaxed">{v.desc}</p>
             </div>
           </div>
         {/each}
@@ -115,37 +115,37 @@
 </section>
 
 <!-- Mission & Vision -->
-<section class="py-20 bg-brand-container/50 border-t border-brand-border">
+<section class="py-14 bg-brand-container/50 border-t border-brand-border">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- Mission -->
-      <div class="bg-brand-container rounded-3xl p-10 border border-brand-border">
+      <div class="bg-brand-container rounded-2xl p-7 border border-brand-border">
         <div class="w-12 h-12 rounded-2xl icon-blue flex items-center justify-center mb-6">
           <Icon name="compass" size={22} />
         </div>
-        <div class="text-[10px] font-black text-brand-accent uppercase tracking-[0.2em] mb-3">Misi</div>
+        <div class="text-[10px] font-bold text-brand-accent uppercase tracking-[0.2em] mb-3">Misi</div>
         {#if loading}
           <div class="space-y-2">
             <div class="h-4 bg-brand-border/30 rounded animate-pulse"></div>
             <div class="h-4 bg-brand-border/30 rounded animate-pulse w-4/5"></div>
           </div>
         {:else}
-          <p class="text-brand-textMain text-base font-light leading-relaxed">{mission}</p>
+          <p class="text-brand-textMain text-base font-normal leading-relaxed">{mission}</p>
         {/if}
       </div>
       <!-- Vision -->
-      <div class="bg-brand-accent rounded-3xl p-10 text-white">
+      <div class="bg-brand-accent rounded-2xl p-7 text-white">
         <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
           <Icon name="eye" size={22} cls="text-white" />
         </div>
-        <div class="text-[10px] font-black text-white/70 uppercase tracking-[0.2em] mb-3">Visi</div>
+        <div class="text-[10px] font-bold text-white/70 uppercase tracking-[0.2em] mb-3">Visi</div>
         {#if loading}
           <div class="space-y-2">
             <div class="h-4 bg-white/20 rounded animate-pulse"></div>
             <div class="h-4 bg-white/20 rounded animate-pulse w-4/5"></div>
           </div>
         {:else}
-          <p class="text-white text-base font-light leading-relaxed">{vision}</p>
+          <p class="text-white text-base font-normal leading-relaxed">{vision}</p>
         {/if}
       </div>
     </div>
@@ -154,21 +154,21 @@
 
 <!-- Team -->
 {#if team.length > 0}
-  <section class="py-24 bg-brand-main border-t border-brand-border">
+  <section class="py-16 bg-brand-main border-t border-brand-border">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <span class="text-[10px] font-black text-brand-accent uppercase tracking-[0.2em]">Tim Kami</span>
-        <h2 class="font-heading text-3xl md:text-4xl font-black text-brand-textMain mt-3">Orang-orang di balik INSPIMA</h2>
+      <div class="text-center mb-8">
+        <span class="text-[10px] font-bold text-brand-accent uppercase tracking-[0.2em]">Tim Kami</span>
+        <h2 class="font-heading text-3xl md:text-3xl font-bold text-brand-textMain mt-3">Orang-orang di balik INSPIMA</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {#each team as member}
-          <div class="bg-brand-container rounded-3xl overflow-hidden border border-brand-border text-center">
+          <div class="bg-brand-container rounded-2xl overflow-hidden border border-brand-border text-center">
             <!-- Avatar -->
             <div class="h-48 bg-brand-main flex items-center justify-center">
               {#if member.photo_url}
                 <img src={member.photo_url} alt={member.name} class="w-full h-full object-cover object-top">
               {:else}
-                <div class="w-24 h-24 rounded-full bg-brand-accent/10 border-2 border-brand-border flex items-center justify-center text-3xl font-black text-brand-accent">
+                <div class="w-24 h-24 rounded-full bg-brand-accent/10 border-2 border-brand-border flex items-center justify-center text-3xl font-bold text-brand-accent">
                   {(member.name || '?').charAt(0).toUpperCase()}
                 </div>
               {/if}
@@ -176,7 +176,7 @@
             <div class="p-6">
               <h3 class="font-bold text-brand-textMain text-base mb-1">{member.name}</h3>
               {#if member.role}<p class="text-brand-accent text-xs font-bold uppercase tracking-widest mb-3">{member.role}</p>{/if}
-              {#if member.bio}<p class="text-brand-textSec text-sm font-light leading-relaxed">{member.bio}</p>{/if}
+              {#if member.bio}<p class="text-brand-textSec text-sm font-normal leading-relaxed">{member.bio}</p>{/if}
               {#if member.linkedin_url}
                 <a href={member.linkedin_url} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-brand-textSec hover:text-brand-accent transition-colors">
                   <Icon name="linkedin" size={14} /> LinkedIn
@@ -192,11 +192,11 @@
 
 
 <!-- Pillars -->
-<section class="py-20 bg-brand-container/50 border-t border-brand-border">
+<section class="py-14 bg-brand-container/50 border-t border-brand-border">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="font-heading text-3xl font-black text-brand-textMain">Tiga Pilar Layanan Kami</h2>
-      <p class="text-brand-textSec font-light mt-3 max-w-xl mx-auto">Setiap solusi yang kami tawarkan masuk ke dalam salah satu dari tiga pilar ini.</p>
+      <h2 class="font-heading text-3xl font-bold text-brand-textMain">Tiga Pilar Layanan Kami</h2>
+      <p class="text-brand-textSec font-normal mt-3 max-w-xl mx-auto">Setiap solusi yang kami tawarkan masuk ke dalam salah satu dari tiga pilar ini.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       {#each [
@@ -204,12 +204,12 @@
         { href: '/rescue', label: 'RESCUE', tc: 'text-teal-500',     iname: 'wrench',  icolor: 'teal',   desc: 'Selamatkan sistem yang bermasalah — dari bug kritis hingga server yang tidak stabil.' },
         { href: '/boost',  label: 'BOOST',  tc: 'text-orange-400',   iname: 'rocket',  icolor: 'orange', desc: 'Tingkatkan performa dan skalabilitas sistem yang sudah berjalan.' },
       ] as p}
-        <a href={p.href} class="group bg-brand-container rounded-3xl p-8 border border-brand-border hover:-translate-y-1 hover:shadow-lg transition-all">
+        <a href={p.href} class="group bg-brand-container rounded-2xl p-6 border border-brand-border hover:-translate-y-1 hover:shadow-lg transition-all">
           <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 icon-{p.icolor}">
             <Icon name={p.iname} size={22} />
           </div>
-          <div class="text-[10px] font-black {p.tc} uppercase tracking-[0.2em] mb-2">{p.label}</div>
-          <p class="text-brand-textSec text-sm font-light leading-relaxed group-hover:text-brand-textMain transition-colors">{p.desc}</p>
+          <div class="text-[10px] font-bold {p.tc} uppercase tracking-[0.2em] mb-2">{p.label}</div>
+          <p class="text-brand-textSec text-sm font-normal leading-relaxed group-hover:text-brand-textMain transition-colors">{p.desc}</p>
         </a>
       {/each}
     </div>

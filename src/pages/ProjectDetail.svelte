@@ -41,7 +41,7 @@
   </div>
 {:else}
   <!-- Hero -->
-  <section class="relative pt-32 pb-0 bg-brand-main overflow-hidden">
+  <section class="relative pt-28 pb-0 bg-brand-main overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Breadcrumb -->
       <div class="flex items-center gap-2 text-xs text-brand-textSec mb-8">
@@ -54,19 +54,19 @@
 
       <!-- Pillar badges -->
       <div class="flex flex-wrap gap-2 mb-6">
-        {#if proj.pilar_build}<span class="bg-brand-accent/10 text-brand-accent border border-brand-accent/30 px-3 py-1 text-[9px] font-black rounded-md uppercase">BUILD</span>{/if}
-        {#if proj.pilar_rescue}<span class="bg-teal-500/10 text-teal-500 border border-teal-500/30 px-3 py-1 text-[9px] font-black rounded-md uppercase">RESCUE</span>{/if}
-        {#if proj.pilar_boost}<span class="bg-orange-500/10 text-orange-400 border border-orange-500/30 px-3 py-1 text-[9px] font-black rounded-md uppercase">BOOST</span>{/if}
+        {#if proj.pilar_build}<span class="bg-brand-accent/10 text-brand-accent border border-brand-accent/30 px-3 py-1 text-[9px] font-bold rounded-md uppercase">BUILD</span>{/if}
+        {#if proj.pilar_rescue}<span class="bg-teal-500/10 text-teal-500 border border-teal-500/30 px-3 py-1 text-[9px] font-bold rounded-md uppercase">RESCUE</span>{/if}
+        {#if proj.pilar_boost}<span class="bg-orange-500/10 text-orange-400 border border-orange-500/30 px-3 py-1 text-[9px] font-bold rounded-md uppercase">BOOST</span>{/if}
         {#if proj.category_name}<span class="bg-brand-container text-brand-textSec border border-brand-border px-3 py-1 text-[9px] font-bold rounded-md uppercase">{proj.category_name}</span>{/if}
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 pb-16 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-16 items-start">
         <!-- Main content -->
         <div class="lg:col-span-2">
           <h1 class="hero-heading">{proj.title}</h1>
 
           {#if proj.image_url}
-            <div class="rounded-[2.5rem] overflow-hidden mb-12 border border-brand-border">
+            <div class="rounded-2xl overflow-hidden mb-12 border border-brand-border">
               <img src={proj.image_url} alt={proj.title} loading="lazy" decoding="async" class="w-full object-cover max-h-[500px]">
             </div>
           {/if}
@@ -78,7 +78,7 @@
 
         <!-- Sidebar -->
         <div class="lg:col-span-1 space-y-6">
-          <div class="bg-brand-container rounded-3xl p-8 border border-brand-border sticky top-28">
+          <div class="bg-brand-container rounded-2xl p-6 border border-brand-border sticky top-28">
             <h3 class="font-bold text-brand-textMain text-sm uppercase tracking-widest mb-6">Project Details</h3>
             <div class="space-y-5">
               {#if proj.client_name}
@@ -116,12 +116,12 @@
 
   <!-- Related -->
   {#if related.length > 0}
-    <section class="py-20 bg-brand-container/50 border-t border-brand-border">
+    <section class="py-14 bg-brand-container/50 border-t border-brand-border">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-black text-brand-textMain mb-10">Proyek Lainnya</h2>
+        <h2 class="text-2xl font-bold text-brand-textMain mb-10">Proyek Lainnya</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {#each related as r}
-            <a href="/project/{r.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
+            <a href="/project/{r.slug}" class="group bento-item bg-brand-container rounded-2xl overflow-hidden border border-brand-border card-glow">
               <div class="h-44 overflow-hidden bg-brand-main">
                 {#if r.image_url}
                   <img src={r.image_url} alt={r.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">

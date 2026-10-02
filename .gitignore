@@ -2,5 +2,13 @@ db.php
 db_inspima.sql
 /node_modules
 .DS_Store
+.env
+.env.*
+!.env.example
 /assets/images/articles
 /assets/images/projects
+/dist
+/.playwright-cli
+/dist
+/dist/assets
+/output

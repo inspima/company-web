@@ -41,7 +41,7 @@
   </div>
 {:else}
   <!-- Hero -->
-  <section class="relative pt-32 pb-16 bg-brand-main overflow-hidden">
+  <section class="relative pt-28 pb-16 bg-brand-main overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Breadcrumb -->
@@ -56,7 +56,7 @@
       <!-- Meta -->
       <div class="flex flex-wrap items-center gap-4 mb-8">
         {#if art.category_name}
-          <span class="bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">{art.category_name}</span>
+          <span class="bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest">{art.category_name}</span>
         {/if}
         <span class="flex items-center gap-1.5 text-xs text-brand-textSec">
           <span class="text-brand-accent"><Icon name="clock" size={12} /></span>
@@ -68,7 +68,7 @@
       <h1 class="hero-heading">{art.title}</h1>
 
       {#if art.image_url}
-        <div class="rounded-[2.5rem] overflow-hidden mb-12 border border-brand-border">
+        <div class="rounded-2xl overflow-hidden mb-12 border border-brand-border">
           <img src={art.image_url} alt={art.title} loading="lazy" decoding="async" class="w-full object-cover max-h-[500px]">
         </div>
       {/if}
@@ -76,7 +76,7 @@
   </section>
 
   <!-- Article Content -->
-  <section class="pb-24 bg-brand-main">
+  <section class="pb-14 bg-brand-main">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="prose prose-lg max-w-none">
         {@html art.content || '<p>Konten tidak tersedia.</p>'}
@@ -102,12 +102,12 @@
 
   <!-- Related Articles -->
   {#if related.length > 0}
-    <section class="py-20 bg-brand-container/50 border-t border-brand-border">
+    <section class="py-14 bg-brand-container/50 border-t border-brand-border">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-black text-brand-textMain mb-10">Artikel Terkait</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 class="text-2xl font-bold text-brand-textMain mb-10">Artikel Terkait</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {#each related as r}
-            <a href="/article/{r.slug}" class="group bento-item bg-brand-container rounded-3xl overflow-hidden border border-brand-border card-glow">
+            <a href="/article/{r.slug}" class="group bento-item bg-brand-container rounded-2xl overflow-hidden border border-brand-border card-glow">
               <div class="h-44 overflow-hidden bg-brand-main p-3">
                 {#if r.image_url}
                   <img src={r.image_url} alt={r.title} loading="lazy" decoding="async" class="w-full h-full object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700">

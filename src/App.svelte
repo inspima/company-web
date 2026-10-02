@@ -121,6 +121,6 @@
 </div>
 
 <!-- WhatsApp Float Button -->
-<a href="https://wa.me/6285156625480" target="_blank" rel="noopener" class="wa-btn" title="Chat via WhatsApp">
-  <i class="fa-brands fa-whatsapp"></i>
+<a href="https://wa.me/6285156625480" target="_blank" rel="noopener" class="wa-btn" title="Chat via WhatsApp" aria-label="Chat via WhatsApp">
+  <svg width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.2 7.5c-.8.3-1 1.1-.7 2.1.7 2.5 2.7 4.5 5.2 5.2 1 .3 1.8.1 2.1-.7l.4-.8-2-1-.7.7c-1.2-.5-2.1-1.4-2.6-2.6l.7-.7-1-2-.8-.2Z" fill="currentColor"/></svg>
 </a>

@@ -86,45 +86,17 @@
 </script>
 
 <!-- ── Hero ─────────────────────────────────────────────────────────────── -->
-<section id="home" class="hero-section pt-24 pb-0">
-  <div class="hero-tech-layer" aria-hidden="true">
-    <span class="tech-scan tech-scan-a"></span>
-    <span class="tech-scan tech-scan-b"></span>
-    <span class="tech-node tech-node-a"></span>
-    <span class="tech-node tech-node-b"></span>
-    <span class="tech-node tech-node-c"></span>
-  </div>
+<section id="home" class="hero-section">
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-0" style="position:relative;z-index:1">
-    <!-- Stats pill bar -->
-    <div class="hero-stats-pill mb-10 reveal hidden lg:inline-flex">
-      <div class="hero-stat-item">
-        <span class="hero-stat-dots">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-        </span>
-        <span class="hero-stat-value">30+</span>
-        <span class="hero-stat-label">proyek selesai</span>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat-item">
-        <span class="hero-stat-label">Sejak</span>
-        <span class="hero-stat-year">2019</span>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat-item hero-stat-booking">
-        <span class="dot dot-green booking-dot"></span>
-        <span class="hero-stat-label">Open to Project</span>
-      </div>
-    </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="position:relative;z-index:1">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
       <!-- LEFT -->
       <div class="hero-left">
+        <p class="hero-eyebrow"><span></span> INTEGRATED TECHNOLOGY SOLUTIONS</p>
         <h1 class="hero-heading">
           Kami bangun<br />
-          teknologi yang<br />
+          teknologi yang
           <em class="hero-italic-accent">benar-benar bekerja.</em>
         </h1>
 
@@ -365,12 +337,12 @@
 </section>
 
 <!-- ── Stats ──────────────────────────────────────────────────────────── -->
-<section class="stats-bridge-section border-y border-blue-900/50 py-6">
+<section class="stats-bridge-section">
   <div class="max-w-7xl mx-auto px-4">
     <div id="stats-strip" class="stats-strip">
       {#each stats as s, i}
         <div class="stats-item stats-item-{i}">
-          <div class="text-3xl font-black text-brand-accent font-heading stats-text-value">
+          <div class="text-3xl font-bold text-brand-accent font-heading stats-text-value">
             {s.value}{s.suffix}
           </div>
           <div
@@ -385,12 +357,12 @@
 </section>
 
 <div class="home-services-flow">
-  <span class="home-flow-orb home-flow-orb-mid" aria-hidden="true"></span>
+
 
 <!-- ── Services / Pillars ─────────────────────────────────────────────── -->
 <section id="services" class="svc-section flow-section">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16 reveal">
+    <div class="text-center mb-10 reveal">
       <span class="svc-eyebrow">Our Services</span>
       <h2 class="svc-heading">One Team, All Solutions</h2>
       <p class="svc-sub">
@@ -461,19 +433,19 @@
 <!-- ── Latest Projects ────────────────────────────────────────────────── -->
 <section
   id="portfolio"
-  class="home-section-portfolio flow-section py-32"
+  class="home-section-portfolio flow-section py-16"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
-      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal"
+      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 reveal"
     >
       <div>
         <span
-          class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4"
+          class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4"
           >Portfolio</span
         >
         <h2
-          class="font-heading text-4xl md:text-5xl font-black text-brand-textMain"
+          class="font-heading text-3xl md:text-5xl font-bold text-brand-textMain"
         >
           Our Recent Work
         </h2>
@@ -487,43 +459,43 @@
     </div>
 
     {#if loading}
-      <div class="flex justify-center py-20"><div class="spinner"></div></div>
+      <div class="flex justify-center py-14"><div class="spinner"></div></div>
     {:else if apiError}
       <div
-        class="text-center py-16 bg-brand-container rounded-3xl border border-brand-border"
+        class="text-center py-16 bg-brand-container rounded-2xl border border-brand-border"
       >
         <Icon name="warning" size={32} cls="text-orange-400 mb-3 block" />
         <p class="text-brand-textSec text-sm">{apiError}</p>
       </div>
     {:else if !data?.projects?.length}
       <div
-        class="text-center py-16 bg-brand-container rounded-3xl border border-brand-border"
+        class="text-center py-16 bg-brand-container rounded-2xl border border-brand-border"
       >
         <Icon name="briefcase" size={40} cls="text-brand-textSec/30 mb-3 block" />
-        <p class="text-brand-textSec font-light">
+        <p class="text-brand-textSec font-normal">
           Projects coming soon — stay tuned!
         </p>
       </div>
     {:else}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {#each data.projects as proj}
           <!-- No reveal class — dynamically rendered, observer not set up yet -->
           <a
             href="/project/{proj.slug}"
-            class="group bento-item bg-brand-container rounded-[2.5rem] overflow-hidden border border-brand-border card-glow block"
+            class="group bento-item bg-brand-container rounded-2xl overflow-hidden border border-brand-border card-glow block"
           >
             <div class="relative h-56 overflow-hidden bg-brand-main">
               <div class="absolute top-4 left-4 flex gap-2 z-10">
                 {#if proj.pilar_build}<span
-                    class="bg-brand-main/90 backdrop-blur-md px-3 py-1 text-[9px] font-black text-brand-accent rounded-md border border-brand-accent/30 uppercase"
+                    class="bg-brand-main/90 backdrop-blur-md px-3 py-1 text-[9px] font-bold text-brand-accent rounded-md border border-brand-accent/30 uppercase"
                     >BUILD</span
                   >{/if}
                 {#if proj.pilar_rescue}<span
-                    class="bg-brand-main/90 backdrop-blur-md px-3 py-1 text-[9px] font-black text-teal-400 rounded-md border border-teal-500/30 uppercase"
+                    class="bg-brand-main/90 backdrop-blur-md px-3 py-1 text-[9px] font-bold text-teal-400 rounded-md border border-teal-500/30 uppercase"
                     >RESCUE</span
                   >{/if}
                 {#if proj.pilar_boost}<span
-                    class="bg-brand-main/90 backdrop-blur-md px-3 py-1 text-[9px] font-black text-orange-400 rounded-md border border-orange-500/30 uppercase"
+                    class="bg-brand-main/90 backdrop-blur-md px-3 py-1 text-[9px] font-bold text-orange-400 rounded-md border border-orange-500/30 uppercase"
                     >BOOST</span
                   >{/if}
               </div>
@@ -546,11 +518,11 @@
                 class="absolute inset-0 bg-gradient-to-t from-brand-main/60 to-transparent"
               ></div>
             </div>
-            <div class="p-8">
+            <div class="p-6">
               <div class="mb-4">
                 <div class="mb-2.5">
                   <span
-                    class="text-[10px] font-black text-brand-accent uppercase tracking-[0.15em] bg-brand-accent/10 px-3 py-1.5 rounded-lg"
+                    class="text-[10px] font-bold text-brand-accent uppercase tracking-[0.15em] bg-brand-accent/10 px-3 py-1.5 rounded-lg"
                   >
                     {proj.category_name || "Digital"}
                   </span>
@@ -569,7 +541,7 @@
               >
                 {proj.title}
               </h3>
-              <p class="text-brand-textSec text-sm font-light line-clamp-2">
+              <p class="text-brand-textSec text-sm font-normal line-clamp-2">
                 {proj.description_short || ""}...
               </p>
               <div
@@ -586,18 +558,18 @@
 </section>
 
 <!-- ── Latest Articles ────────────────────────────────────────────────── -->
-<section class="home-section-insights flow-section py-32">
+<section class="home-section-insights flow-section py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
-      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal"
+      class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 reveal"
     >
       <div>
         <span
-          class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4"
+          class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4"
           >Tips &amp; Insights</span
         >
         <h2
-          class="font-heading text-4xl md:text-5xl font-black text-brand-textMain"
+          class="font-heading text-3xl md:text-5xl font-bold text-brand-textMain"
         >
           Latest Articles
         </h2>
@@ -611,23 +583,23 @@
     </div>
 
     {#if loading}
-      <div class="flex justify-center py-20"><div class="spinner"></div></div>
+      <div class="flex justify-center py-14"><div class="spinner"></div></div>
     {:else if !data?.articles?.length}
       <div
-        class="text-center py-16 bg-brand-container rounded-3xl border border-brand-border"
+        class="text-center py-16 bg-brand-container rounded-2xl border border-brand-border"
       >
         <Icon name="newspaper" size={40} cls="text-brand-textSec/30 mb-3 block" />
-        <p class="text-brand-textSec font-light">
+        <p class="text-brand-textSec font-normal">
           Articles coming soon — stay tuned!
         </p>
       </div>
     {:else}
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {#each data.articles as art}
           <!-- No reveal class — dynamically rendered -->
           <a
             href="/article/{art.slug}"
-            class="group bento-item bg-brand-container rounded-[2.5rem] overflow-hidden border border-brand-border card-glow flex flex-col block"
+            class="group bento-item bg-brand-container rounded-2xl overflow-hidden border border-brand-border card-glow flex flex-col block"
           >
             <div class="relative h-52 overflow-hidden bg-brand-main p-4">
               {#if art.image_url}
@@ -636,24 +608,24 @@
                   alt={art.title}
                   loading="lazy"
                   decoding="async"
-                  class="w-full h-full object-cover rounded-[1.5rem] group-hover:scale-110 transition-transform duration-700 img-fade"
+                  class="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-transform duration-700 img-fade"
                 />
               {:else}
                 <div
-                  class="w-full h-full rounded-[1.5rem] flex items-center justify-center bg-brand-main border border-brand-border text-brand-textSec/10"
+                  class="w-full h-full rounded-xl flex items-center justify-center bg-brand-main border border-brand-border text-brand-textSec/10"
                 >
                   <Icon name="newspaper" size={72} cls="rotate-6" />
                 </div>
               {/if}
               <div class="absolute top-8 left-8">
                 <span
-                  class="bg-brand-main/80 backdrop-blur-md text-brand-accent border border-brand-accent/30 px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest"
+                  class="bg-brand-main/80 backdrop-blur-md text-brand-accent border border-brand-accent/30 px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase tracking-widest"
                 >
                   {art.category_name || "Blog"}
                 </span>
               </div>
             </div>
-            <div class="p-8 flex flex-col flex-grow">
+            <div class="p-6 flex flex-col flex-grow">
               <div
                 class="flex items-center gap-3 text-xs text-brand-textSec mb-4 font-medium"
               >
@@ -673,7 +645,7 @@
               >
                 {art.title}
               </h3>
-              <p class="text-brand-textSec text-sm font-light line-clamp-2">
+              <p class="text-brand-textSec text-sm font-normal line-clamp-2">
                 {art.excerpt || ""}...
               </p>
               <div
@@ -690,18 +662,18 @@
 </section>
 
 <!-- ── Testimonials ───────────────────────────────────────────────────── -->
-<section class="home-section-testimonials flow-section py-24">
+<section class="home-section-testimonials flow-section py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-14 reveal">
+    <div class="mb-8 reveal">
       <span
-        class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4"
+        class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4"
         >Testimonials</span
       >
-      <h2 class="font-heading text-4xl font-black text-brand-textMain">
+      <h2 class="font-heading text-3xl font-bold text-brand-textMain">
         What Our Clients Say
       </h2>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {#if data && data.testimonials && data.testimonials.length > 0}
         {@const avatarColors = [
           'bg-blue-500/20 text-blue-500',
@@ -712,7 +684,7 @@
         ]}
         {#each data.testimonials as t}
           <div
-            class="bg-brand-container rounded-3xl p-8 border border-brand-border card-glow reveal h-full flex flex-col"
+            class="bg-brand-container rounded-2xl p-6 border border-brand-border card-glow reveal h-full flex flex-col"
           >
             <div class="flex mb-4">
               {#each Array.from({ length: parseInt(t.stars) || 5 }) as _}
@@ -720,7 +692,7 @@
               {/each}
             </div>
             <p
-              class="text-brand-textSec text-sm font-light leading-relaxed mb-6 italic flex-1"
+              class="text-brand-textSec text-sm font-normal leading-relaxed mb-6 italic flex-1"
             >
               "{t.content}"
             </p>
@@ -729,7 +701,7 @@
                 <img src={t.image_url} alt={t.name} class="w-10 h-10 rounded-full object-cover border border-brand-border" />
               {:else}
                 <div
-                  class="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm {avatarColors[t.id % avatarColors.length]}"
+                  class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm {avatarColors[t.id % avatarColors.length]}"
                 >
                   {t.avatar_init}
                 </div>
@@ -754,344 +726,46 @@
 </div>
 
 <style>
-  /* ── Lazy load fade-in ──────────────────────────────────────────────── */
-  :global(.img-fade) {
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  :global(.img-fade.loaded) {
-    opacity: 1;
-  }
-
-  /* ── Hero Section ──────────────────────────────────────────────────── */
+  :global(.img-fade) { opacity: 0; transition: opacity .3s ease; }
+  :global(.img-fade.loaded) { opacity: 1; }
   .hero-section {
     position: relative;
-    background-color: rgb(var(--color-main));
-    background-image:
-      linear-gradient(180deg, rgb(255 255 255 / 0.9), rgb(244 249 255 / 0.78)),
-      radial-gradient(ellipse at 76% 16%, rgb(69 184 239 / 0.18) 0%, transparent 46%),
-      radial-gradient(ellipse at 12% 72%, rgb(21 68 230 / 0.09) 0%, transparent 42%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170' viewBox='0 0 170 170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='170' height='170' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-    background-size: auto, auto, auto, 170px 170px;
-    border-bottom: 1px solid rgb(var(--color-border));
-    min-height: calc(100vh - 4rem);
-    padding-bottom: 0;
+    padding: 6.25rem 0 2.5rem;
+    background: #f8fafc;
     overflow: hidden;
   }
   .hero-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    height: auto;
-    background:
-      linear-gradient(90deg, rgb(21 68 230 / 0.055) 1px, transparent 1px),
-      linear-gradient(180deg, rgb(69 184 239 / 0.055) 1px, transparent 1px);
-    background-size: 44px 44px;
-    mask-image: linear-gradient(180deg, transparent 0%, black 16%, black 70%, transparent 100%);
-    animation: tech-grid-drift 18s linear infinite;
-    pointer-events: none;
-    z-index: 0;
+    content: ''; position: absolute; inset: 0 0 0 50%; pointer-events: none;
+    background-image: linear-gradient(#e5ebf3 1px, transparent 1px), linear-gradient(90deg, #e5ebf3 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse at 55% 50%, #000 0%, transparent 68%);
+    opacity: .65;
   }
-
-
-  .hero-tech-layer {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
+  .hero-left { padding-bottom: .5rem; }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: .55rem;
+    color: rgb(var(--color-text-sec)); font-size: .6rem; font-weight: 600;
+    letter-spacing: .16em; margin-bottom: 1rem;
   }
-
-  .hero-tech-layer::before {
-    content: "";
-    position: absolute;
-    top: 18%;
-    right: 9%;
-    width: min(43vw, 560px);
-    height: min(43vw, 560px);
-    border: 1px solid rgb(21 68 230 / 0.12);
-    border-radius: 50%;
-    opacity: 0.72;
-    transform: rotate(-12deg);
-    animation: tech-orbit 14s ease-in-out infinite;
+  .hero-eyebrow span { width: 20px; height: 2px; background: rgb(var(--color-accent)); }
+  .hero-left :global(.hero-heading) { font-size: clamp(2rem, 3.8vw, 3.25rem); line-height: 1.16; margin-bottom: 1.25rem; }
+  .hero-italic-accent { display: block; font-style: normal; color: rgb(var(--color-accent)); }
+  .hero-subtext { font-size: .9rem; line-height: 1.8; color: rgb(var(--color-text-sec)); max-width: 29rem; margin-bottom: 1.5rem; }
+  .hero-cta-row { display: flex; flex-wrap: wrap; gap: .65rem; }
+  .hero-btn-primary, .hero-btn-ghost {
+    display: inline-flex; align-items: center; justify-content: center; gap: .75rem;
+    padding: .8rem 1.15rem; border-radius: 8px; font-weight: 600; font-size: .8rem;
+    transition: background .2s ease, transform .2s ease, border-color .2s ease;
   }
-
-  .hero-tech-layer::after {
-    content: "";
-    position: absolute;
-    top: -12%;
-    left: -20%;
-    width: 42%;
-    height: 130%;
-    background: linear-gradient(90deg, transparent, rgb(69 184 239 / 0.16), transparent);
-    transform: rotate(12deg);
-    animation: tech-sweep 8s ease-in-out infinite;
-  }
-
-  .tech-scan {
-    position: absolute;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgb(21 68 230 / 0.28), rgb(69 184 239 / 0.38), transparent);
-    opacity: 0.62;
-  }
-
-  .tech-scan-a {
-    top: 30%;
-    left: 8%;
-    width: 34%;
-    animation: tech-line 6s ease-in-out infinite;
-  }
-
-  .tech-scan-b {
-    right: 7%;
-    bottom: 28%;
-    width: 42%;
-    animation: tech-line 7.5s ease-in-out infinite reverse;
-  }
-
-  .tech-node {
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    border-radius: 2px;
-    background: #45b8ef;
-    box-shadow: 0 0 0 6px rgb(69 184 239 / 0.12), 0 0 22px rgb(21 68 230 / 0.25);
-    animation: tech-node 3.6s ease-in-out infinite;
-  }
-
-  .tech-node-a { top: 28%; left: 19%; }
-  .tech-node-b { top: 22%; right: 34%; animation-delay: -1.2s; }
-  .tech-node-c { bottom: 25%; right: 18%; animation-delay: -2.4s; }
-
-  @keyframes tech-grid-drift {
-    from { background-position: 0 0, 0 0; }
-    to { background-position: 44px 44px, 44px 44px; }
-  }
-
-  @keyframes tech-sweep {
-    0%, 42% { transform: translateX(-30%) rotate(12deg); opacity: 0; }
-    52% { opacity: 0.75; }
-    100% { transform: translateX(330%) rotate(12deg); opacity: 0; }
-  }
-
-  @keyframes tech-line {
-    0%, 100% { transform: translateX(-18px); opacity: 0.25; }
-    50% { transform: translateX(18px); opacity: 0.8; }
-  }
-
-  @keyframes tech-node {
-    0%, 100% { transform: scale(0.72); opacity: 0.42; }
-    50% { transform: scale(1); opacity: 1; }
-  }
-
-  @keyframes tech-orbit {
-    0%, 100% { transform: rotate(-12deg) scale(1); opacity: 0.48; }
-    50% { transform: rotate(-6deg) scale(1.04); opacity: 0.8; }
-  }
-
-  .hero-stats-pill {
-    display: none;
-  }
-  @media (min-width: 1024px) {
-    .hero-stats-pill {
-      display: inline-flex;
-      align-items: center;
-      background: rgb(255 255 255 / 0.68);
-      border: 1px solid rgb(255 255 255 / 0.78);
-      border-radius: 99px;
-      padding: 0.45rem 0.5rem;
-      backdrop-filter: blur(20px) saturate(165%);
-      -webkit-backdrop-filter: blur(20px) saturate(165%);
-      box-shadow: 0 16px 45px rgb(30 90 230 / 0.12);
-      margin-bottom: 2.5rem;
-    }
-  }
-
-
-  .hero-stat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0 1rem;
-  }
-
-  .hero-stat-dots {
-    display: flex;
-    gap: 4px;
-  }
-
-  .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-  .dot-red {
-    background: #ff5f57;
-  }
-  .dot-yellow {
-    background: #febc2e;
-  }
-  .dot-green {
-    background: #28c840;
-  }
-
-  .booking-dot {
-    width: 8px;
-    height: 8px;
-    animation: pulse-dot 1.8s ease-in-out infinite;
-  }
-  @keyframes pulse-dot {
-    0%,
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.5;
-      transform: scale(1.3);
-    }
-  }
-
-  .hero-stat-value {
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: rgb(var(--color-text-main));
-  }
-  .hero-stat-label {
-    font-size: 0.75rem;
-    color: rgb(var(--color-text-sec));
-  }
-  .hero-stat-year {
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: rgb(var(--color-text-main));
-  }
-  .hero-stat-divider {
-    width: 1px;
-    height: 22px;
-    background: rgb(var(--color-border));
-  }
-  .hero-stat-booking {
-    gap: 0.3rem;
-  }
-
-  /* ── Hero copy ──────────────────────────────────────────────────────── */
-  .hero-left {
-    padding-bottom: 3.5rem;
-  }
-
-
-  .hero-italic-accent {
-    display: block;
-    font-style: italic;
-    font-weight: 900;
-    background: linear-gradient(135deg, #1544e6 0%, #45b8ef 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-
-  .hero-subtext {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: rgb(var(--color-text-sec));
-    max-width: 28rem;
-    margin-bottom: 2rem;
-  }
-
-  /* ── CTA buttons ────────────────────────────────────────────────────── */
-  .hero-cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .hero-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, #1544e6 0%, #45b8ef 100%);
-    color: #fff;
-    padding: 0.85rem 1.75rem;
-    border-radius: 0.75rem;
-    font-weight: 700;
-    font-size: 0.875rem;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 12px 32px rgb(var(--color-accent) / 0.28);
-    transition:
-      transform 0.2s,
-      filter 0.2s,
-      box-shadow 0.2s;
-  }
-  .hero-btn-primary:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgb(var(--color-accent) / 0.4);
-  }
-
-  .hero-btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgb(255 255 255 / 0.62);
-    color: rgb(var(--color-text-main));
-    border: 1.5px solid rgb(255 255 255 / 0.72);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 0.85rem 1.75rem;
-    border-radius: 0.75rem;
-    font-weight: 700;
-    font-size: 0.875rem;
-    transition:
-      border-color 0.2s,
-      color 0.2s,
-      transform 0.2s;
-  }
-  .hero-btn-ghost:hover {
-    border-color: rgb(var(--color-accent) / 0.5);
-    color: rgb(var(--color-accent));
-    transform: translateY(-2px);
-  }
-
-  /* ── Dashboard mockup ───────────────────────────────────────────────── */
-  .hero-mockup-wrap {
-    margin-top: -2.5rem;
-    margin-bottom: -5rem;
-    padding-top: 0;
-  }
-  @media (max-width: 1024px) {
-    .hero-mockup-wrap {
-      margin-top: 2rem;
-      margin-bottom: 0;
-      padding-bottom: 4rem;
-    }
-  }
-
+  .hero-btn-primary { background: rgb(var(--color-accent)); color: #fff; border: 1px solid rgb(var(--color-accent)); cursor: pointer; box-shadow: 0 3px 8px rgb(37 86 216 / .12); }
+  .hero-btn-primary:hover { background: #1d46b7; transform: translateY(-1px); }
+  .hero-btn-ghost { background: #fff; color: rgb(var(--color-text-main)); border: 1px solid rgb(var(--color-border)); }
+  .hero-btn-ghost:hover { border-color: rgb(var(--color-accent) / .5); color: rgb(var(--color-accent)); }
+  .hero-mockup-wrap { position: relative; min-width: 0; }
   .hero-mockup {
-    background: rgb(255 255 255 / 0.72);
-    backdrop-filter: blur(26px) saturate(170%);
-    -webkit-backdrop-filter: blur(26px) saturate(170%);
-    border: 1px solid rgb(255 255 255 / 0.78);
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow:
-      0 22px 55px rgb(30 90 230 / 0.14),
-      0 45px 110px rgb(69 184 239 / 0.1);
-    animation: float-card 5s ease-in-out infinite;
+    background: #fff; border: 1px solid #dfe6ef; border-radius: 12px;
+    overflow: hidden; box-shadow: 0 20px 50px rgb(20 34 56 / .07), 0 2px 5px rgb(20 34 56 / .04);
   }
-  @keyframes float-card {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
   /* Chrome bar */
   .mockup-chrome {
     display: flex;
@@ -1195,251 +869,40 @@
 
 
 
-  /* ── Stats bridge — melts into hero without hard cut ───────────────── */
-  .stats-bridge-section {
-    position: relative;
-    /* Sama seperti footer-cta: biru tua #08245c, tanpa lingkaran */
-    background-color: #08245c;
-    background-image:
-      linear-gradient(135deg, #07205a 0%, #091e52 50%, #0a2260 100%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
-    background-size: auto, 160px 160px;
-  }
 
-  /* ── Unified services-to-testimonials background ───────────────────── */
-  .home-services-flow {
-    position: relative;
-    overflow: hidden;
-    background-color: #f7f8fa;
-    background-image:
-      linear-gradient(180deg, #f9fafb 0%, #ffffff 24%, #f7faff 58%, #ffffff 100%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
-    background-size: auto, 150px 150px;
-  }
-
-  .home-services-flow::before,
-  .home-services-flow::after,
-  .home-flow-orb {
-    content: "";
-    position: absolute;
-    width: min(72vw, 820px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(92px);
-    opacity: 0.2;
-    z-index: 0;
-  }
-
-  .home-services-flow::before {
-    top: 4rem;
-    right: -23rem;
-    background: radial-gradient(circle at center, #45b8ef 0%, #1544e6 34%, transparent 70%);
-  }
-
-  .home-services-flow::after {
-    top: 44%;
-    left: -24rem;
-    background: radial-gradient(circle at center, #7dd3fc 0%, #1e5ae6 35%, transparent 70%);
-  }
-
-  .home-flow-orb-mid {
-    right: -18rem;
-    bottom: -10rem;
-    background: radial-gradient(circle at center, #45b8ef 0%, #14b8a6 35%, transparent 72%);
-  }
-
-  .flow-section {
-    position: relative;
-    z-index: 1;
-    background: transparent;
-  }
-
-  .svc-section {
-    padding: 8rem 0;
-  }
-
-  .svc-eyebrow {
-    display: inline-block;
-    background: rgb(255 255 255 / 0.68);
-    color: #2563eb;
-    padding: 0.35rem 1rem;
-    border-radius: 99px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgb(var(--color-accent) / 0.14);
-    box-shadow: 0 10px 26px rgb(30 90 230 / 0.08);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
-  :global([data-theme="dark"]) .svc-eyebrow {
-    background: rgba(37, 99, 235, 0.1);
-    color: #60a5fa;
-  }
-
-  .svc-heading {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 900;
-    color: rgb(var(--color-text-main));
-    margin-bottom: 1rem;
-  }
-
-  .svc-sub {
-    font-size: 1.1rem;
-    color: rgb(var(--color-text-sec));
-    max-width: 40rem;
-    margin: 0 auto;
-  }
-
+  .stats-bridge-section { background: #fff; border-top: 1px solid rgb(var(--color-border)); border-bottom: 1px solid rgb(var(--color-border)); }
+  .home-services-flow { background: #fff; }
+  .flow-section { position: relative; }
+  .svc-section { padding: 3.75rem 0; }
+  .svc-eyebrow { display: inline-block; color: rgb(var(--color-accent)); font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: .75rem; }
+  .svc-heading { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2rem); letter-spacing: -.04em; font-weight: 800; margin-bottom: .75rem; color: rgb(var(--color-text-main)); }
+  .svc-sub { font-size: .9rem; line-height: 1.7; color: rgb(var(--color-text-sec)); max-width: 37rem; margin: 0 auto; }
   .svc-card {
-    background: #ffffff;
-    border: 1px solid rgb(var(--color-border));
-    border-radius: 1.25rem;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 18px 55px rgb(30 90 230 / 0.08);
+    display: flex; flex-direction: column; padding: 1.5rem; background: #fff;
+    border: 1px solid rgb(var(--color-border)); border-radius: 12px;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
-  .svc-card-build,
-  .svc-card-rescue,
-  .svc-card-boost { background: #ffffff; }
-
-  .svc-card:hover { transform: translateY(-8px); box-shadow: 0 28px 76px rgb(30 90 230 / 0.14); }
-  .svc-card-build:hover  { border-color: #3b82f6; }
-  .svc-card-rescue:hover { border-color: #22c55e; }
-  .svc-card-boost:hover  { border-color: #eab308; }
-
-  .svc-icon-wrap {
-    width: 56px;
-    height: 56px;
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    border: 1px solid rgb(255 255 255 / 0.86);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.75), 0 12px 26px rgb(30 90 230 / 0.12);
-  }
-
-  .svc-color-blue {
-    background: #eff6ff;
-    color: #2563eb;
-  }
-  .svc-color-green {
-    background: #ecfdf5;
-    color: #0d9488;
-  }
-  .svc-color-yellow {
-    background: #fff7ed;
-    color: #ea580c;
-  }
-
-  .svc-title {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: rgb(var(--color-text-main));
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
-  }
-
-  .svc-desc {
-    font-size: 0.95rem;
-    color: rgb(var(--color-text-sec));
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .svc-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2.5rem;
-    margin-top: auto;
-  }
-  .svc-pill {
-    font-size: 0.6rem;
-    font-weight: 800;
-    padding: 0.4rem 0.8rem;
-    border-radius: 99px;
-    background: rgb(255 255 255 / 0.7);
-    border: 1px solid rgb(var(--color-border) / 0.68);
-    color: rgb(var(--color-text-sec));
-    letter-spacing: 0.05em;
-  }
-
-
-  .svc-cta {
-    align-self: flex-start;
-    font-size: 0.72rem;
-    font-weight: 800;
-    color: #fff;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1rem;
-    border-radius: 999px;
-    transition: all 0.2s;
-    letter-spacing: 0.05em;
-    box-shadow: 0 12px 24px rgb(30 90 230 / 0.22);
-  }
-  .svc-card-build .svc-cta { background: #1544e6; }
-  .svc-card-rescue .svc-cta { background: #0f9f91; box-shadow: 0 12px 24px rgb(15 159 145 / 0.22); }
-  .svc-card-boost .svc-cta { background: #e65f18; box-shadow: 0 12px 24px rgb(230 95 24 / 0.22); }
-  .svc-card:hover .svc-cta { gap: 0.75rem; transform: translateY(-1px); }
-
-  .section-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    border-radius: 999px;
-    color: #fff;
-    font-size: 0.82rem;
-    font-weight: 800;
-    padding: 0.8rem 1.1rem;
-    transition: gap 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .section-cta-blue {
-    background: #1544e6;
-    box-shadow: 0 14px 28px rgb(21 68 230 / 0.22);
-  }
-
-  .section-cta-sky {
-    background: #0284c7;
-    box-shadow: 0 14px 28px rgb(2 132 199 / 0.22);
-  }
-
-  .section-cta:hover {
-    gap: 0.9rem;
-    transform: translateY(-2px);
-  }
-
-  .card-link-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #1544e6;
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: gap 0.2s ease, color 0.2s ease;
-  }
-
-  .group:hover .card-link-cta {
-    gap: 0.85rem;
-    color: #0284c7;
-  }
-
-
+  .svc-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgb(20 34 56 / .05); }
+  .svc-card-build:hover { border-color: #2556d8; }
+  .svc-card-rescue:hover { border-color: #0e8176; }
+  .svc-card-boost:hover { border-color: #c66020; }
+  .svc-icon-wrap { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .svc-color-blue { background: #eef3ff; color: #2556d8; }
+  .svc-color-green { background: #edf8f5; color: #0e8176; }
+  .svc-color-yellow { background: #fff5ed; color: #c66020; }
+  .svc-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -.025em; color: rgb(var(--color-text-main)); margin-bottom: .75rem; }
+  .svc-desc { font-size: .825rem; line-height: 1.8; color: rgb(var(--color-text-sec)); margin-bottom: 1.25rem; }
+  .svc-pills { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; margin-bottom: 1.25rem; }
+  .svc-pill { font-size: .55rem; font-weight: 600; padding: .3rem .5rem; border-radius: 4px; background: #f6f8fb; color: rgb(var(--color-text-sec)); letter-spacing: .04em; }
+  .svc-cta { display: flex; align-items: center; justify-content: space-between; gap: .5rem; border-top: 1px solid rgb(var(--color-border)); padding-top: 1rem; font-size: .65rem; font-weight: 700; letter-spacing: .08em; }
+  .svc-card-build .svc-cta { color: #2556d8; }
+  .svc-card-rescue .svc-cta { color: #0e8176; }
+  .svc-card-boost .svc-cta { color: #c66020; }
+  .section-cta { display: inline-flex; align-items: center; gap: .75rem; border: 1px solid rgb(var(--color-border)); padding: .65rem .9rem; border-radius: 8px; font-size: .75rem; font-weight: 600; color: rgb(var(--color-text-main)); background: #fff; transition: border-color .2s ease, color .2s ease; }
+  .section-cta:hover { border-color: rgb(var(--color-accent)); color: rgb(var(--color-accent)); }
+  .card-link-cta { display: inline-flex; align-items: center; gap: .5rem; font-size: .65rem; font-weight: 600; color: rgb(var(--color-accent)); transition: gap .2s ease; }
+  .group:hover .card-link-cta { gap: .75rem; }
+  .home-section-portfolio, .home-section-testimonials { background: #f8fafc; border-top: 1px solid rgb(var(--color-border)); border-bottom: 1px solid rgb(var(--color-border)); }
   /* ── Sidebar enhancements ──────────────────────────────────────────── */
   :global(.sidebar-icon) {
     font-size: 0.6rem;
@@ -1617,5 +1080,38 @@
     border-radius: 4px;
     padding: 0.1rem 0.3rem;
     flex-shrink: 0;
+  }
+
+  .mockup-chrome { background: #f8fafc; padding: .65rem .9rem; }
+  .mockup-sidebar { background: #fbfcfe; }
+  .m-stat-card, .m-chart-wrap, .m-act-item { border-color: rgb(var(--color-border)); background: #fff; }
+  .m-stat-card { padding: .65rem; }
+  .m-chart-wrap { padding: .65rem; }
+  .m-chart { height: 52px; }
+  .m-chart-badge { background: #eef3ff; color: #2556d8; }
+  .m-stat-delta { margin-top: .2rem; }
+  .mockup-main { min-width: 0; gap: .6rem; }
+  .mockup-chrome { font-size: .65rem; }
+  .m-chart-header, .m-act-item { font-size: .6rem; }
+  @media (max-width: 1023px) {
+    .hero-section { padding-top: 6rem; padding-bottom: 2.5rem; }
+    .hero-section::before { inset: 30% 0 0; }
+    .hero-mockup-wrap { max-width: 38rem; width: 100%; }
+    .hero-left :global(.hero-heading) { max-width: 36rem; }
+  }
+  @media (max-width: 640px) {
+    .hero-eyebrow { font-size: .55rem; letter-spacing: .1em; }
+    .hero-subtext { font-size: .85rem; }
+    .mockup-body { grid-template-columns: 95px minmax(0, 1fr); min-height: 0; }
+    .mockup-sidebar { display: block; padding: .8rem .45rem; }
+    .sidebar-item { font-size: .55rem; padding: .3rem .25rem; gap: .25rem; }
+    .sidebar-sub { padding-left: .65rem; }
+    .mockup-main { padding: .75rem; }
+    .m-stat-card { padding: .4rem; }
+    .m-stat-value { font-size: .85rem; }
+    .m-act-time { display: none; }
+    .m-act-text { font-size: .5rem; }
+    .svc-section { padding: 2.75rem 0; }
+    .svc-card { padding: 1.25rem; }
   }
 </style>

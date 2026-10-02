@@ -24,33 +24,33 @@
 </script>
 
 <!-- Hero -->
-<section class="pt-32 pb-16 bg-brand-main border-b border-brand-border">
+<section class="pt-28 pb-16 bg-brand-main border-b border-brand-border">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-    <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">Kontak</span>
+    <span class="inline-block bg-brand-accent/10 border border-brand-accent/30 text-brand-accent px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Kontak</span>
     <h1 class="hero-heading">
       Mari Bicara
     </h1>
-    <p class="text-lg text-brand-textSec font-light leading-relaxed max-w-xl mx-auto">
+    <p class="text-lg text-brand-textSec font-normal leading-relaxed max-w-xl mx-auto">
       Ceritakan kebutuhan Anda — kami biasanya membalas dalam waktu kurang dari 2 jam.
     </p>
   </div>
 </section>
 
 <!-- Main Content -->
-<section class="py-20 bg-brand-main">
+<section class="py-14 bg-brand-main">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start">
 
       <!-- Form -->
       <div class="lg:col-span-3">
-        <div class="bg-brand-container rounded-3xl p-8 md:p-10 border border-brand-border">
+        <div class="bg-brand-container rounded-2xl p-6 md:p-7 border border-brand-border">
           {#if sent}
             <div class="text-center py-12">
               <div class="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-green-500/20 text-green-500">
                 <Icon name="check" size={36} />
               </div>
               <h3 class="text-xl font-bold text-brand-textMain mb-2">Pesan Terkirim!</h3>
-              <p class="text-brand-textSec font-light mb-6">Tim kami akan menghubungi Anda secepatnya.</p>
+              <p class="text-brand-textSec font-normal mb-6">Tim kami akan menghubungi Anda secepatnya.</p>
               <button on:click={() => sent = false}
                 class="text-brand-accent text-sm font-semibold hover:underline bg-transparent border-0 cursor-pointer">
                 Kirim pesan lain
@@ -118,7 +118,7 @@
       <div class="lg:col-span-2 space-y-4">
 
         <!-- Info cards -->
-        <div class="bg-brand-container rounded-3xl p-8 border border-brand-border">
+        <div class="bg-brand-container rounded-2xl p-6 border border-brand-border">
           <h3 class="font-bold text-brand-textMain mb-6 text-sm uppercase tracking-widest">Info Kontak</h3>
           <ul class="space-y-5">
             <li class="flex items-start gap-4">
@@ -167,7 +167,7 @@
         </div>
 
         <!-- WhatsApp CTA -->
-        <div class="bg-green-500 rounded-3xl p-6 text-white">
+        <div class="bg-green-500 rounded-2xl p-6 text-white">
           <div class="flex items-center gap-3 mb-4">
             <Icon name="whatsapp" size={28} />
             <div>
@@ -176,7 +176,7 @@
             </div>
           </div>
           <a href="https://wa.me/6285156625480?text=Halo%20INSPIMA%2C%20saya%20ingin%20konsultasi." target="_blank" rel="noopener"
-            class="block w-full text-center bg-white text-green-600 py-3 rounded-xl font-black text-sm hover:-translate-y-0.5 transition-all shadow-lg shadow-green-700/20">
+            class="block w-full text-center bg-white text-green-600 py-3 rounded-xl font-bold text-sm hover:-translate-y-0.5 transition-all shadow-lg shadow-green-700/20">
             Mulai Chat Sekarang
           </a>
         </div>
@@ -197,7 +197,7 @@
 <!-- Services quick links -->
 <section class="py-16 bg-brand-container/50 border-t border-brand-border">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <p class="text-sm text-brand-textSec font-light mb-8">Belum tahu butuh layanan apa? Pelajari dulu pilihan kami.</p>
+    <p class="text-sm text-brand-textSec font-normal mb-8">Belum tahu butuh layanan apa? Pelajari dulu pilihan kami.</p>
     <div class="flex flex-wrap justify-center gap-3">
       <a href="/build"  class="inline-flex items-center gap-2 bg-brand-container border border-brand-border text-brand-textMain px-5 py-2.5 rounded-full text-sm font-bold hover:border-brand-accent/50 hover:text-brand-accent transition-all">
         <span class="text-brand-accent"><Icon name="layers" size={14} /></span> BUILD

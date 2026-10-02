@@ -2,6 +2,21 @@
   export let name = '';
   export let size = 20;
   export let cls = '';
+  export let variant = 'default';
+
+  const outlinePaths = {
+    layers: '<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>',
+    wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94L14.7 6.3Z"/>',
+    rocket: '<path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><circle cx="16" cy="8" r="1.5"/>',
+    briefcase: '<rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a24 24 0 0 0 18 0M12 11v3"/>',
+    newspaper: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h3M8 18h8"/><path d="M14 14h2v2h-2z"/>',
+    'map-pin': '<path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+    location: '<path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+    envelope: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/>',
+    whatsapp: '<path d="M20.5 11.8a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.8Z"/><path d="m8.7 7.5 1 2-.7.7c.5 1.2 1.4 2.1 2.6 2.6l.7-.7 2 1-.4.8c-.3.8-1.1 1-2.1.7-2.5-.7-4.5-2.7-5.2-5.2-.3-1-.1-1.8.7-2.1l1.4.2Z"/>',
+    heart: '<path d="m12 20-8-8a5 5 0 0 1 7-7l1 1 1-1a5 5 0 0 1 7 7Z"/>',
+  };
 
   const paths = {
     /* ── Service main ────────────────────────────────────────────── */
@@ -183,7 +198,11 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
   class={cls}
+  stroke={variant === 'outline' ? 'currentColor' : undefined}
+  stroke-width={variant === 'outline' ? 1.6 : undefined}
+  stroke-linecap="round"
+  stroke-linejoin="round"
   aria-hidden="true"
 >
-  {@html paths[name] || ''}
+  {@html (variant === 'outline' ? outlinePaths[name] : null) || paths[name] || ''}
 </svg>
